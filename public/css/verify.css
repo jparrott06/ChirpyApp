@@ -1,0 +1,126 @@
+*
+{
+    background-color: black;
+}
+@media(max-width:860px)
+{
+    .mainform
+    {
+        right:0;
+        left:0;
+        align-items: center;
+        overflow-y: scroll;
+    }
+}
+body
+{
+    overflow: hidden;
+}
+.mainform
+{
+    height: 100vh;
+    display: flex;
+    position:absolute; 
+    right:-60px;
+    margin-top: 50px;
+
+}
+.form_horizontal .icon
+{
+    color:#D9D9D9;
+    font-size: 42px;
+}
+.form_horizontal .title
+{
+    color:#D9D9D9;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+.form_horizontal .form-group
+{
+    
+    margin: 0px 0px 10px;
+    position: relative;
+}
+.form_horizontal .form-control
+{
+    border-color: rgb(47, 51, 54);
+    margin-top: 20px;
+    background-color: transparent;
+    height: 50px;
+    width: 340px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+.form_horizontal .form-control::placeholder
+{
+    font-size: 20px;
+    font-weight: 10px;
+}
+
+.form_horizontal .btn
+{
+    color:rgb(47, 51, 54);
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 100%;
+    height:50px;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+    border:none;
+    border-radius: 35px;
+}
+#signin
+{
+    background-color: #096faf;
+    color:white;
+}
+#cancel
+{
+    color:white;
+    background-color: rgb(47, 51, 54);
+}
+.form_horizontal .remember
+{
+    color:white;
+}
+.form_horizontal .form-options
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 8px;
+    margin-left: -10px;
+    
+}
+#lab
+{
+    color: #1B95E0;
+}
+#dot
+{
+    content: "\00B7";
+    font-size: 20px;
+}
+footer
+{
+    display: inline-block;
+    list-style: none;
+    margin:0;
+    padding:0;
+    bottom:0;
+    position: fixed;
+    
+}
+.footnotes
+{
+    
+    color:rgb(47, 51, 54);
+    
+}
+.footer-notes
+{
+    list-style-type: none;
+}

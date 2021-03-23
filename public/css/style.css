@@ -1,0 +1,23 @@
+#container
+{
+    text-align: center;
+    
+}
+.thumbnail
+{
+    width:150px;
+    height:200px;
+}
+.bookinfo
+{
+    text-align: center;
+}
+.auth
+{
+    position: relative;
+    bottom: 12px;
+}
+
+.hasError {
+    color: red;
+}

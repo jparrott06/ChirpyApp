@@ -1,0 +1,100 @@
+*{
+    margin:0%;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    background-color: black;
+}
+.sidebar
+{
+    position: fixed;
+    width: 240px;
+    box-sizing: border-box;
+    background: black;
+    height: 100%;
+    margin-top: 16px;
+
+}
+.sidebar a{
+    display: block;
+    height: 65px;
+    color: white;
+    width: 100%;
+    line-height: 65px;
+    padding-left: 30px;
+    font-weight: bold;
+    /* border-right:2px solid rgb(73, 71, 71); */
+    font-family: 'Open Sans',sans-serif;
+    
+}
+#chirp
+{
+    width: 160px;
+    height: 30px;
+    margin-left: 0;
+    border-color: #1DA1F2;
+    background-color: #1DA1F2;
+    border-left: 5px solid transparent;
+    border-radius: 25px;
+    padding: 10px;
+    color:white;
+}
+#chirp span
+{
+    background-color: #1DA1F2;
+    font-weight: bold;
+    color:white;
+    font-family: 'Open Sans',sans-serif;
+    position: relative;
+    bottom: 28px;
+    
+}
+a:hover
+{
+    border-left: 5px solid #1DA1F2;
+}
+
+.sidebar a i{
+    margin-right: 16px;
+}
+
+@media(max-width:860px)
+{
+    .sidebar{
+        height:auto;
+        width: 70px;
+        left: 0;
+        margin: 100px 0;
+    }
+    span 
+    {
+        position: absolute;
+        margin-left: 23px;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .sidebar a i
+    {
+        margin-left: -10px;
+
+    }
+    #chirp  
+    {
+        height:auto;
+        width: 70px;
+        left: 0;
+        margin: 100px 0;
+        position: absolute;
+        margin-left: 23px;
+        opacity: 0;
+    }
+    a:hover{
+        width: 200px;
+        background:inherit;
+    }
+    .sidebar a:hover span
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+}

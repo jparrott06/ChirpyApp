@@ -124,3 +124,13 @@ footer
 {
     list-style-type: none;
 }
+
+/* Error Styling */
+
+.error .form-control {
+    background-color: #800000 ;
+}
+
+.errorSpan {
+    color: red;
+}

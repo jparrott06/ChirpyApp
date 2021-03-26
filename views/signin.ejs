@@ -50,11 +50,16 @@ Create a sign-in page called signin.html
                         <div class="icon"><i class="fa fa-twitter"></i></div>
                         <h2 class="title">Log in to Chirpy</h2>
                         <div class="form-group">
-                            <input class="form-control" type="email" required placeholder="Email" name="email">
+                            <input class= "<%= (error != false)? 'error form-control': 'form-control' %>" type="email" required placeholder="Email" name="email">
                         </div>
+
                         <div class = "form-group">
-                            <input class = "form-control" type="password" required placeholder="Password" name="password">
+                            <input class = "<%= (error != false)? 'error form-control': 'form-control' %>" type="password" required placeholder="Password" name="password">
                         </div>
+                        <% if (error != false) {%>
+                            <span class="errorSpan"><%= error %></span>
+                         <% }%>
+                         
                         <div class="remember">
                         <input type="checkbox" id="checkbox"> Remember me 
                     </div>

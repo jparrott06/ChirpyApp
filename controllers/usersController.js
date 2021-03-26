@@ -18,6 +18,9 @@ exports.getAllUsers = (req, res) => {
 exports.saveUser = (req, res) => {
     console.log(req.body);
 
+
+    //var passerror = "";
+
     let newUser = new User({
         FirstName: req.body.FirstName,
         LastName: req.body.LastName,
@@ -43,7 +46,8 @@ exports.getSignupPage = (req, res) => {
 }
 
 exports.getSigninPage = (req, res) => {
-    res.render("signin");
+    console.log("Route to Signup page");
+    res.render("signin", {error: false});
 }
 
 exports.postSigninUser = (req, res) => {
@@ -66,7 +70,7 @@ exports.postSigninUser = (req, res) => {
             console.log(error);
             //alert('The provided information does not match our records.');
             //res.send(error);
-            res.render("signin");
+            res.render("signin", {error: "Error: Email doesn't exist or Password is incorrect"});
 
             
         })

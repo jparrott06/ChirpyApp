@@ -50,12 +50,24 @@ exports.postSigninUser = (req, res) => {
     let input_email = req.body.email;
     let input_password = req.body.password;
 
-    if(User.find({Email: input_email, Password: input_password})) {
-        res.render("home");
-    }
+    console.log(req.body);
 
-    else {
-        res.render("signin");
-    }
+    User.findOne({Email: input_email, Password: input_password}).select('Email Password')
+        .exec()
+        .then((user) => {
+            console.log("user: " + user);
+            console.log("password: " + user.Password);
+            console.log("email: " + user.Email);
+            if (user.Password == input_password && user.Email == input_email) {
+            res.render("home");
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            res.render("signin");
+        })
+        .then(() => {
+            console.log("Promise complete.")
+        })
 
 }

@@ -46,7 +46,7 @@ Create a sign-in page called signin.html
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6">
-                    <form action="/submit" class="form_horizontal">
+                    <form action="/signin" method="POST" class="form_horizontal">
                         <div class="icon"><i class="fa fa-twitter"></i></div>
                         <h2 class="title">Log in to Chirpy</h2>
                         <div class="form-group">
@@ -60,7 +60,7 @@ Create a sign-in page called signin.html
                     </div>
                       
                         <br>
-                        <button class = "btn signin" id="signin" formaction="./home" type="submit">Log in</button>
+                        <button class = "btn signin" id="signin" type="submit">Log in</button>
                         <br>
                         <button class = "btn cancel" id="cancel" type="reset">Cancel</button>
                         

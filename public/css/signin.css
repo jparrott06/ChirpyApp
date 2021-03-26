@@ -127,7 +127,7 @@ footer
 
 /* Error Styling */
 
-.error .form-control {
+.error.form-control {
     background-color: #800000 ;
 }
 

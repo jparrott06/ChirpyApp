@@ -1,6 +1,6 @@
 * {
     /* background-color: black; */
-    background-image: linear-gradient(rgba(0,0,0,0,0.8),rgba(0,0,0,0,0.8), url(../public/images/chirpyBackground.jpg));
+    background-image: linear-gradient(rgba(0,0,0,0,0.8),rgba(0,0,0,0,0.8), url(../images/chirpyBackground.jpg));
 }
 
 @media(max-width:860px)

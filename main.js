@@ -32,6 +32,9 @@ app.post("/signup", usersController.saveUser);
 app.get("/signin", usersController.getSigninPage);
 app.post("/signin", usersController.postSigninUser);
 
+// app.post("/verify", usersController.sendToVerification);
+// app.get("/home", usersController.showHome);
+
 app.use(errorController.pageNotFoundError);
 app.use(errorController.internalServerError);
 

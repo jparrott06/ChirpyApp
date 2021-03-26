@@ -13,3 +13,7 @@ exports.sendToSignup = (req, res) => {
 exports.sendToSignin = (req, res) => {
     res.render("signin");
 }
+
+exports.sendToVerification= (req, res) => {
+    res.render("verify");
+}

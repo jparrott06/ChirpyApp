@@ -47,7 +47,6 @@ Minimum fields for a user to sign-up
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/signup.css">
-    <link rel="stylesheet" href="../public/css/signup.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="js/signup.js"></script>
@@ -94,17 +93,26 @@ Minimum fields for a user to sign-up
                         <h2 class="title">Create your account</h2>
 
                         <div class="form-group">
-                            <input class="form-control" type="text" id="Fname" required placeholder="First Name" required name="FirstName">
+                            <input class="<%= (error != false && error.fields.includes('FirstName') != false)? 'error form-control': 'form-control' %>" type="text" id="Fname" required placeholder="First Name" required name="FirstName">
                             <div id="divFnameError" class="errormsg invisible"></div>
+                            <% if (error != false && error.fields.includes("FirstName") != false) {%>
+                                <span class="errorSpan"><%= error.required %></span>
+                             <% }%>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" id="Lname" type="text" required placeholder="Last Name" required name="LastName">
+                            <input class="<%= (error != false && error.fields.includes('LastName') != false)? 'error form-control': 'form-control' %>" id="Lname" type="text" required placeholder="Last Name" required name="LastName">
                             <div id="divLnameError" class="errormsg invisible"></div>
+                            <% if (error != false && error.fields.includes("LastName") != false) {%>
+                                <span class="errorSpan"><%= error.required %></span>
+                             <% }%>
                            
                         </div>
                         <div class="form-group">
-                            <input class="form-control" id = "Uname" type="text" required placeholder="Username" required name="Username">
+                            <input class="<%= (error != false && error.fields.includes('Username') != false)? 'error form-control': 'form-control' %>" id = "Uname" type="text" required placeholder="Username" required name="Username">
                             <div id="divUnameError" class="errormsg invisible"></div>
+                            <% if (error != false && error.fields.includes("Username") != false) {%>
+                                <span class="errorSpan"><%= error.required %></span>
+                             <% }%>
                            
                         </div>
 
@@ -141,22 +149,36 @@ Minimum fields for a user to sign-up
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control" id="EName" type="email" required placeholder="Email" name="Email">
+                            <input class="<%= (error != false && error.fields.includes('Email') != false)? 'error form-control': 'form-control' %>" id="EName" type="email" required placeholder="Email" name="Email">
                             <div id="divENameError" class="errormsg invisible"></div>
-                           
+                            <% if (error != false && error.fields.includes("Email") != false) {%>
+                                <span class="errorSpan"><%= error.required %></span>
+                             <% }%>
                         </div>
 
                         <div class="form-group">
                             
-                            <input class="form-control pwd"  id="pass1" type="password" required placeholder="Password" name="pass1">
+                            <input class="<%= (error != false && (error.passmsg != undefined || error.fields.includes('pass1') != false))? 'error form-control': 'form-control' %>"  id="pass1" type="password" required placeholder="Password" name="pass1">
                             <div id="passerror1" class="col-sm-4 invisible errormsg"></div>
                             <div id ="txtpasserror1" class="col-sm-4 invisible errormsg"></div>
+                            <% if (error != false && error.passmsg != undefined) {%>
+                                <span class="errorSpan"><%= error.passmsg %></span>
+                             <% }%>
+                             <% if (error != false && error.fields.includes("pass1") != false) {%>
+                                <span class="errorSpan"><%= error.required %></span>
+                             <% }%>
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control pwd" id="pass2" type="password" required placeholder="Confirm Password" name="pass2">
+                            <input class="<%= (error != false && (error.passmsg != undefined || error.fields.includes('pass2') != false))? 'error form-control': 'form-control' %>" id="pass2" type="password" required placeholder="Confirm Password" name="pass2">
                             <div id="passerror2" class="col-sm-4 invisible errormsg"></div>
                             <div id ="txtpasserror2" class="col-sm-4 invisible errormsg"></div>
+                            <% if (error != false && error.passmsg != undefined) {%>
+                                <span class="errorSpan"><%= error.passmsg %></span>
+                             <% }%>
+                             <% if (error != false && error.fields.includes("pass2") != false) {%>
+                                <span class="errorSpan"><%= error.required %></span>
+                             <% }%>
                         </div>
                         
                         <div class="row form-group">
@@ -165,10 +187,13 @@ Minimum fields for a user to sign-up
 
                             </label>
                             <div>
-                                <input type="date" id="txtDoB" name="txtDoB" required class="form-control"
+                                <input type="date" id="txtDoB" name="txtDoB" required class="<%= (error != false && error.fields.includes('txtDoB') != false)? 'error form-control': 'form-control' %>"
                                     placeholder="mm/dd/yyyy">
                             </div>
                             <div id="doberror" class="col-sm-4 invisible errormsg"></div>
+                            <% if (error != false && error.fields.includes("txtDoB") != false) {%>
+                                <span class="errorSpan"><%= error.required %></span>
+                             <% }%>
                         </div>
 
                         <div class="row form-group"  onclick="func()">
@@ -176,17 +201,23 @@ Minimum fields for a user to sign-up
                                 Security Question
                             </label>
                             <div>
-                                <select name="ddSecurityQuestion" id="ddSecurityQuestion" class="form-control" required>
+                                <select name="ddSecurityQuestion" id="ddSecurityQuestion" class="<%= (error != false && error.fields.includes('ddSecurityQuestion') != false)? 'error form-control': 'form-control' %>" required>
                                     <option default value="">Choose a security question...</option>
                                     <option>What was your high school mascot?</option>
                                     <option>Who is your favorite author?</option>
                                     <option>What is your mother's maiden name?</option>
                                 </select>
                             </div>
+                            <% if (error != false && error.fields.includes("ddSecurityQuestion") != false) {%>
+                                <span class="errorSpan"><%= error.required %></span>
+                             <% }%>
                             <div>
-                                <input name="txtAnswer" id="txtAnswer" type="text" class="box form-control" required
+                                <input name="txtAnswer" id="txtAnswer" type="text" class="<%= (error != false && error.fields.includes('txtAnswer') != false)? 'error form-control': 'form-control' %>" required
                                     placeholder="Answer">
                                     <div id="divtxtAnswerError" class="errormsg invisible"></div>
+                                    <% if (error != false && error.fields.includes("txtAnswer") != false) {%>
+                                        <span class="errorSpan"><%= error.required %></span>
+                                     <% }%>
                                 </input>
                             </div>
                         </div>

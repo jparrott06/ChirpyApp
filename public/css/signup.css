@@ -284,3 +284,13 @@ label {
   padding: 12px;
   text-decoration: none;
   }
+
+/* Error CSS */
+
+.error.form-control {
+    background-color: #800000 ;
+}
+
+.errorSpan {
+    color: red;
+}

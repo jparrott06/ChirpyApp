@@ -33,7 +33,7 @@ exports.saveUser = (req, res) => {
     });
     newUser.save()
     .then(() => {
-        res.render("home")
+        res.render("home");
     })
     .catch(error => { res.send(error) })
 }
@@ -64,10 +64,15 @@ exports.postSigninUser = (req, res) => {
         })
         .catch((error) => {
             console.log(error);
+            //alert('The provided information does not match our records.');
+            //res.send(error);
             res.render("signin");
+
+            
         })
         .then(() => {
             console.log("Promise complete.")
+            //document.getElementsByName('email').innerHTML = 'Provided information did not match our records!';
         })
 
 }

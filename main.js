@@ -11,7 +11,6 @@ app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 app.use(layouts);
 
-
 app.get("/", homeController.showIndex);
 
 app.use(express.static("public"))

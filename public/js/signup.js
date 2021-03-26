@@ -6,6 +6,38 @@ function Verifyonclick() {
 }
 
 function ValidateForm(form) {
+    var DoB = document.querySelector('#txtDoB');
+    var errorr = document.querySelector("#doberror");
+    var datecheck = true;
+    if(DoB.value == "")
+    {
+        errorr.classList.remove("invisible");
+        errorr.innerHTML = "The Date of Birth cannot be empty."
+        document.getElementById('txtDoB').style.backgroundColor="#800000";
+        datecheck=false;
+    }
+    else
+    {
+        
+        var dobdate = new Date(form.txtDoB.value);
+        var today = new Date();
+        if(dobdate > today || dobdate == today)
+        {
+            errorr.classList.remove("invisible");
+            errorr.innerHTML = "The Date of Birth must be before today's date."
+            document.getElementById('txtDoB').style.backgroundColor="#800000";
+            DoB.classList.add("hasError");
+            datecheck=false;
+        }
+        else{
+            errorr.classList.add("invisible");
+            errorr.innerHTML = "";
+            DoB.classList.remove("hasError");
+            //document.getElementById('txtDoB').style.backgroundColor="black";
+        }
+
+    }
+
     var pass1 = form.pass1.value;
     var pass2 = form.pass2.value;
     var error1 = document.querySelector("#txtpasserror1");
@@ -98,8 +130,14 @@ function ValidateForm(form) {
        }
 
     }
-
-
+    if (valid == true && datecheck == true)
+    {
+        valid = true;
+    }
+    else
+    {
+        valid=false;
+    }
 
 
 

@@ -16,6 +16,8 @@ exports.getAllUsers = (req, res) => {
 };
 
 exports.saveUser = (req, res) => {
+    console.log(req.body);
+
     let newUser = new User({
         FirstName: req.body.FirstName,
         LastName: req.body.LastName,

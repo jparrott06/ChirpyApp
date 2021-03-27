@@ -14,12 +14,12 @@ var contacts = [
   {
     FirstName: "Chir",
     LastName: "Pee",
-    Username: "chirpmasterOG619",
-    Gender: "other",
+    Username: "chirpmasterOG6191",
+    Gender: "male",
     Location: "Ulaanbataar",
-    Email: "chirpy@chirp.com",
+    Email: "chirpy1@chirp.com",
     pass1: "123Chirp",
-    txtDoB: 07/04/1997,
+    txtDoB: new Date('2021-03-09T00:00:00.000+00:00'),
     ddSecurityQuestion: "Who is your favorite author?",
     txtAnswer: "Yukio Mishima",
     txtareaBio: "*chirp*"
@@ -32,7 +32,7 @@ var contacts = [
     Location: "Third Rome",
     Email: "rando@random.com",
     pass1: "AvalidatedPassword111",
-    txtDoB: 11/11/1811,
+    txtDoB: new Date('2021-03-09T00:00:00.000+00:00'),
     ddSecurityQuestion: "What is your mother's maiden name?",
     txtAnswer: "Randomovna",
     txtareaBio: "Glory to Xi Jinping and the Glorious People's Republic of China (not a bot :^))."
@@ -45,10 +45,23 @@ var contacts = [
     Location: "Kualalumpur",
     Email: "joeyj686@joeyjohn.com",
     pass1: "Password123",
-    txtDoB: 03/26/2001,
+    txtDoB: new Date('2021-03-09T00:00:00.000+00:00'),
     ddSecurityQuestion: "What was your high school mascot?",
     txtAnswer: "joey",
     txtareaBio: "sup. I'm just a joey john boyyyyyyy."
+  },
+  {
+    FirstName: "Chir",
+    LastName: "Pee",
+    Username: "chirpmasterOG619",
+    Gender: "male",
+    Location: "Ulaanbataar",
+    Email: "chirpy@chirp.com",
+    pass1: "123Chirp",
+    txtDoB: new Date('2021-03-09T00:00:00.000+00:00'),
+    ddSecurityQuestion: "Who is your favorite author?",
+    txtAnswer: "Yukio Mishima",
+    txtareaBio: "*chirp*"
   }
 ];
 
@@ -61,6 +74,7 @@ User.deleteMany()
 var commands = [];
 
 contacts.forEach(c => {
+  console.log(c);
   commands.push(
     User.create({
         FirstName: c.FirstName,

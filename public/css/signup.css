@@ -294,3 +294,7 @@ label {
 .errorSpan {
     color: red;
 }
+.sidebar
+{
+    visibility: hidden;
+}

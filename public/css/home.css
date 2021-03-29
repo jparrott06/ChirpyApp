@@ -389,13 +389,22 @@ table.followers #fourth {
     float:left;  
     width:25%; 
 } 
+.foot{
+    list-style-type: none;
+}
+#footnotes
+{
+    
+    color:rgb(47, 51, 54);
+    
+}
 .newsfeed
 {
-    float:right;
+     float:right;
     margin-top:20px;
-    margin-left:-10%;
-    position:sticky;
-    right: 15px;
+    /* margin-left:-10%; */
+    /* position:sticky; */
+    /* right: 15px; */
 }
 .new1 img
 {
@@ -458,4 +467,9 @@ table.followers #fourth {
     outline:none;
     padding:0;
     border-color:#1DA1F2;
+}
+
+.rightside
+{
+    left: -10px;
 }

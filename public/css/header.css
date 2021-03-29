@@ -5,12 +5,19 @@
     list-style: none;
     /* background-color: black; */
 }
+.center
+{
+    visibility: hidden;
+}
+.footer-layout
+{
+    visibility: hidden;
+}
 .sidebar
 {
     position: fixed;
     width: 240px;
     box-sizing: border-box;
-    background: black;
     height: 100%;
     margin-top: 16px;
 
@@ -57,8 +64,14 @@
 .sidebar a i{
     margin-right: 16px;
 }
-
 @media(max-width:860px)
+{
+    .headerimg
+   {
+       visibility: hidden;
+   }
+}
+@media(max-width:858px)
 {
     .sidebar{
         height:auto;
@@ -83,8 +96,9 @@
         height:auto;
         width: 70px;
         left: 0;
+        display:block;
         margin: 100px 0;
-        position: absolute;
+        position: relative;
         margin-left: 23px;
         opacity: 0;
     }

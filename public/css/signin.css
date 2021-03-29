@@ -1,6 +1,18 @@
 *
 {
     background-color: black;
+    margin: 0; padding: 0;
+}
+.sidebar
+{
+    background-color: black;
+    margin: 0; padding: 0;
+}
+.heading_image
+{
+    background-color: black;
+    border: none;
+    margin: 0; padding: 0;
 }
 @media(max-width:860px)
 {
@@ -10,6 +22,24 @@
         left:0;
         align-items: center;
         overflow-y: scroll;
+    }
+   .headerimg
+   {
+       visibility: hidden;
+   }
+}
+@media(max-width:1024px)
+{
+    .sidebar
+    {
+        visibility: hidden;
+    }
+}
+@media(max-width:280px)
+{
+    .mainform
+    {
+        position: relative;
     }
 }
 body
@@ -111,7 +141,7 @@ footer
     margin:0;
     padding:0;
     bottom:0;
-    position: fixed;
+    position: relative;
     
 }
 #footnotes
@@ -134,3 +164,9 @@ footer
 .errorSpan {
     color: red;
 }
+/* .footer-layout
+{
+    visibility: hidden;
+    box-shadow: none;;
+    border: none;
+} */

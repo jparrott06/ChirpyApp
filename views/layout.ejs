@@ -11,13 +11,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
-<body style="background-image:url(images/chirpyBackground.jpg);">
+<body>
   <div class="heading_image">
-    <i class="fa fa-twitter" style="font-size:48px;color:#1DA1F2;width:40px;height: 35px;"></i>
+    <i class="fa fa-twitter headerimg" style="font-size:48px;color:#1DA1F2;width:40px;height: 35px;"></i>
   </div>
   <div class="sidebar" id = "header">
 
-    <a class = "nav" href="#"><i class="fa fa-home"></i><span>Home</span></a>
+    <a class = "nav" id="homecol" href="#"><i class="fa fa-home"></i><span>Home</span></a>
     <a  class = "nav" href="#"><i class="fa fa-hashtag"></i><span>Explore</span></a>
     <a  class = "nav" href="#"><i class="fa fa-bell"></i><span>Notifications</span></a>
     <a  class = "nav" href="#"><i class="fa fa-envelope"></i><span>Messages</span></a>
@@ -31,7 +31,11 @@
   <div>
       <%- body %>
   </div>
-
+  <footer>
+    <ul class="footer-layout">
+        <li><center><a href="#" id="footnotes">Privacy Policy </a> <bold id="dot"> &#183; </bold><a href="#" id="footnotes">Copyright &#169; 2021 Chirpy&#8482;</a></center></li>
+    </ul>
+  </footer>
 </body>
 
 </html>

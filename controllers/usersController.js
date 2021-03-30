@@ -4,7 +4,7 @@ exports.getAllUsers = (req, res) => {
     User.find({})
         .exec()
         .then(users => {
-            res.render("users", { users: users })
+            res.render("users", { users: users, title: true })
         })
         .catch((error) => {
             console.log(error);
@@ -54,7 +54,7 @@ exports.saveUser = (req, res) => {
     }
 
     if(error.passmsg != undefined || error.fields.length > 0) {
-        res.render("signup", {error: error});
+        res.render("signup", {error: error, title: true});
     }
 
     let newUser = new User({
@@ -72,18 +72,19 @@ exports.saveUser = (req, res) => {
     });
     newUser.save()
     .then(() => {
-        res.render("home");
+        res.render("home", {title: true});
     })
     .catch(error => { res.send(error) })
 }
 
 exports.getSignupPage = (req, res) => {
-    res.render("signup", {error: false});
+    console.log("Route to Signup page");
+    res.render("signup", {error: false, title: true});
 }
 
 exports.getSigninPage = (req, res) => {
-    console.log("Route to Signup page");
-    res.render("signin", {error: false});
+    console.log("Route to Signin page");
+    res.render("signin", {error: false, title: true});
 }
 
 exports.postSigninUser = (req, res) => {
@@ -99,14 +100,14 @@ exports.postSigninUser = (req, res) => {
             console.log("password: " + user.Password);
             console.log("email: " + user.Email);
             if (user.Password == input_password && user.Email == input_email) {
-            res.render("home");
+            res.render("home", {title: true});
             }
         })
         .catch((error) => {
             console.log(error);
             //alert('The provided information does not match our records.');
             //res.send(error);
-            res.render("signin", {error: "Error: Email doesn't exist or Password is incorrect"});
+            res.render("signin", {error: "Error: Email doesn't exist or Password is incorrect", title: true});
 
             
         })

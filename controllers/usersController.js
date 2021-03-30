@@ -1,4 +1,6 @@
-const User = require("../models/user");
+const User = require("../models/user"),
+bcrypt = require("bcryptjs"),
+salt = "$2a$10$fJLc.hoTJHrvqlK/mAaeHu";
 
 exports.getAllUsers = (req, res) => {
     User.find({})
@@ -57,6 +59,8 @@ exports.saveUser = (req, res) => {
         res.render("signup", {error: error, title: true});
     }
 
+    var password = bcrypt.hashSync(req.body.pass1, salt);
+
     let newUser = new User({
         FirstName: req.body.FirstName,
         LastName: req.body.LastName,
@@ -64,7 +68,7 @@ exports.saveUser = (req, res) => {
         Gender: req.body.Gender,
         Location: req.body.Location,
         Email: req.body.Email,
-        Password: req.body.pass1,
+        Password: password,
         DoB: req.body.txtDoB,
         SecurityQuestion: req.body.ddSecurityQuestion,
         Answer: req.body.txtAnswer,
@@ -93,6 +97,9 @@ exports.postSigninUser = (req, res) => {
 
     console.log(req.body);
 
+    input_password = bcrypt.hashSync(input_password, salt);
+    console.log(input_password);
+
     User.findOne({Email: input_email, Password: input_password}).select('Email Password')
         .exec()
         .then((user) => {
@@ -100,7 +107,8 @@ exports.postSigninUser = (req, res) => {
             console.log("password: " + user.Password);
             console.log("email: " + user.Email);
             if (user.Password == input_password && user.Email == input_email) {
-            res.render("home", {title: true});
+                console.log("correct");
+                res.render("home", {title: true});
             }
         })
         .catch((error) => {

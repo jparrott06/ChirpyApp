@@ -1,7 +1,9 @@
 "use strict";
 
 const mongoose = require("mongoose"),
-  User = require("./models/user");
+  User = require("./models/user"),
+  bcrypt = require("bcryptjs"), 
+  salt = "$2a$10$fJLc.hoTJHrvqlK/mAaeHu";
 
 mongoose.connect(
   "mongodb://localhost:27017/chirpy_app",
@@ -75,6 +77,7 @@ var commands = [];
 
 contacts.forEach(c => {
   console.log(c);
+  const hash = bcrypt.hashSync(c.pass1, salt);
   commands.push(
     User.create({
         FirstName: c.FirstName,
@@ -83,7 +86,7 @@ contacts.forEach(c => {
         Gender: c.Gender,
         Location: c.Location,
         Email: c.Email,
-        Password: c.pass1,
+        Password: hash,
         DoB: c.txtDoB,
         SecurityQuestion: c.ddSecurityQuestion,
         Answer: c.txtAnswer,

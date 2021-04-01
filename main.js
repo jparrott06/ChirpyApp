@@ -22,8 +22,8 @@ app.use(
 
 app.use(express.json());
 
-app.post("/send-signin", homeController.sendToSignin);
-app.post("/send-signup", homeController.sendToSignup);
+// app.post("/send-signin", homeController.sendToSignin);
+// app.post("/send-signup", homeController.sendToSignup);
 
 app.get("/signup", usersController.getSignupPage);
 app.post("/signup", usersController.saveUser);

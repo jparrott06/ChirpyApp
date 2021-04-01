@@ -1,5 +1,5 @@
 # Assignment1-AkhtarParrott
-## Repo for Assignment#1 - WebAppDev2021
+## Repo for ChirpyApp(Assignment#3) - WebAppDev2021
 
 - ### Table of Contents
   - [File Structure](./README.md#file-structure)
@@ -92,20 +92,6 @@
   <details><summary>verify.html</summary>
 
       Verify Page for Chirpy - user must verify account after signup with 5-digit code
-  </details>
-
-  <details><summary>googleBooks.html</summary>
-
-      Google Books Search API page implemented for Assignment2.
-      Features include:
-      - Fully-functional search of all books Google API provides
-      - Functional reset button which resets query
-      - Pagination of results that are handled by the (Prev)/(Next) buttons
-      - Authors displays correctly (not as an array)
-      - Null values are not displayed - minimum information needed to display a book is a title
-      - Additional book info such as Pages and Average Review
-      - Hyperlink via button to buy each book on www.amazon.com
-
   </details>
 
 - ### Delegation of Responsibilities:

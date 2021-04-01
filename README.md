@@ -16,7 +16,7 @@
 
 - ### File Structure:
     ```
-        Assignment1-AkhtarParrott
+        ChirpyApp
         ├── controllers
         │   ├── errorController.js
         │   ├── homeController.js
@@ -42,8 +42,8 @@
     ```
 - ### Description of main pages:
   <details>
-  <summary>home.html </summary>
-
+  <summary>home.ejs </summary>
+      <b>ASSIGNMENT 3</b> This page was kept basically the same except for making it compatible with ejs and layout.
       This is the homepage the user will see once logged into the Chirpy webapp (our version of Twitter).
       Its basic structure is as follows:
   
@@ -88,12 +88,14 @@
       - Passwords must contain at least one lower-case letter, upper-case letter, and digit
       - Input fields (text and email) must not contain invalid characters: &,<,>,#,`," or ~
       - NOTE: We decided it didn't make sense to limit char selection for input fields such as password fields and the Bio field because 1) We encourage our users to make the strongest and most secure passwords possible, 2) We will be sanitizing inputs/outputs to protect ourselves and users against common cybersecurity breaches 3) For the Bio field, we want our users to be able to express themselves with as many obnoxious '###'s as they want!(#userexperience)
+      - server-side validation for this page has been added and ejs error templating added
   </details>
 
   <details><summary>signin.ejs</summary>
 
       Signin Page for Chirpy - all requirements met as specified for Assignment#1.
       We did not add the left-navbar for signin.html because that should only be accessed by a logged in user.
+      - server-side validation for this page has been added and ejs error templating added
   </details>
 
   <details><summary>index.ejs</summary>
@@ -102,7 +104,7 @@
   </details>
 
 - ### Delegation of Responsibilities:
-  - ASSIGNMENT 3: See Report in repo for updated info regarding this topic
+  - <b>ASSIGNMENT 3:</b> See Report in repo for updated info regarding this topic
 
 - ### Project Vision:
   - We are developing a social media web application modeled on Twitter, called <b><i>Chirpy!</i></b>
@@ -126,7 +128,7 @@
   - nodemon (for easier connectivity, especially with debugging while changing code)
 
 - ### Installation Guide:
-  - See Report in repo for updated, thorough 'Installation Guide' (Assignment3)
+  - <b>ASSIGNMENT 3:</b> See Report in repo for updated, thorough 'Installation Guide'
 
 - ### Design Choices:
   - We initially tried to develop components separately for a few reasons:
@@ -137,11 +139,11 @@
     - reusability
   - However, we encountered many issues with importing/rendering (see more in section below)
   - We will still use this design choice but will do so with a more powerful library/framework like React in the future
-  - ASSIGNMENT 3: See Report in repo for updated info regarding this topic
+  - <b>ASSIGNMENT 3:</b> See Report in repo for updated info regarding this topic
 
 - ### Notes and Caveats:
   - <i>The navbar was purposely left off certain pages because it should not appear for users if they are not logged in/don't have an account</i>
-  - ASSIGNMENT 3: 
+  - <b>ASSIGNMENT 3:</b>: 
     - For this assignment we wanted to meet requirements and show off our knowledge of being able to template our navbar in layout.ejs and meet Requirements for the assignment (we display it on index, signup, home but left it off signin). In the next iteration of this app, we will not have it on index and signup - only home and its views. We will use partials/different layouts next iteration as we will be working with home a lot more.
     - Testing Tips: (1): An easy way to test our server-side validation is to remove/comment out the front-end validation function being called and adding 'novalidate' to the form. (2): We hash and salt our passwords so if you want to try using a user populated from seed.js then just view the password before it was salted. <b>In the future, we will be hiding the salt but for your testing this locally I made it a visible const on pages it was required (seed.js, usersController.js).</b>
   
@@ -157,13 +159,13 @@
     - we anticipate using this strategy again for larger/more complex files as we integrate this Chirpy webapp FE design into a full-stack application.
   - I met with the TA and he made a great point about certain css libraries/frameworks overwriting and competing with one another
     - This can be a good heuristic to use for solving difficult or odd issues with styling especially
-  - ASSIGNMENT 3: See Report in repo for updated info regarding this topic
+  - <b>ASSIGNMENT 3:</b> See Report in repo for updated info regarding this topic
 
 - ### <b><i><u>Extras and Goodies</u></i></b>
   - HINT: Click the Chirpy bird icon on the signup.html page
   - Check out the background image on signup.html
   - Hover over buttons to see color changes and transitions
   - Click on the Searchbox on home.html
-  - ASSIGNMENT 3: See Report in repo for updated info regarding this topic
+  - <b>ASSIGNMENT 3:</b> See Report in repo for updated info regarding this topic
     - Implemented all requirements
     - Used bcrypt to hash and salt passwords

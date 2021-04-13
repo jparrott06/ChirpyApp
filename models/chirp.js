@@ -12,11 +12,25 @@ const mongoose = require("mongoose"),
                 maxlength: [280, "Chirps are limited to 280 characters"]
             },
             user: { type: Schema.Types.ObjectId, ref: User },
+            name:{
+                first:{
+                    type:String,
+                    required:true
+                },
+                last:
+                {
+                    type:String,
+                    required:true
+                }
+            }
 
         },
         {
             timestamps: true
         }
     )
-
+    chirpSchema.virtual("fullName").get(function (){
+        return `${this.name.first} ${this.name.last}`;
+    });
+    
 module.exports = mongoose.model("Chirp", chirpSchema);

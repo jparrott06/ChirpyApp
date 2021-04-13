@@ -1,0 +1,18 @@
+<div class = "form-data">
+    <form action="<%=`/chirps/${chirp._id}/update?_method=PUT`%>" method ="POST">
+
+        <label for="txtFirstName">First Name: </label>
+        <input type="text" name="first" id="txtFirstName" autofocus required value="<%= chirp.first %>">
+    
+        <label for="txtLastName">Last Name:</label>
+        <input type="text" name="last" id="txtLastName" required value="<%= chirp.last %>">
+    
+        <label for="txtUsername">Username: </label>
+        <input type="text" name="user" id="txtUsername" required value="<%= chirp.user %>">
+    
+        <label for="txtPost">Post: </label>
+        <input type="text" name="chirpBody" id="txtPost" required value="<%= chirp.chirpBody %>">
+
+    <button type="submit">Save</button>
+    </form>
+</div>

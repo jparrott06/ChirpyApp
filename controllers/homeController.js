@@ -1,16 +1,21 @@
-exports.showIndex = (req, res) => {
-    res.render("index", {title: true});
+"use strict";
 
-}
+module.exports = {
 
-exports.showHome = (req, res) => {
-    res.render("home", {title: true});
-}
+    showIndex: (req, res) => {
+        res.render("index", {title: true});
+    },
 
-exports.sendToSignup = (req, res) => {
-    res.render("signup", {title: true});
-}
+    showHome: (req, res) => {
+        res.render("home", {title: true});
+    },
 
-exports.sendToSignin = (req, res) => {
-    res.render("signin", {title: true});
+    sendToSignup: (req, res) => {
+        res.render("signup", {title: true});
+    },
+
+    sendToSignin: (req, res) => {
+        res.render("signin", {title: true});
+    }
+    
 }

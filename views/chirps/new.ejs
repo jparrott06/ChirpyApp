@@ -1,3 +1,7 @@
+<header>
+    <link rel="stylesheet" href="/css/chirps.css">
+</header>
+
 <div class = "form-data">
     <form action ="/chirps/create" method ="POST">
     <label for="txtFirstName">First Name: </label>
@@ -10,7 +14,8 @@
     <input type="text" name="user" id="txtUsername" required>
 
     <label for="txtPost">Post: </label>
-    <input type="text" name="chirpBody" id="txtPost" required>
+
+    <textarea name="chirpBody" id="txtPost" cols="44" rows="4" required></textarea>
 
     <button type="submit">Create</button>
     </form>

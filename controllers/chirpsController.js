@@ -24,11 +24,11 @@ module.exports = {
         if (req.query.format === "json") {
             res.json(res.locals.chirps);
         } else {
-            res.render("chirps/index");
+            res.render("chirps/index", {title: false});
         }
     },
     new: (req, res) => {
-        res.render("chirps/new");
+        res.render("chirps/new", {title: false});
     },
 
     create: (req, res, next) => {

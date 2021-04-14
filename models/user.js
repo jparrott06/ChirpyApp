@@ -27,7 +27,8 @@ userSchema.virtual("fullName").get(function () {
 });
 
 userSchema.plugin(passportLocalMongoose, {
-    usernameField: "Email"
+    usernameField: "Email",
+    passwordField: 'Password'
 });
 
 module.exports = mongoose.model("User", userSchema);

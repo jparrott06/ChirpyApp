@@ -19,6 +19,13 @@ mongoose.connect("mongodb://localhost:27017/chirpy_app",
 {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 mongoose.set("useCreateIndex", true);
 
+const db = mongoose.connection;
+
+db.once("open", () => {
+    console.log("Successfully connected to MongoDB using Mongoose!");
+});
+
+
 app.set("view engine", "ejs");
 app.set("port", process.env.PORT || 3000);
 

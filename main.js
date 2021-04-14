@@ -16,20 +16,21 @@ User = require("./models/user");
 mongoose.connect("mongodb://localhost:27017/chirpy_app", 
 {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set("useCreateIndex", true);
+
 app.set("view engine", "ejs");
 app.set("port", process.env.PORT || 3000);
-
 
 router.use(express.static("public"))
 router.use(layouts);
 router.use(expressValidator());
-router.use(express.json());
 router.use(
     express.urlencoded({
         extended: false
     })
 );
-router.use(methodOverride("_method", {methods:['POST', 'GET']}))
+router.use(methodOverride("_method", {methods:['POST', 'GET']}));
+
+router.use(express.json());
 
 router.use(cookieParser("my_passcode"));
 router.use(expressSession({
@@ -38,7 +39,7 @@ router.use(expressSession({
         maxAge: 360000
     },
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
 }));
 
 router.use(passport.initialize());
@@ -68,13 +69,15 @@ router.get("/", homeController.showIndex);
 // router.delete("/users/:id/delete", usersController.delete,usersController.redirectView);
 
 router.get("/users/signin", usersController.getSigninPage);
+router.post("/users/signin", usersController.authenticate);
 router.get("/users/signup", usersController.getSignupPage);
-router.get("/users/:id/edit", usersController.edit);
 
 router.post("/users/signup", 
     usersController.validate, 
     usersController.create, 
     usersController.redirectView);
+
+router.get("/users/:id/edit", usersController.edit);
 
 router.get("/chirps", chirpsController.index, chirpsController.indexView);
 router.get("/chirps/new", chirpsController.new);

@@ -8,7 +8,6 @@
     <button><a href="/chirps/new">Create New Chirp!</a></button>
     <thead>
         <tr>
-            <th>Name</th>
             <th>Username</th>
             <th>Post</th>
             <th>Edit</th>
@@ -20,12 +19,9 @@
 
             <tr>
                 <td>
-                    <a href ="<%= `/chirps/${chirp._id}` %>">
-                        <%= chirp.fullName %>
+                    <a href="<%= `/chirps/${chirp._id}` %>" style="color:white;">
+                        <%= chirp.user %>
                     </a>
-                </td>
-                <td>
-                    <%= chirp.user %>
                 </td>
                 <td>
                     <%= chirp.chirpBody %>

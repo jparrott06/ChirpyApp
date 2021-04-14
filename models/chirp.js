@@ -11,18 +11,8 @@ const mongoose = require("mongoose"),
                 minlength: 1,
                 maxlength: [280, "Chirps are limited to 280 characters"]
             },
-            user: { type: Schema.Types.ObjectId, ref: User },
-            name:{
-                first:{
-                    type:String,
-                    required:true
-                },
-                last:
-                {
-                    type:String,
-                    required:true
-                }
-            }
+            // user: { type: Schema.Types.ObjectId, ref: User },
+            user: { type: String, required: true}
 
         },
         {

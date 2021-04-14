@@ -13,8 +13,10 @@ expressValidator = require("express-validator"),
 connectFlash = require("connect-flash"),
 User = require("./models/user");
 
+mongoose.Promise = global.Promise;
+
 mongoose.connect("mongodb://localhost:27017/chirpy_app", 
-{useNewUrlParser: true, useUnifiedTopology: true});
+{useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 mongoose.set("useCreateIndex", true);
 
 app.set("view engine", "ejs");
@@ -22,7 +24,7 @@ app.set("port", process.env.PORT || 3000);
 
 router.use(express.static("public"))
 router.use(layouts);
-router.use(expressValidator());
+
 router.use(
     express.urlencoded({
         extended: false
@@ -56,6 +58,7 @@ router.use((req, res, next) => {
     next();
 })
 
+router.use(expressValidator());
 
 router.get("/", homeController.showIndex);
 // new additions with router

@@ -80,6 +80,8 @@ router.post("/users/signup",
     usersController.create, 
     usersController.redirectView);
 
+router.get("/users/home", usersController.getHome);
+
 router.get("/users/:id/edit", usersController.edit);
 
 router.get("/chirps", chirpsController.index, chirpsController.indexView);

@@ -156,10 +156,10 @@ module.exports = {
             if(user) {
                 console.log("Successful user");
                 req.flash("success", "User account successfully created");
-                req.skip = true;
-                res.render("users/home");
-                //res.locals.redirect = "/users/home/";
-                //next();
+                // req.skip = true;
+                // res.render("users/home");
+                res.locals.redirect = "/users/home/";
+                next();
             }
             else {
                 console.log("No User");
@@ -232,6 +232,11 @@ module.exports = {
     getSigninPage: (req, res) => {
         console.log("Route to Signin page");
         res.render("users/signin", {error: false, title: true});
+    },
+
+    getHome: (req, res) => {
+        console.log("Route to Home page");
+        res.render("users/home");
     },
 
     postSigninUser: (req, res) => {

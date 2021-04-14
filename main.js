@@ -69,6 +69,7 @@ router.get("/", homeController.showIndex);
 
 router.get("/users/signin", usersController.getSigninPage);
 router.get("/users/signup", usersController.getSignupPage);
+router.get("/users/:id/edit", usersController.edit);
 
 router.post("/users/signup", 
     usersController.validate, 

@@ -1,38 +1,38 @@
 <div class = "form-data">
     <form action ="/users/create" method ="POST">
     <label for="txtFirstName">First Name: </label>
-    <input type="text" name="FirstName" id="txtFirstName" autofocus required value="<%= users.FirstName %>">
+    <input type="text" name="FirstName" id="txtFirstName" autofocus required value="<%= user.FirstName %>">
 
     <label for="txtLastName">Last Name:</label>
-    <input type="text" name="LastName" id="txtLastName" required value="<%= users.LastName %>">
+    <input type="text" name="LastName" id="txtLastName" required value="<%= user.LastName %>">
 
     <label for="txtUsername">Username: </label>
-    <input type="text" name="Username" id="txtUsername" required value="<%= users.Username %>">
+    <input type="text" name="Username" id="txtUsername" required value="<%= user.Username %>">
 
     <label for="txtGender">Gender: </label>
-    <input type="radio" name="Gender" id="txtGender" required value="<%= users.Gender %>">
+    <input type="radio" name="Gender" id="txtGender" required value="<%= user.Gender %>">
 
     <label for="txtLocation">Location: </label>
-    <input type="text" name="Location" id="txtLocation" required value="<%= users.Location %>">
+    <input type="text" name="Location" id="txtLocation" required value="<%= user.Location %>">
 
     <label for="txtEmail">Email: </label>
-    <input type="email" name="Email" id="txtEmail" required value="<%= users.Email %>">
+    <input type="email" name="Email" id="txtEmail" required value="<%= user.Email %>">
 
     <label for="txtPassword">Password: </label>
-    <input type="password" name="Password" id="txtPassword" required value="<%= users.Password %>">
+    <input type="password" name="Password" id="txtPassword" required value="<%= user.Password %>">
 
     <label for="txtDoB">Date of Birth: </label>
-    <input type="date" name="DoB" id="txtDoB" required value="<%= users.DoB %>">
+    <input type="date" name="DoB" id="txtDoB" required value="<%= user.DoB %>">
 
     <label for="txtSecurityQuestion">Security Question: </label>
-    <input type="text" name="SecurityQuestion" id="txtSecurityQuestion" required value="<%= users.SecurityQuestion %>"> 
+    <input type="text" name="SecurityQuestion" id="txtSecurityQuestion" required value="<%= user.SecurityQuestion %>"> 
     <!-- need to change this input type -->
 
     <label for="txtAnswer">Answer: </label>
-    <input type="text" name="Answer" id="txtAnswer" required value="<%= users.Answer %>"> 
+    <input type="text" name="Answer" id="txtAnswer" required value="<%= user.Answer %>"> 
 
     <label for="txtBio">Bio: </label>
-    <input type="text" name="Bio" id="txtBio" required value="<%= users.Bio %>"> 
+    <input type="text" name="Bio" id="txtBio" required value="<%= user.Bio %>"> 
 
     <button type="submit">Create</button>
     </form>

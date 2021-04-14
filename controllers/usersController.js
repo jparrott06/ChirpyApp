@@ -156,8 +156,10 @@ module.exports = {
             if(user) {
                 console.log("Successful user");
                 req.flash("success", "User account successfully created");
-                res.locals.redirect = "/users/home";
-                next();
+                req.skip = true;
+                res.render("users/home");
+                //res.locals.redirect = "/users/home/";
+                //next();
             }
             else {
                 console.log("No User");

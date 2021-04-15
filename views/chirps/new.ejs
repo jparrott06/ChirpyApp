@@ -1,8 +1,8 @@
 <header>
-    <link rel="stylesheet" href="/css/chirps.css">
+    <link rel="stylesheet" href="/css/users.css">
 </header>
-
-<div class = "form-data">
+<body style="background-image:url(/images/chirpyBackground.jpg);">
+<div class = "chirpNewcard form-data">
     <form action ="/chirps/create" method ="POST">
 
     <label for="txtUsername">Username: </label>
@@ -12,6 +12,7 @@
 
     <textarea name="chirpBody" id="txtPost" cols="44" rows="4" required></textarea>
 
-    <button type="submit">Create</button>
+    <button class = "editbutton" type="submit">Create</button>
     </form>
 </div>
+</body>

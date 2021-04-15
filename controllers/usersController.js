@@ -114,7 +114,7 @@ module.exports = {
 
     update: (req, res, next) => {
 
-        if(req.skip) return next();
+         if(req.skip) return next();
 
         let userId = req.params.id,
         userParams = getUserParams(req.body);
@@ -131,6 +131,17 @@ module.exports = {
             })
     },
 
+    deleteCheck: (req, res, next) => {
+        let userId = req.params.id;
+        User.findById(userId)
+            .then(user => {
+                res.render("users/delete", { user: user });
+            })
+            .catch(error => {
+                console.log(`Error fetching user by ID: ${error.message}`);
+                next(error);
+            })
+    },
     delete: (req, res, next) => {
         let userId = req.params.id;
         User.findByIdAndRemove(userId)

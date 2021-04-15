@@ -1,39 +1,47 @@
-<div class = "form-data">
-    <form action ="/users/create" method ="POST">
+<header>
+    <link rel="stylesheet" href="/css/users.css">
+</header>
+<body style="background-image:url(/images/chirpyBackground.jpg);">
+<div class="card editcard">
+    <div class="form-data">
+    <form action="<%=`/users/${user._id}/update?_method=PUT`%>" method ="POST">
+
     <label for="txtFirstName">First Name: </label>
-    <input type="text" name="FirstName" id="txtFirstName" autofocus required value="<%= user.FirstName %>">
+    <input type="text" name="FirstName" id="txtFirstName" autofocus value="<%= user.FirstName %>">
 
     <label for="txtLastName">Last Name:</label>
-    <input type="text" name="LastName" id="txtLastName" required value="<%= user.LastName %>">
+    <input type="text" name="LastName" id="txtLastName" value="<%= user.LastName %>">
 
     <label for="txtUsername">Username: </label>
-    <input type="text" name="Username" id="txtUsername" required value="<%= user.Username %>">
+    <input type="text" name="Username" id="txtUsername" value="<%= user.Username %>">
 
-    <label for="txtGender">Gender: </label>
-    <input type="radio" name="Gender" id="txtGender" required value="<%= user.Gender %>">
+    <!-- <label for="txtGender">Gender: </label>
+    <input type="radio" name="Gender" id="txtGender" required value="<%= user.Gender %>"> -->
 
     <label for="txtLocation">Location: </label>
-    <input type="text" name="Location" id="txtLocation" required value="<%= user.Location %>">
+    <input type="text" name="Location" id="txtLocation"  value="<%= user.Location %>">
 
     <label for="txtEmail">Email: </label>
-    <input type="email" name="Email" id="txtEmail" required value="<%= user.Email %>">
+    <input type="email" name="Email" id="txtEmail"  value="<%= user.Email %>">
 
     <label for="txtPassword">Password: </label>
-    <input type="password" name="Password" id="txtPassword" required value="<%= user.Password %>">
+    <input type="password" name="Password" id="txtPassword" value="<%= user.Password %>">
 
     <label for="txtDoB">Date of Birth: </label>
-    <input type="date" name="DoB" id="txtDoB" required value="<%= user.DoB %>">
+    <input type="date" name="DoB" id="txtDoB" value="<%= user.DoB %>">
 
-    <label for="txtSecurityQuestion">Security Question: </label>
+    <!-- <label for="txtSecurityQuestion">Security Question: </label>
     <input type="text" name="SecurityQuestion" id="txtSecurityQuestion" required value="<%= user.SecurityQuestion %>"> 
-    <!-- need to change this input type -->
+    need to change this input type -->
 
-    <label for="txtAnswer">Answer: </label>
-    <input type="text" name="Answer" id="txtAnswer" required value="<%= user.Answer %>"> 
+    <!-- <label for="txtAnswer">Answer: </label>
+    <input type="text" name="Answer" id="txtAnswer" required value="<%= user.Answer %>">  -->
 
     <label for="txtBio">Bio: </label>
-    <input type="text" name="Bio" id="txtBio" required value="<%= user.Bio %>"> 
+    <textarea name="Bio" id="txtBio" cols="44" rows="4" value="<%= user.Bio %>"></textarea>
 
-    <button type="submit">Create</button>
+    <button class = "editbutton" type="submit">Update Profile</button>
     </form>
 </div>
+</div>
+</body>

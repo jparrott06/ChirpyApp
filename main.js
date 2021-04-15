@@ -88,8 +88,13 @@ router.post("/users/signup",
     usersController.redirectView);
 
 router.get("/users/home", usersController.getHome);
+router.get("/users/home/:id", usersController.show, usersController.showView); //show pg
 
-router.get("/users/:id/edit", usersController.edit);
+router.get("/users/home/:id/edit", usersController.edit); //edit pg
+router.put("/users/home/:id/update", usersController.update, usersController.redirectView);//update
+
+router.get("/users/home/:id/delete", usersController.deleteCheck); //pg to ask user if they're sure
+router.delete("/users/home/:id/delete", usersController.delete); //should delete it
 
 router.get("/chirps", chirpsController.index, chirpsController.indexView);
 router.get("/chirps/new", chirpsController.new);

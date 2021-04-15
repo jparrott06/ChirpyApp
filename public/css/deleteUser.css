@@ -1,18 +1,19 @@
-*
+/* *
 {
     background-color: black;
     margin: 0; padding: 0;
-}
-.sidebar
-{
-    background-color: black;
-    margin: 0; padding: 0;
-}
-.heading_image
-{
-    background-color: black;
-    border: none;
-    margin: 0; padding: 0;
+} */
+@import url("https://fonts.googleapis.com/css?family=Baloo+Bhaina");
+
+body {
+  background-color: black;
+  margin: 0;
+  padding-top: 130px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  overflow-x: hidden;
+    background-position: center;
+    background-size: cover;
 }
 @media(max-width:860px)
 {

@@ -1,72 +1,27 @@
-<h2 class="center">Profile Data for <%= user.fullName %></h2>
-<table class="table">
-    <tbody>
-        <tr>
-            <td>Name</td>
-            <td>
-                <%= user.fullName %>
-            </td>
-        </tr>
+<header>
+    <link rel="stylesheet" href="/css/users.css">
+    <script src="/js/users.js"></script>
+</header>
+<body style="background-image:url(/images/chirpyBackground.jpg);">
+<div class="card">
+    <!-- <%if (user.Gender == "") { %> //need to figure out how to change avatar based on gender type
+        img src ="/images/img_avatar.png"
+        <% } %> -->
+    <img src="/images/img_avatar.png" alt="Avatar">
+    <h1><%= user.fullName %></h1>
+    <ul>
+    <li>Username: <%= user.Username %> </li>
+    <li>Gender: <%= user.Gender %></li>
+    <li>Location: <%= user.Location %></li>
+    <li>Email: <%= user.Email %></li>
+    <li>Date of Birth: <%= user.DoB.toDateString() %></li>
+    <li>Bio: <%= user.Bio %></li>
 
-        <tr>
-            <td>Username</td>
-            <td>
-                <%= user.Username %>
-            </td>
-        </tr>
+    </ul>
+    <!-- <a href="<%= `/users/home/` %>">Home</a> -->
 
-        <tr>
-            <td>Gender</td>
-            <td>
-                <%= user.Gender %>
-            </td>
-        </tr>
+    <a href="<%= `/users/home/${user._id}/edit` %>"><p><button class="card-button">Update Profile</button></p></a>
+    <p><button class="card-button" onclick="goBack()">Return to Home</button></p>
+  </div>
 
-        <tr>
-            <td>Location</td>
-            <td>
-                <%= user.Location %>
-            </td>
-        </tr>
-        <tr>
-            <td>Email</td>
-            <td>
-                <%= user.Email %>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Password</td>
-            <td>
-                <%= user.Password %>
-                <!-- want to see how this is shown - in pass form or plain txt -->
-            </td>
-        </tr>
-        <tr>
-            <td>Date of Birth</td>
-            <td>
-                <%= user.DoB %>
-            </td>
-        </tr>
-        <tr>
-            <td>Security Question</td>
-            <td>
-                <%= user.SecurityQuestion %>
-            </td>
-        </tr>
-        
-        <tr>
-            <td>Answer</td>
-            <td>
-                <%= user.Answer %>
-            </td>
-        </tr>
-        <tr>
-            <td>Bio</td>
-            <td>
-                <%= user.Bio %>
-            </td>
-        </tr>
-
-    </tbody>
-</table>
+</body>

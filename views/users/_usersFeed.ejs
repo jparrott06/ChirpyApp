@@ -1,0 +1,24 @@
+<% users.forEach(user => { %>
+    <% if(user._id != currentUser._id) { %>
+<tr>
+    <div class="new">
+      <td id="second">
+        <a href="#">
+          <div class="new1">
+            <img src="/images/potato.jpg" alt="Potato" class="Potato">
+          </div>
+          <div class="new2">
+            <span id="header1">
+              <bold><%= user.fullName %></bold>
+            </span><br>
+            <p>@<%= user.Username %></p>
+          </div>
+          <div class="new3">
+            <button>Follow</button>
+          </div>
+        </a>
+      </td>
+    </div>
+  </tr>
+  <% } %>
+<% }) %>

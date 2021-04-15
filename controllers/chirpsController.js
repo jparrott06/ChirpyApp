@@ -98,7 +98,7 @@ module.exports = {
         let chirpId = req.params.id;
         Chirp.findByIdAndRemove(chirpId)
             .then(() => {
-                res.locals.redirect = "/chirps";
+                res.locals.redirect = "/users/home";
                 next();
             })
             .catch(error => {

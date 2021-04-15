@@ -21,19 +21,16 @@ getUserParams = body => {
 
 module.exports = {
 
-    getAllUsers: (req, res) => {
+    getAllUsers: (req, res, next) => {
         User.find({})
-            .exec()
             .then(users => {
-                res.render("users", { users: users, title: true })
+                res.locals.users = users;
+                next();
             })
-            .catch((error) => {
-                console.log(error);
-                return [];
-            })
-            .then(() => {
-                console.log("Promise complete");
-            })
+            .catch(error => {
+                console.log(`Error fetching users: ${error.message}`);
+                next(error);
+            });
     },
 
     redirectView: (req, res, next) => {

@@ -48,7 +48,7 @@ router.use(cookieParser("my_passcode"));
 router.use(expressSession({
     secret: "my_passcode",
     cookie: {
-        maxAge: 360000
+        maxAge: 36000000
     },
     resave: false,
     saveUninitialized: false,
@@ -90,7 +90,7 @@ router.post("/users/signup",
     usersController.create, 
     usersController.redirectView);
 
-router.get("/users/home", chirpsController.index, usersController.getHome);
+router.get("/users/home", chirpsController.index, usersController.getAllUsers, usersController.getHome);
 router.get("/users/logout", usersController.logout, usersController.redirectView);
 
 router.get("/users/:id", usersController.show, usersController.showView);

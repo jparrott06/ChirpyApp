@@ -90,7 +90,7 @@ router.post("/users/signup",
     usersController.create, 
     usersController.redirectView);
 
-router.get("/users/home", usersController.getHome);
+router.get("/users/home", chirpsController.index, usersController.getHome);
 router.get("/users/logout", usersController.logout, usersController.redirectView);
 
 router.get("/users/:id", usersController.show, usersController.showView);
@@ -101,7 +101,10 @@ router.delete("/users/:id/delete", usersController.delete, usersController.redir
 
 router.get("/chirps", chirpsController.index, chirpsController.indexView);
 router.get("/chirps/new", chirpsController.new);
-router.post("/chirps/create", chirpsController.create, chirpsController.redirectView);
+router.post("/chirps/create", 
+chirpsController.create,
+chirpsController.index, 
+chirpsController.redirectView);
 router.get("/chirps/:id", chirpsController.show, chirpsController.showView);
 router.get("/chirps/:id/edit", chirpsController.edit);
 router.put("/chirps/:id/update", chirpsController.update, chirpsController.redirectView);

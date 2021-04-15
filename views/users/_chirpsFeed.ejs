@@ -1,0 +1,34 @@
+<% chirps.forEach(chirp => { %>
+<div class="post">
+    <div class="post__avatar">
+      <img src="/images/img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="post__body">
+      <div class="post__header">
+        <div class="post__headerText">
+          <h3> <%= chirp.user %> <span class="post__headerSpecial">@username</span>
+          </h3>
+          <% if(chirp.user == currentUser._id) { %>
+            <a href="<%= `/chirps/${chirp._id}/edit` %>">Edit</a>
+            <a href="<%= `/chirps/${chirp._id}/delete?_method=DELETE` %>" 
+                onclick="return confirm(`Are you sure?`)">Delete</a>
+         <% } %>
+        </div>
+        <div class="post__headerDescription">
+          <center>
+            <p><%= chirp.chirpBody %></p>
+          </center>
+        </div>
+      </div>
+      <center><img src="/images/mockImage.gif" alt="gif"></center>
+      <div class="post__footer">
+        <i class="fa fa-comment"></i>
+        <i class="fa fa-retweet"></i>
+        <i class="fa fa-heart"></i>
+        <i class="fa fa-share"></i>
+      </div>
+    </div>
+
+  </div>
+  <% }) %>

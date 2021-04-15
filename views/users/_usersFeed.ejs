@@ -1,5 +1,5 @@
 <% users.forEach(user => { %>
-    <% if(user._id != currentUser._id) { %>
+    <% if(user._id.toString() != currentUser._id.toString()) { %>
 <tr>
     <div class="new">
       <td id="second">

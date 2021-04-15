@@ -66,7 +66,7 @@ module.exports = {
         //Validate DoB
         req.check("DoB", "Date of Birth is a required field!").notEmpty();
 
-        req.check("DoB", "Date of Birth is invalid").isISO8601()
+        req.check("DoB", "Date of Birth is invalid").isISO8601();
 
         //Validate SecurityQuestion
 

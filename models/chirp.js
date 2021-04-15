@@ -12,15 +12,25 @@ const mongoose = require("mongoose"),
                 maxlength: [280, "Chirps are limited to 280 characters"]
             },
             // user: { type: Schema.Types.ObjectId, ref: User },
-            user: { type: String, required: true}
+            user: { type: Schema.Types.ObjectId, ref: User}
 
         },
         {
             timestamps: true
         }
     )
-    chirpSchema.virtual("fullName").get(function (){
-        return `${this.name.first} ${this.name.last}`;
-    });
-    
+
+chirpSchema.virtual("chirpUserInfo").get(function () {
+    let userId = this.user;
+
+    User.findById(userId)
+        .then(user => {
+            return `${user.fullName}@${user.Username}`;
+        })
+        .catch(error => {
+            console.log(`Error fetching user by ID: ${error.message}`)
+        })
+
+});
+
 module.exports = mongoose.model("Chirp", chirpSchema);

@@ -75,10 +75,11 @@ It doesn’t have to be collapsible but needs to look decent.'
       </div>
 
       <div class="chirpBox">
-        <form>
+        <form action="/chirps/create" method="POST">
           <div class="chirpBox__input">
             <img src="/images/img_avatar.png" alt="Avatar" class="avatar">
-            <input type="text" placeholder="What's happening?" required maxlength="250">
+            <input type="text" name="user" required hidden value="<%= currentUser._id %>">
+            <input type="text" name="chirpBody" placeholder="What's happening, <%= currentUser.Username %>?" required maxlength="250">
           </div>
           <div class="myicons">
             <a href="#"><i class="material-icons" id="file">add_photo_alternate</i></a>

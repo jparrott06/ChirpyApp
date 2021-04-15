@@ -35,7 +35,7 @@ module.exports = {
         let chirpParams = getChirpParams(req.body);
         Chirp.create(chirpParams)
             .then(chirp => {
-                res.locals.redirect = "/chirps";
+                res.locals.redirect = "/users/home";
                 res.locals.chirp = chirp;
                 next();
             })

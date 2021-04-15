@@ -45,13 +45,66 @@ module.exports = {
 
     validate: (req, res, next) => {
         console.log("Validate route");
+
+        //Validate FirstName
+
+        req.check("FirstName", "First name is a required field!").notEmpty();
+
+        //Validate LastName
+
+        req.check("LastName", "Last name is a required field!").notEmpty();
+
+        //Validate Username
+
+        req.check("Username", "Username is a required field!").notEmpty();
+
+        //Validate Gender
+
+        req.check("Gender", "Gender is invalid").isString();
+
+        //Validate Location
+
+        req.check("Location", "Location is invalid").isString();
+
+        //Validate DoB
+        req.check("DoB", "Date of Birth is a required field!").notEmpty();
+
+        req.check("DoB", "Date of Birth is invalid").isISO8601()
+
+        //Validate SecurityQuestion
+
+        req.check("SecurityQuestion", "Security Question is a required field!").notEmpty();
+
+        //Validate Answer
+
+        req.check("Answer", "Answer to Security Question is a required field!").notEmpty();
+
+        //Validate Bio
+
+        req.check("Bio", "Bio is limited to 250 characters!").isLength({
+            max: 250
+        })
+
+        //Validate Email
+
         req.sanitizeBody("Email").normalizeEmail({
             all_lowercase: true
         }).trim();
 
         req.check("Email", "Email is not valid!").isEmail();
 
+        req.check("Email", "Email is a required field!").notEmpty();
+
+        //Validate Password
+
         req.check("Password", "Password cannot be empty!").notEmpty();
+
+        //Validate Passwords match
+
+        let pass2 = req.body.pass2;
+        req.checkBody("Password", "Passwords must match!").equals(pass2);
+
+
 
         req.getValidationResult().then((error) => {
             if(!error.isEmpty()) {

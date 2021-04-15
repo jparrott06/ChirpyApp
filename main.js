@@ -1,4 +1,7 @@
 "use strict";
+
+const user = require("./models/user");
+
 const express = require("express"), app = express(), router = express.Router(),
 homeController = require("./controllers/homeController"),
 errorController = require("./controllers/errorController"),
@@ -88,13 +91,13 @@ router.post("/users/signup",
     usersController.redirectView);
 
 router.get("/users/home", usersController.getHome);
-router.get("/users/home/:id", usersController.show, usersController.showView); //show pg
+router.get("/users/logout", usersController.logout, usersController.redirectView);
 
-router.get("/users/home/:id/edit", usersController.edit); //edit pg
-router.put("/users/home/:id/update", usersController.update, usersController.redirectView);//update
-
-router.get("/users/home/:id/delete", usersController.deleteCheck); //pg to ask user if they're sure
-router.delete("/users/home/:id/delete", usersController.delete); //should delete it
+router.get("/users/:id", usersController.show, usersController.showView);
+router.get("/users/:id/edit", usersController.edit);
+router.put("/users/:id/update", usersController.update, usersController.redirectView);
+router.get("/users/:id/delete", usersController.deleteCheck);
+router.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
 
 router.get("/chirps", chirpsController.index, chirpsController.indexView);
 router.get("/chirps/new", chirpsController.new);
@@ -102,7 +105,7 @@ router.post("/chirps/create", chirpsController.create, chirpsController.redirect
 router.get("/chirps/:id", chirpsController.show, chirpsController.showView);
 router.get("/chirps/:id/edit", chirpsController.edit);
 router.put("/chirps/:id/update", chirpsController.update, chirpsController.redirectView);
-router.delete("/chirps/:id/delete", chirpsController.delete,chirpsController.redirectView);
+router.delete("/chirps/:id/delete", chirpsController.delete, chirpsController.redirectView);
 
 
 // previous stuff-may need to edit

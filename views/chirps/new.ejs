@@ -5,9 +5,9 @@
 <div class = "chirpNewcard form-data">
     <form action ="/chirps/create" method ="POST">
 
-    <label for="txtUsername">Username: </label>
-    <input type="text" name="user" id="txtUsername" required>
-
+    <h2> <%= currentUser._id %> </h2>
+    <input type="text" name="user" id="txtUsername" required hidden value="<%= currentUser._id %>">
+    </input>
     <label for="txtPost">Post: </label>
 
     <textarea name="chirpBody" id="txtPost" cols="44" rows="4" required></textarea>

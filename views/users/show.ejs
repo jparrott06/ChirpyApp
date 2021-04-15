@@ -16,12 +16,14 @@
     <li>Email: <%= user.Email %></li>
     <li>Date of Birth: <%= user.DoB.toDateString() %></li>
     <li>Bio: <%= user.Bio %></li>
-
+    
     </ul>
     <!-- <a href="<%= `/users/home/` %>">Home</a> -->
 
-    <a href="<%= `/users/home/${user._id}/edit` %>"><p><button class="card-button">Update Profile</button></p></a>
-    <p><button class="card-button" onclick="goBack()">Return to Home</button></p>
+    <% if (user._id.toString() == currentUser._id.toString()) { %>
+    <a href="<%=`/users/${user._id}/edit`%>"><p><button class="card-button">Update Profile</button></p></a>
+    <% } %>
+    <a href="<%=`/users/home`%>"><p><button class="card-button">Return to Home</button></p></a>
   </div>
 
 </body>

@@ -13,12 +13,12 @@
                             <div class="icon"><i class="fa fa-twitter"></i></div>
                             <center><h3 class="title">Are you sure you want to delete your account?</h3></center>
                             <br>
-                            <button class = "btn signin" id="signin"> <a href="<%= `/users/home` %>" style="color:white;">
+                            <button class = "btn signin" id="signin"> <a href="<%=`/users/home`%>" style="color:white;">
                                 No, take me back!
                             </a></button>
                         <br>
                         <button class = "btn cancel" id="cancel">
-                        <a href="<%= `users/${user._id}/delete?_method=DELETE` %>" onclick="return confirm(`Are you sure?`)">
+                        <a href="<%= `/users/${user._id}/delete?_method=DELETE` %>" onclick="return confirm(`Are you sure?`)">
                            Yes
                         </a></button>
                         </form>

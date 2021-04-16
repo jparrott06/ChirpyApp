@@ -109,6 +109,7 @@ module.exports = {
                 req.flash("error", messages.join(" and "));
                 req.skip = true;
                 res.locals.redirect = "/users/signup";
+                next();
             }
             else {
                 console.log("Validation successful");
@@ -215,13 +216,13 @@ module.exports = {
 
         User.register(newUser, req.body.Password, (error, user) => {
             if(user) {
-                console.log("Successful user");
+                //console.log("Successful user");
                 req.flash("success", "User account successfully created. Please sign in!");
                 res.locals.redirect = "/users/signin/";
                 next();
             }
             else {
-                console.log("No User");
+                //console.log("No User");
                 req.flash("error", `Failed to create user account: ${error.message}`);
                 res.locals.redirect = "/users/signup";
                 next();

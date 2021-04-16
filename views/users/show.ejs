@@ -4,10 +4,14 @@
 </header>
 <body style="background-image:url(/images/chirpyBackground.jpg);">
 <div class="card">
-    <!-- <%if (user.Gender == "") { %> //need to figure out how to change avatar based on gender type
-        img src ="/images/img_avatar.png"
-        <% } %> -->
-    <img src="/images/img_avatar.png" alt="Avatar">
+    
+        <% if(user.Gender == 'male') { %>
+            <img src="/images/img_avatar.png" alt="Avatar" class="avatar">
+              <% } else { %>
+            <img src="/images/img_avatar2.png" alt="Avatar" class="avatar">
+            <% } %>
+
+
     <h1><%= user.fullName %></h1>
     <ul>
     <li>Username: <%= user.Username %> </li>

@@ -1,6 +1,7 @@
 "use strict";
 
 const Chirp = require("../models/chirp"),
+User = require("../models/user"),
     getChirpParams = body => {
         return {
             chirpBody: body.chirpBody,
@@ -20,6 +21,64 @@ module.exports = {
                 next(error);
             });
     },
+
+    getAllChirps: (req, res, next) => {
+        Chirp.find(function(error, chirps){
+
+            if (error) {
+                console.log(`Error retrieving chirps: $error.message`);
+            }
+
+            else{
+
+                Chirp.aggregate([
+                    {
+                        $match: {}
+                    },
+
+                    {
+                        $lookup:{
+                            from: 'users',
+                            localField: 'user',
+                            foreignField: '_id',
+                            as: 'userInfo'
+                        }
+                    },
+
+                    {
+                        $addFields: {
+                            userFirstName: "$userInfo.FirstName",
+                            userLastName: "$userInfo.LastName",
+                            userHandle: "$userInfo.Username",
+                            userGender: "$userInfo.Gender"
+                        }
+                    },
+
+                    {
+                        $sort: {
+                            updatedAt: -1
+                        }
+                    }
+
+
+                ])
+                .then(chirps =>{
+                    res.locals.chirps = chirps;
+                    next();
+                })
+                .catch(error => {
+                    console.log(`Error fetching chirps: ${error.message}`);
+                    next(error);
+                });
+
+            }
+
+
+        })
+
+
+    },
+
     indexView: (req, res) => {
         if (req.query.format === "json") {
             res.json(res.locals.chirps);

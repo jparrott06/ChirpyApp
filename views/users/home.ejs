@@ -77,7 +77,13 @@ It doesn’t have to be collapsible but needs to look decent.'
       <div class="chirpBox">
         <form action="/chirps/create" method="POST">
           <div class="chirpBox__input">
-            <img src="/images/img_avatar.png" alt="Avatar" class="avatar">
+            
+            <% if(currentUser.Gender == 'male') { %>
+              <img src="/images/img_avatar.png" alt="Avatar" class="avatar">
+                <% } else { %>
+              <img src="/images/img_avatar2.png" alt="Avatar" class="avatar">
+              <% } %>
+
             <input type="text" name="user" required hidden value="<%= currentUser._id %>">
             <input type="text" name="chirpBody" placeholder="What's happening, <%= currentUser.Username %>?" required maxlength="250">
           </div>

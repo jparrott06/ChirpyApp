@@ -20,12 +20,13 @@
             <tr>
                 <td>
                     <a href="<%= `/chirps/${chirp._id}` %>" style="color:white;">
-                        <%= chirp.user %>
+                        <%= chirp.userHandle %>
                     </a>
                 </td>
                 <td>
                     <%= chirp.chirpBody %>
                 </td>
+                <% if(currentUser._id.toString() == chirp.user.toString()) { %>
                 <td>
                     <a href ="<%= `chirps/${chirp._id}/edit` %>">
                         Edit
@@ -36,6 +37,14 @@
                         Delete
                     </a>
                 </td>
+                <% } else { %>
+                    <td>
+                        
+                    </td>
+                    <td>
+
+                    </td>
+                    <% } %>
             </tr>
         <% }) %>
     </tbody>

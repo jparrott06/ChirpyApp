@@ -5,7 +5,14 @@
       <td id="second">
         <a href="<%=`/users/${user._id}`%>">
           <div class="new1">
-            <img src="/images/potato.jpg" alt="Potato" class="Potato">
+            
+            <% if(user.Gender == 'male') { %>
+              <img src="/images/img_avatar.png" alt="Avatar" class="avatar">
+                <% } else { %>
+              <img src="/images/img_avatar2.png" alt="Avatar" class="avatar">
+              <% } %>
+
+
           </div>
           <div class="new2">
             <span id="header1">

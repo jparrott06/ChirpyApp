@@ -93,7 +93,7 @@ router.post("/users/signup",
 router.get("/users/home", chirpsController.getAllChirps, usersController.getAllUsers, usersController.getHome);
 router.get("/users/logout", usersController.logout, usersController.redirectView);
 
-router.get("/users/:id", usersController.show, usersController.showView);
+router.get("/users/:id", usersController.getUserChirps, usersController.showView);
 router.get("/users/:id/edit", usersController.edit);
 router.put("/users/:id/update", usersController.update, usersController.redirectView);
 router.get("/users/:id/delete", usersController.deleteCheck);

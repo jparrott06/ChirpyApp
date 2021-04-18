@@ -10,10 +10,10 @@
 <body>
     <div class="container">
         <div class="card">
-            <% if(user.Gender == 'male') { %>
-                <img src="/images/birdpic.png" alt="Avatar" class="avatar">
+            <% if(currentUser.Gender == 'male') { %>
+                <img src="/images/img_avatar.png" alt="Avatar" class="avatar">
                   <% } else { %>
-                <img src="images/birdpic.png" alt="Avatar" class="avatar">
+                <img src="/images/img_avatar2.png" alt="Avatar" class="avatar">
                 <% } %>
                         <h3>
                             <%= currentUser.FirstName %>'s Chirp!

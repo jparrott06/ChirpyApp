@@ -160,6 +160,7 @@ button[type=submit] {
     white-space: nowrap;
     font-size: 2vw;
   }
+ 
   .editbutton
   {
       max-width: 150px;
@@ -172,7 +173,10 @@ button[type=submit] {
       margin: auto;
   }
 }
-
+#txtHeader
+  {
+    display: block;
+  }
 input {
     background-color: black;
 }
@@ -202,6 +206,14 @@ img
     border-radius: 50%;
     padding: 0 10px;
 }
+.headers
+{
+  margin: auto;
+  text-align: center;
+}
+form {
+  text-align: center;
+}
 .editbutton p
 {
     display: inline-block;
@@ -210,15 +222,14 @@ img
     background-color: #096faf;
     padding: 0.3vw 3vw;
     border-radius: 35px;
-    text-align: center;
-    display: flex;
-    
     color: #fff;
     margin-bottom: 10px;
     font-size: 15px;
     font-weight: bold;
     letter-spacing: 1px;
     padding: 12px 18px;
+    margin: auto;
+      display: block;
   }
 
 .editbutton:hover {

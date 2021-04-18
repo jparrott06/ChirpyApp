@@ -62,6 +62,7 @@
 <table role="table">
     <thead role="rowgroup">
       <tr role="row">
+        <th role="columnheader">User</th>
         <th role="columnheader">Chirp</th>
         <th role="columnheader">Edit</th>
         <th role="columnheader">Delete</th>
@@ -71,6 +72,9 @@
         <% chirps.forEach(chirp => { %>
 
             <tr>
+                <td role="cell">
+                    <%= chirp.userHandle %>
+                </td>
             
                 <td role="cell">
                     <%= chirp.chirpBody %>

@@ -1,4 +1,5 @@
 function func() {
+    // $("#ddSecurityQuestion option:last").attr("selected", "selected"); 
     $(document).ready(function () {
         $('#ddSecurityQuestion').on('change', function () {
             if (this.value == 'What was your high school mascot?') {
@@ -16,4 +17,10 @@ function func() {
 
         });
     });
+}
+function test()
+{
+    $("#GenderQuestion option:last").attr("selected", "selected"); 
+    $("#ddSecurityQuestion option:last").attr("selected", "selected"); 
+    // $("#txtDoB").attr("value", "value"); 
 }

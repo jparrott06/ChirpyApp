@@ -6,7 +6,7 @@
         crossorigin="anonymous"></script>
 </header>
 
-<body style="background-image:url(/images/chirpyBackground.jpg);">
+<body style="background-image:url(/images/chirpyBackground.jpg);" onload="test()">
     <div id="header"></div>
     <div class="mainform">
         <div class="container">
@@ -39,18 +39,21 @@
 </div>
                                     <!-- <label for="txtGender">Gender: </label>
     <input type="radio" name="Gender" id="txtGender" required value="<%= user.Gender %>"> -->
+    <form>
     <div class="form-group">
         <label for="GenderQuestion" class="col-form-label">
             Gender
         </label>
         <div>
             <select class="form-control" name="Gender" id="GenderQuestion" value="<%= user.Gender %>">
+                
                 <option>Male</option>
                 <option>Female</option>
                 <option>Other</option>
             </select>
         </div>
     </div>
+</form>
     <div class="form-group">
                                     <label for="txtLocation">Location: </label>
                                     

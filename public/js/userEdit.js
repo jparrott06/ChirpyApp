@@ -18,9 +18,9 @@ function func() {
         });
     });
 }
-function test()
-{
-    $("#GenderQuestion option:last").attr("selected", "selected"); 
-    $("#ddSecurityQuestion option:last").attr("selected", "selected"); 
-    // $("#txtDoB").attr("value", "value"); 
-}
+// function test()
+// {
+//     $("#GenderQuestion option:last").attr("selected", "selected"); 
+//     $("#ddSecurityQuestion option:last").attr("selected", "selected"); 
+//     // $("#txtDoB").attr("value", "value"); 
+// }

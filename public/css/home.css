@@ -244,23 +244,9 @@ body {
 @media(max-width:860px)
 {
     .sidebar{
-        height:auto;
-        width: 70px;
-        left: 0;
-        margin: 100px 0;
+       visibility: hidden;
     }
-    span 
-    {
-        position: absolute;
-        margin-left: 23px;
-        opacity: 0;
-        visibility: hidden;
-    }
-    .sidebar a i
-    {
-        margin-left: -10px;
-
-    }
+   
     #chirp  
     {
         height:auto;
@@ -271,16 +257,7 @@ body {
         margin-left: 23px;
         opacity: 0;
     }
-    .sidebar a:hover{
-        width: 200px;
-        background:inherit;
-        background-color: #1DA1F2;
-    }
-    .sidebar a:hover span
-    {
-        opacity: 1;
-        visibility: visible;
-    }
+    
     
 
 }
@@ -290,9 +267,32 @@ body {
     {
         display: none;
     }
+    .chirpBox__chirpButton
+    {
+        margin-left:0%;
+    }
+}
+@media(max-width:1024px)
+{
+    .newsfeed
+    {
+        display: none;
+    }
+    .chirpBox__chirpButton
+    {
+        margin-right:10%;
+    }
+    .post__body
+    {
+      max-width: 80%;;
+    }
 }
 /* Widget */
-
+.button {
+    border-radius: 23px;
+    border: 1px solid #1DA1F2;
+    padding:5px;
+}
 .widgets {
     flex: 0.3;
     border-left: 1px solid black;
@@ -424,6 +424,7 @@ table.followers #fourth {
     padding: 0 0 10px 0;
     
 } 
+
 .new3{ 
     float:right; 
     width:25%;   

@@ -1,27 +1,55 @@
 <header>
-    <link rel="stylesheet" href="/css/chirps.css">
+    <link rel="stylesheet" href="/css/showChirps.css">
+    
 </header>
 
 
-<h2 class="center" style="color: white">Chirp Data for <%= chirp.user %></h2>
-<table class="table">
-    <tbody>
+<h2 class="center" style="color: white">Chirp Data for <%= chirp.user %>
+</h2>
 
-        <tr>
-            <td>Username</td>
-            <td>
-                <%= chirp.user %>
-            </td>
-        </tr>
+<body>
+    <div class="container">
+        <div class="card">
+            <% if(user.Gender == 'male') { %>
+                <img src="/images/birdpic.png" alt="Avatar" class="avatar">
+                  <% } else { %>
+                <img src="images/birdpic.png" alt="Avatar" class="avatar">
+                <% } %>
+                        <h3>
+                            <%= currentUser.FirstName %>'s Chirp!
+                        </h3>
+                        <h4>
+                            <%= currentUser.Username %>
+                        </h4>
+       
+                        
+                            <table class="table">
+                                <tbody>
+                                    <th>
+                                        Chirp
+                                    </th>
+                                    <th>
+                                        Edit
+                                    </th>
+                                    <th>
+                                        Delete
+                                    </th>
+                                    <tr>
+                                        <td>
+                                            <%= chirp.chirpBody %>
+                                        </td>
+                                        <td><a class="button" href="<%= `/chirps/${chirp._id}/edit` %>">Edit</a></td>
+                                        <td><a class="delbutton"
+                                                href="<%= `/chirps/${chirp._id}/delete?_method=DELETE` %>"
+                                                onclick="return confirm(`Are you sure?`)">Delete</a></td>
+                                    </tr>
 
-        <tr>
-            <td>Chirp</td>
-            <td>
-                <%= chirp.chirpBody %>
-            </td>
-        </tr>
-
-    </tbody>
-</table>
-<a href="/users/home" class="button">Home</a>
-<a href="/chirps" class="button">Back</a>
+                                </tbody>
+                            </table>
+                        
+        
+                        <a href="/users/home" class="button" id="homebtn">Home</a>
+                        <a href="/chirps" class="button" id="backbtn">Back</a>
+                    </div>
+                </div>
+                        </body>

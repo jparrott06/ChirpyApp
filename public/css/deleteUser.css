@@ -4,7 +4,27 @@
     margin: 0; padding: 0;
 } */
 @import url("https://fonts.googleapis.com/css?family=Baloo+Bhaina");
-
+.login {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    padding: 10px;
+    background: black;
+    border-radius: 20px;
+  }
+  
+  .login a {
+    color:white;
+    font-size: 14px;
+  }
+  
+  .log-out {
+    display: inline-block;
+    padding: 0 8px;
+    border-radius: 10px;
+    color:white;
+    font-size: 14px;
+  }
 body {
   background-color: black;
   margin: 0;

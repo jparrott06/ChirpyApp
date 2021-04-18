@@ -160,6 +160,17 @@ button[type=submit] {
     white-space: nowrap;
     font-size: 2vw;
   }
+  .editbutton
+  {
+      max-width: 150px;
+      margin: auto;
+      display: block;
+  }
+  textarea
+  {
+      max-width: 200px;
+      margin: auto;
+  }
 }
 
 input {
@@ -191,12 +202,17 @@ img
     border-radius: 50%;
     padding: 0 10px;
 }
+.editbutton p
+{
+    display: inline-block;
+}
 .editbutton{
     background-color: #096faf;
     padding: 0.3vw 3vw;
     border-radius: 35px;
-    cursor: pointer;
-    display: inline-block;
+    text-align: center;
+    display: flex;
+    
     color: #fff;
     margin-bottom: 10px;
     font-size: 15px;
@@ -279,3 +295,11 @@ textarea
     color: black;
   }
   
+h3
+{
+    justify-content: center;
+}
+h4
+{
+    justify-content: center;
+}

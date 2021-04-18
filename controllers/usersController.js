@@ -1,5 +1,5 @@
-"use strict";
 
+"use strict";
 const passport = require("passport");
 const mongoose = require("mongoose");
 const User = require("../models/user"),

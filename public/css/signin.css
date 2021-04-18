@@ -27,16 +27,30 @@
    {
        visibility: hidden;
    }
+   .login
+   {
+       display:flex;
+   }
+   .title {
+    font-weight: unset;
+}
 }
 @media(max-width:1024px)
 {
+    .title {
+        font-weight: unset;
+    }
     .sidebar
     {
         visibility: hidden;
     }
+    
 }
 @media(max-width:280px)
 {
+   .title {
+        font-weight: unset;
+    }
     .mainform
     {
         position: relative;
@@ -81,7 +95,7 @@ body
     margin-top: 20px;
     background-color: transparent;
     height: 50px;
-    width: 340px;
+    /* width: 340px; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
 }

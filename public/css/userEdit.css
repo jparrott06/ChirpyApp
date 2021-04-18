@@ -13,6 +13,24 @@
         margin: auto;
         
     }
+    input {
+        right:0;
+        left:0;
+        background-size: contain;
+        margin: auto;
+    }
+    .logout
+    {
+        visibility: hidden;
+    }
+    .login
+    {
+        background: transparent;
+    }
+    .current
+    {
+        background-color: black;
+    }
 }
 .login {
     position: absolute;
@@ -296,7 +314,10 @@ label {
   padding: 12px;
   text-decoration: none;
   }
-  
+  #GenderQuestion
+  {
+    background-color: black;
+  }
  #google {
     background-color: #dd4b39;
     color: white;

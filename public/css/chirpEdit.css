@@ -154,6 +154,7 @@ button[type=submit] {
   color:white;
   font-size: 14px;
 }
+
 @media (max-width: 760px) {
   .login {
     overflow: hidden;

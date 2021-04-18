@@ -112,3 +112,55 @@
         visibility: visible;
     }
 }
+.current
+{
+    color:#D9D9D9;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding:12px;
+    width: 260px;
+    border-radius: 25px;
+    border: 1px solid #1DA1F2;
+}
+.success
+{
+    color:black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding:10px;
+    border-radius: 25px;
+    background-color: green;
+    max-width: fit-content;
+     
+}
+.error
+{
+    color:black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding:10px;
+    border-radius: 25px;
+    background-color: red;
+    max-width: fit-content;
+}
+.logout
+{
+    color:#D9D9D9;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px; 
+    width: 260px;
+    border-radius: 25px;
+    border: 1px solid #1DA1F2;
+}
+.log_in
+{
+    color:#D9D9D9;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px; 
+    width: 260px;
+    border-radius: 25px;
+    border: 1px solid #1DA1F2;
+}

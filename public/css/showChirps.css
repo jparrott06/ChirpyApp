@@ -51,21 +51,37 @@ a {
 
 .container {
   padding: 0% 10%;
+ position: relative;
+  display: flexbox;
 }
-
+th, td {
+    padding: 10px;
+  }
 .button {
-  background-color: #ed4a0f;
-  padding: 0.3vw 3vw;
+  background-color: #096faf;
+ 
   border-radius: 2px;
   cursor: pointer;
-  display: inline-block;
-  color: #fff;
+  
+  color: white;
   margin-bottom: 2px;
 }
+.heading_image
+{
+    visibility: hidden;
+}
+table, th, td {
+    border: 1px solid white;
+  }
+  th
+  {
+    position:center;
+    text-align: center;
+  }
 
 .button:hover {
-  background-color: #ffb99f;
-  color: #ed4a0f;
+  background-color: #096faf;
+  color:white;
 }
 
 .subscriber {
@@ -154,11 +170,26 @@ button[type=submit] {
   color:white;
   font-size: 14px;
 }
+
 @media (max-width: 760px) {
   .login {
     overflow: hidden;
     white-space: nowrap;
     font-size: 2vw;
+  }
+  .card
+  {
+      max-width: 100px;
+      
+  }
+  table
+  {
+    overflow-x:auto;
+  }
+  .container
+  {
+    
+    margin-left:-35px;
   }
 }
 
@@ -246,14 +277,20 @@ textarea
     outline:none;
 
 }
-
+table
+{
+    background-color: black;
+    
+}
 .card-button > a {
     color: #fff;
 }
 .card {
     box-shadow: 0 4px 18px 0 #096faf;
-    max-width: 350px;
+    max-width: 500px;
+    height: 220px;
     margin: auto;
+    margin-top:-100px;
     text-align: center;
     font-family: arial;
   }
@@ -279,3 +316,40 @@ textarea
     color: black;
   }
   
+  #homebtn
+  {
+      background-color: #096faf;
+      color:white;
+  }
+  #backbtn
+  {
+      color:white;
+      background-color: rgb(47, 51, 54);
+  }
+  .button
+  {
+   color:white;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 20%;
+    height:50px;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+    border:none;
+    border-radius: 35px;
+  }
+  .delbutton
+  {
+    background-color:rgb(47, 51, 54);
+    color:white;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 20%;
+    height:50px;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+    border:none;
+    border-radius: 35px;
+  }

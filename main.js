@@ -2,7 +2,7 @@
 
 const user = require("./models/user");
 
-const express = require("express"), app = express(), router = express.Router(),
+const express = require("express"), app = express(), router = require("./routes/index"),
 homeController = require("./controllers/homeController"),
 errorController = require("./controllers/errorController"),
 chirpsController = require("./controllers/chirpsController"),
@@ -32,20 +32,20 @@ db.once("open", () => {
 app.set("view engine", "ejs");
 app.set("port", process.env.PORT || 3000);
 
-router.use(express.static("public"))
-router.use(layouts);
-
-router.use(
+app.use(express.static("public"))
+app.use(layouts);
+app.use(expressValidator());
+app.use(
     express.urlencoded({
         extended: false
     })
 );
-router.use(methodOverride("_method", {methods:['POST', 'GET']}));
+app.use(methodOverride("_method", {methods:['POST', 'GET']}));
 
-router.use(express.json());
+app.use(express.json());
 
-router.use(cookieParser("my_passcode"));
-router.use(expressSession({
+app.use(cookieParser("my_passcode"));
+app.use(expressSession({
     secret: "my_passcode",
     cookie: {
         maxAge: 36000000
@@ -54,23 +54,20 @@ router.use(expressSession({
     saveUninitialized: false,
 }));
 
-router.use(passport.initialize());
-router.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-router.use(connectFlash());
+app.use(connectFlash());
 
-router.use((req, res, next) => {
+app.use((req, res, next) => {
     res.locals.flashMessages = req.flash();
     res.locals.loggedIn = req.isAuthenticated();
     res.locals.currentUser = req.user;
     next();
 })
 
-router.use(expressValidator());
-
-router.get("/", homeController.showIndex);
 // new additions with router
 
 // router.get("/users", usersController.index, usersController.indexView);
@@ -81,36 +78,6 @@ router.get("/", homeController.showIndex);
 // router.put("/users/:id/update", usersController.update, usersController.redirectView);
 // router.delete("/users/:id/delete", usersController.delete,usersController.redirectView);
 
-router.get("/users/signin", usersController.getSigninPage);
-router.post("/users/signin", usersController.authenticate);
-router.get("/users/signup", usersController.getSignupPage);
-
-router.post("/users/signup", 
-    usersController.validate, 
-    usersController.create, 
-    usersController.redirectView);
-
-router.get("/users/home", chirpsController.getAllChirps, usersController.getAllUsers, usersController.getHome);
-router.get("/users/logout", usersController.logout, usersController.redirectView);
-
-router.get("/users/:id", usersController.getUserChirps, usersController.showView);
-router.get("/users/:id/edit", usersController.edit);
-router.put("/users/:id/update", usersController.update, usersController.redirectView);
-router.get("/users/:id/delete", usersController.deleteCheck);
-router.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
-
-router.get("/chirps", chirpsController.getAllChirps, chirpsController.indexView);
-router.get("/chirps/new", chirpsController.new);
-router.post("/chirps/create", 
-chirpsController.create,
-chirpsController.getAllChirps, 
-chirpsController.redirectView);
-router.get("/chirps/:id", chirpsController.show, chirpsController.showView);
-router.get("/chirps/:id/edit", chirpsController.edit);
-router.put("/chirps/:id/update", chirpsController.update, chirpsController.redirectView);
-router.delete("/chirps/:id/delete", chirpsController.delete, chirpsController.redirectView);
-
-
 // previous stuff-may need to edit
 
 // router.get("/signup", usersController.getSignupPage);
@@ -118,9 +85,6 @@ router.delete("/chirps/:id/delete", chirpsController.delete, chirpsController.re
 
 // router.get("/signin", usersController.getSigninPage);
 // router.post("/signin", usersController.postSigninUser);
-
-router.use(errorController.pageNotFoundError);
-router.use(errorController.internalServerError);
 
 app.use("/", router);
 

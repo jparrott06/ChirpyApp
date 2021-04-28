@@ -1,9 +1,10 @@
 # Final Project TODO List
 
-## Refactor routes to follow MVC pattern [ ]
-- Migrate routes from main.js to /routes folder [ ]
-- Create xRoutes.js for each path [ ]
-- Link via index.js in /routes [ ]
+## Refactor routes to follow MVC pattern [done]
+- Migrate routes from main.js to /routes folder [done]
+- Create xRoutes.js for each path [done]
+- Link via index.js in /routes [done]
+- Add Api.js route []
 
 ## Server-side Validation [ ]
 - Beef-up validation using express-validator library for signup, anywhere else (users/edit ?) [ ]

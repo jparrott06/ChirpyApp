@@ -2,6 +2,7 @@
 "use strict";
 const passport = require("passport");
 const mongoose = require("mongoose");
+const httpStatus = require("http-status-codes");
 const User = require("../models/user"),
     getUserParams = body => {
         return {
@@ -370,6 +371,115 @@ module.exports = {
                 //document.getElementsByName('email').innerHTML = 'Provided information did not match our records!';
             })
 
+    },
+
+    respondJSON: (req, res) => {
+        console.log("respondJSON: " + res.locals);
+        res.json({
+          status: httpStatus.OK,
+          data: res.locals
+        });
+    },
+
+    errorJSON: (error, req, res, next) => {
+        let errorObject;
+        if (error) {
+          errorObject = {
+            status: httpStatus.INTERNAL_SERVER_ERROR,
+            message: error.message
+          };
+        } else {
+          errorObject = {
+            status: httpStatus.INTERNAL_SERVER_ERROR,
+            message: "Unknown Error."
+          };
+        }
+        res.json(errorObject);
+    },
+
+    follow: (req, res, next) => {
+        let userId = req.params.id,
+          currentUser = req.user;
+
+          console.log("follow");
+          console.log("userId: " + userId);
+          console.log("currentUser: " + currentUser._id);
+          
+        if (currentUser) {
+          User.findByIdAndUpdate(currentUser, {
+            $addToSet: {
+              following: userId
+            }
+          })
+            .then(() =>
+            User.findByIdAndUpdate(userId, {
+                $addToSet: {
+                  followers: currentUser
+                }
+            })
+            )
+
+            .then(() => {
+              res.locals.success = true;
+              next();
+            })
+            .catch(error => {
+              next(error);
+            });
+        } else {
+          next(new Error("User must log in."));
+        }
+    },
+
+    unfollow: (req, res, next) => {
+        let userId = req.params.id,
+          currentUser = req.user;
+
+          console.log("unfollow");
+          console.log("userId: " + userId);
+          console.log("currentUser: " + currentUser._id);
+
+
+        if (currentUser) {
+          User.findByIdAndUpdate(currentUser, {
+            $pull: {
+              following: userId
+            }
+          })
+            .then(() =>
+            User.findByIdAndUpdate(userId, {
+              $pull: {
+                followers: currentUser._id
+             }
+            })
+            )
+
+            .then(() => {
+              res.locals.success = true;
+              next();
+            })
+            .catch(error => {
+              next(error);
+            });
+        } else {
+          next(new Error("User must log in."));
+        }
+    },
+
+    filterUserFollows: (req, res, next) => {
+        let currentUser = res.locals.currentUser;
+        if (currentUser) {
+          let mappedFollows = res.locals.users.map(user => {
+            let userFollows = currentUser.following.some(userFollow => {
+              return userFollow.equals(user._id);
+            });
+            return Object.assign(user.toObject(), { follows: userFollows });
+          });
+          res.locals.courses = mappedFollows;
+          next();
+        } else {
+          next();
+        }
     }
 
 }

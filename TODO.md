@@ -19,9 +19,10 @@
 - Use Regex to parse Chirps for any string that starts with '#' and grab all chars after until whitespace [X]
 - Create aggregation code to get top 10 [X]
 - Update users/home to template top 10 hashtags [X]
+- Limit to 10 and pretty up CSS []
 
 ## Follow/Unfollow [ ]
-- Come up with schema strategy for following/followers ("followers" : array of Strings for each user) [ ]
+- Come up with schema strategy for following/followers ("followers" : array of Strings for each user) [X]
 - Create aggregation to get a user's number of followers [X]
 - Create aggregation to get all the users a specific user follows [X]
 - Update users/main "Who to follow" to allow users to Follow/Unfollow (also any other view relevant) [ ]

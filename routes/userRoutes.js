@@ -12,7 +12,12 @@ router.post("/signup",
     usersController.create, 
     usersController.redirectView);
 
-router.get("/home", chirpsController.getAllChirps, chirpsController.trending, usersController.getAllUsers, usersController.getHome);
+router.get("/home", 
+chirpsController.getAllChirps, 
+chirpsController.trending, 
+usersController.getAllUsers, 
+usersController.getHome);
+
 router.get("/logout", usersController.logout, usersController.redirectView);
 
 router.get("/:id", usersController.getUserChirps, usersController.showView);

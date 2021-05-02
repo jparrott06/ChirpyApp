@@ -16,14 +16,14 @@
 - Make sure user sees error.ejs when any catastrophic error happens (e.g. 404) [ ]
 
 ## Top 10 Trending Hashtags [ ]
-- Use Regex to parse Chirps for any string that starts with '#' and grab all chars after until whitespace [ ]
-- Create aggregation code to get top 10 [ ]
-- Update users/home to template top 10 hashtags [ ]
+- Use Regex to parse Chirps for any string that starts with '#' and grab all chars after until whitespace [X]
+- Create aggregation code to get top 10 [X]
+- Update users/home to template top 10 hashtags [X]
 
 ## Follow/Unfollow [ ]
-- Come up with schema strategy for follows/followers ("followers" : array of Strings for each user) [ ]
-- Create aggregation to get a user's number of followers [x]
-- Create aggregation to get all the users a specific user follows [x]
+- Come up with schema strategy for following/followers ("followers" : array of Strings for each user) [ ]
+- Create aggregation to get a user's number of followers [X]
+- Create aggregation to get all the users a specific user follows [X]
 - Update users/main "Who to follow" to allow users to Follow/Unfollow (also any other view relevant) [ ]
     - See API Classwork
 

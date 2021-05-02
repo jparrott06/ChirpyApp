@@ -14,7 +14,9 @@ const mongoose = require("mongoose"),
             DoB: { type: Date, required: true },
             SecurityQuestion: { type: String, required: true },
             Answer: { type: String, required: true },
-            Bio: { type: String, maxlength: 250 }
+            Bio: { type: String, maxlength: 250 },
+            following: [{type: Schema.Types.ObjectId}],
+            followers: [{type: Schema.Types.ObjectId}]
         },
         {
             timestamps: true

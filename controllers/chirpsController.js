@@ -5,7 +5,7 @@ User = require("../models/user"),
     getChirpParams = body => {
         return {
             chirpBody: body.chirpBody,
-            user: body.user
+            user: body.user,
         }
     }
 
@@ -90,8 +90,50 @@ module.exports = {
         res.render("chirps/new", {title: false});
     },
 
+    trending: (req, res, next) => {
+
+        Chirp.aggregate([
+            {
+              $match: {}
+            }, {
+              $unwind: {
+                path: '$hashtags', 
+                preserveNullAndEmptyArrays: false
+              }
+            }, {
+              $group: {
+                _id: '$hashtags', 
+                count: {
+                  $sum: 1
+                }
+              }
+            }, {
+              $sort: {
+                count: -1
+              }
+            }
+          ])
+        .then(trending =>{
+            res.locals.trending = trending;
+            next();
+        })
+        .catch(error => {
+            console.log(`Error fetching trending hashtags: ${error.message}`);
+            next(error);
+        });
+
+    },
+
     create: (req, res, next) => {
         let chirpParams = getChirpParams(req.body);
+
+        let re = new RegExp('#{1}[a-zA-Z][a-zA-Z0-9]*', 'g');
+        let parseChirp = chirpParams.chirpBody;
+
+        chirpParams.hashtags = Array.from(parseChirp.matchAll(re), m=> m[0]);
+
+        console.log(chirpParams.hashtags);
+
         Chirp.create(chirpParams)
             .then(chirp => {
                 res.locals.redirect = "/users/home";

@@ -25,8 +25,9 @@
 - Come up with schema strategy for following/followers ("followers" : array of Strings for each user) [X]
 - Create aggregation to get a user's number of followers [X]
 - Create aggregation to get all the users a specific user follows [X]
-- Update users/main "Who to follow" to allow users to Follow/Unfollow (also any other view relevant) [ ]
+- Update users/main "Who to follow" to allow users to Follow/Unfollow (also any other view relevant) [X]
     - See API Classwork
+- Add Follow/Unfollow button to users/:id page as well. []
 
 ## Notifications [ ]
 - Add notifications link/routes to the Navbar [ ]

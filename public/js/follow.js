@@ -13,6 +13,7 @@ $(document).ready(() => {
                   .text("Unfollow")
                   .removeClass("follow-button")
                   .addClass("unfollow-button")
+                  location.reload();
                   //.attr('id', "unfollow-button")
             } else {
                 console.log("Follow Error");
@@ -34,6 +35,7 @@ $(document).ready(() => {
                   .text("Follow")
                   .removeClass("unfollow-button")
                   .addClass("follow-button")
+                location.reload();
                   //.attr('id', "follow-button")
             } else {
                 $button.text("Try again")

@@ -24,10 +24,6 @@
             <a class="button" href="<%= `/chirps/${chirp._id}/edit` %>">Edit</a>
             <a class="button" href="<%= `/chirps/${chirp._id}/delete?_method=DELETE` %>" 
                 onclick="return confirm(`Are you sure?`)">Delete</a>
-         <% } else if (!currentUser.following.includes(chirp.user)) { %>
-          <button class="button" id="follow-button" data-id="<%= `${chirp.user}` %>">Follow</button>
-          <% } else { %>
-            <button class="button" id="unfollow-button" data-id="<%= `${chirp.user}` %>">Unfollow</button>
           <% } %>
         </div>
         <div class="post__headerDescription">

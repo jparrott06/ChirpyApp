@@ -492,6 +492,67 @@ module.exports = {
         } else {
           next();
         }
+    },
+
+    getNotificationPage: (req, res, error) => {
+        res.render("users/following");
+    },
+
+    getFollowing: (req, res, next) => {
+        let currentUser = res.locals.currentUser;
+        if (currentUser) {
+
+            User.aggregate([
+                {
+                  $match: {
+                    _id: currentUser._id
+                  }
+                }, {
+                  $unwind: {
+                    path: '$following', 
+                    preserveNullAndEmptyArrays: false
+                  }
+                }, {
+                  $lookup: {
+                    from: 'users', 
+                    localField: 'following', 
+                    foreignField: '_id', 
+                    as: 'followingInfo'
+                  }
+                }, {
+                  $lookup: {
+                    from: 'chirps', 
+                    localField: 'following', 
+                    foreignField: 'user', 
+                    as: 'followingChirp'
+                  }
+                }, {
+                  $unwind: {
+                    path: '$followingInfo', 
+                    preserveNullAndEmptyArrays: false
+                  }
+                }, {
+                  $unwind: {
+                    path: '$followingChirp', 
+                    preserveNullAndEmptyArrays: false
+                  }
+                }, {
+                  $project: {
+                    followingInfo: 1, 
+                    followingChirp: 1, 
+                    _id: 0
+                  }
+                }
+              ])
+              .then(notifications =>{
+                  res.locals.notifications = notifications;
+                  next();
+              })
+              .catch(error => {
+                console.log(`Error fetching following notifications: ${error.message}`);
+                next(error);
+            });
+        }
     }
 
 }

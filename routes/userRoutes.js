@@ -1,3 +1,5 @@
+const { getNotficationPage } = require("../controllers/usersController");
+
 const router = require("express").Router(),
 usersController = require("../controllers/usersController"),
 chirpsController = require("../controllers/chirpsController");
@@ -25,6 +27,11 @@ router.get("/:id/edit", usersController.edit);
 router.put("/:id/update", usersController.update, usersController.redirectView);
 router.get("/:id/delete", usersController.deleteCheck);
 router.delete("/:id/delete", usersController.delete, usersController.redirectView);
+router.get("/:id/following", 
+usersController.getFollowing, 
+chirpsController.trending, 
+usersController.getAllUsers,
+usersController.getNotificationPage);
 
 module.exports = router;
 

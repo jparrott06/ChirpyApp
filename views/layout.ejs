@@ -56,7 +56,8 @@
     <% if (loggedIn) { %>
     <a href="/users/home"><i class="fa fa-home"></i><span>Home</span></a>
     <a href="#"><i class="fa fa-hashtag"></i><span>Messages</span></a>
-    <a href="<%=`/chirps/`%>"><i class="fa fa-bell"></i><span>View Chirps</span></a>
+    <a href="<%=`/users/${currentUser._id}/following`%>"><i class="fa fa-bell"></i><span>Notifications</span></a>
+    <!-- <a href="<%=`/chirps/`%>"><i class="fa fa-bell"></i><span>View Chirps</span></a> -->
     <a href="<%=`/users/${currentUser._id}/`%>"><i class="fa fa-user"></i><span>View Profile</span></a>
     <a href="<%=`/users/${currentUser._id}/edit`%>"><i class="fa fa-edit"></i><span>Edit Profile</span></a>
     <a href="<%=`/users/${currentUser._id}/delete`%>"><i class="fa fa-cog"></i><span>Delete Account</span></a>

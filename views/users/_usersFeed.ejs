@@ -20,10 +20,15 @@
             </span><br>
             <p>@<%= user.Username %></p>
           </div>
-          <div class="new3">
-            <button>Follow</button>
-          </div>
         </a>
+          <div class="new3">
+            <% if (!currentUser.following.includes(user._id)) { %>
+              <button class="follow-button" data-id="<%= `${user._id}` %>">Follow</button>
+              <% } else { %>
+                <button class="unfollow-button" data-id="<%= `${user._id}` %>">Unfollow</button>
+              <% } %>
+          </div>
+
       </td>
     </div>
   </tr>

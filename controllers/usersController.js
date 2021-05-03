@@ -374,7 +374,8 @@ module.exports = {
     },
 
     respondJSON: (req, res) => {
-        console.log("respondJSON: " + res.locals);
+        console.log('DONE');
+        console.log(res.locals);
         res.json({
           status: httpStatus.OK,
           data: res.locals
@@ -410,51 +411,62 @@ module.exports = {
             $addToSet: {
               following: userId
             }
-          })
-            .then(() =>
-            User.findByIdAndUpdate(userId, {
-                $addToSet: {
-                  followers: currentUser
-                }
-            })
-            )
-
-            .then(() => {
-              res.locals.success = true;
-              next();
-            })
-            .catch(error => {
-              next(error);
-            });
+        }, {new: true})
+        .then((user) => {
+            res.locals.currentUser = user;
+            res.locals.success = true;
+            next();
+        })
+        .catch(error => {
+            next(error);
+        });
         } else {
           next(new Error("User must log in."));
         }
     },
 
+    newfollower: (req, res, next) => {
+        let userId = req.params.id,
+          currentUser = req.user;
+          if (currentUser) {
+            User.findByIdAndUpdate(userId, {
+                $addToSet: {
+                  followers: currentUser
+                }
+            })
+            .then(() => {
+                console.log("new follower successful");
+                res.locals.success = true;
+                console.log(res.locals.success);
+                next();
+            })
+            .catch(error => {
+                next(error);
+            });
+        } else {
+          next(new Error("User must log in."));
+        } 
+
+    },
+
     unfollow: (req, res, next) => {
         let userId = req.params.id,
           currentUser = req.user;
-
-          console.log("unfollow");
-          console.log("userId: " + userId);
-          console.log("currentUser: " + currentUser._id);
-
-
         if (currentUser) {
           User.findByIdAndUpdate(currentUser, {
             $pull: {
               following: userId
             }
-          })
+          }, {new: true})
             .then(() =>
             User.findByIdAndUpdate(userId, {
               $pull: {
                 followers: currentUser._id
              }
-            })
+            }, {new: true})
             )
-
             .then(() => {
+              console.log("User unfollowed");
               res.locals.success = true;
               next();
             })

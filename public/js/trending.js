@@ -1,10 +1,10 @@
 $(document).ready(() => {
     $(".modal-button").click(event => {
         let $button = $(event.target),
-            hashtag = $button.data("id");
-        console.log(hashtag);
+            hashtagName = $button.data("id");
+        console.log(hashtagName);
         $(".modal-body").html("");
-        $.get(`/api/chirps/hashtag/${hashtag}`, (results = {}) => {
+        $.get(`/api/chirps/hashtags`, {hashtag : hashtagName}, (results = {}) => {
             let data = results.data;
             console.log(data);
             if (!data || !data.hashChirps) return;

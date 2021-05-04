@@ -12,4 +12,8 @@ router.get("/:id", chirpsController.show, chirpsController.showView);
 router.get("/:id/edit", chirpsController.edit);
 router.put("/:id/update", chirpsController.update, chirpsController.redirectView);
 router.delete("/:id/delete", chirpsController.delete, chirpsController.redirectView);
+
+router.get("/hashtags", chirpsController.getHashChirpsPage);
+router.get("/hashtags/:hashtag", chirpsController.getHashtagChirps);
+
 module.exports = router;

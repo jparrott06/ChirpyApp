@@ -84,8 +84,8 @@ module.exports = {
     },
 
     getHashtagChirps: (req, res, next) => {
-        let hashtag = req.params.id;
-        console.log(hashtag);
+        let hashtag = req.query.hashtag;
+        console.log(req);
         Chirp.aggregate([
             {
               $match: {
@@ -98,6 +98,17 @@ module.exports = {
                 foreignField: '_id', 
                 as: 'userInfo'
               }
+            },
+            {
+                $unwind: {
+                    path: '$userInfo',
+                    preserveNullAndEmptyArrays: false
+                }
+            },
+            {
+                $project: {
+                    hashtags : 1, chirpBody : 1, userInfo: 1
+                }
             }
           ])
         .then(hashChirps =>{

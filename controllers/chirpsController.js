@@ -79,6 +79,38 @@ module.exports = {
 
     },
 
+    getHashChirpsPage: (req, res, next) => {
+        res.render('chirps/hashChirps');
+    },
+
+    getHashtagChirps: (req, res, next) => {
+        let hashtag = req.params.id;
+        console.log(hashtag);
+        Chirp.aggregate([
+            {
+              $match: {
+                hashtags: hashtag
+              }
+            }, {
+              $lookup: {
+                from: 'users', 
+                localField: 'user', 
+                foreignField: '_id', 
+                as: 'userInfo'
+              }
+            }
+          ])
+        .then(hashChirps =>{
+            console.log(hashChirps);
+            res.locals.hashChirps = hashChirps;
+            next();
+        })
+        .catch(error => {
+            console.log(`Error fetching chirps: ${error.message}`);
+            next(error);
+        });
+    },
+
     indexView: (req, res) => {
         if (req.query.format === "json") {
             res.json(res.locals.chirps);

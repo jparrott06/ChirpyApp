@@ -1,5 +1,5 @@
 const router = require("express").Router(),
-chirpsController = require("../controllers/chirpsController")
+chirpsController = require("../controllers/chirpsController");
 
 
 router.get("/", chirpsController.getAllChirps, chirpsController.indexView);

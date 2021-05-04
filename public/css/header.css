@@ -164,3 +164,16 @@
     border-radius: 25px;
     border: 1px solid #1DA1F2;
 }
+
+.modal-drop {
+    color: white;
+}
+.modal-backdrop
+{
+    opacity:.75 !important;
+}
+
+.modal-dialog {
+    background: black;
+    border-radius: 15px;
+}

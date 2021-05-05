@@ -6,6 +6,7 @@
 </header>
 <% chirps.forEach(chirp => { %>
 <div class="post">
+  <!-- <a href="<%=`/users/${chirp.user._id}`%>"> -->
     <div class="post__avatar">
       <% if(chirp.userGender == 'male') { %>
       <img src="/images/img_avatar.png" alt="Avatar" class="avatar">
@@ -20,6 +21,7 @@
         <div class="post__headerText">
           <h3> <%=chirp.userFirstName%> <%=chirp.userLastName%> <span class="post__headerSpecial">@<%=chirp.userHandle%></span>
           </h3>
+        <!-- </a> -->
           <% if(chirp.user.toString() == currentUser._id.toString()) { %>
             <a class="button" href="<%= `/chirps/${chirp._id}/edit` %>">Edit</a>
             <a class="button" href="<%= `/chirps/${chirp._id}/delete?_method=DELETE` %>" 

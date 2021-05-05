@@ -48,13 +48,13 @@ module.exports = {
                     from: 'chirps',
                     localField: '_id',
                     foreignField: 'user',
-                    as: 'userChirps'
+                    as: 'chirps'
                 }
             },
 
             {
                 $addFields: {
-                    chirpNumber: { $size: '$userChirps' },
+                    chirpNumber: { $size: '$chirps' },
                 }
             },
 
@@ -63,6 +63,7 @@ module.exports = {
                 user = user[0];
                 console.log(user);
                 res.locals.user = user;
+                res.locals.chirps = user.chirps;
                 next();
             })
             .catch(error => {

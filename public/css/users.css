@@ -182,7 +182,7 @@ form > * {
 
 .sidebar
 {
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 img
 {
@@ -256,6 +256,8 @@ textarea
     margin: auto;
     text-align: center;
     font-family: arial;
+    position: sticky;
+    z-index: 100;
   }
   
 .chirpNewcard
@@ -279,3 +281,152 @@ textarea
     color: black;
   }
   
+
+.avatar {
+  vertical-align: middle;
+  width: 70px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* Container */
+.container {
+  box-shadow: 0 4px 18px 0 #096faf;
+    max-width: 800px;
+    /* margin: auto; */
+    /* text-align: center; */
+    font-family: arial;
+}
+
+.row {
+  margin: 0 auto;
+}
+
+#userChirps > * {
+  background-color:black;
+}
+
+/* Feed */
+.feed {
+  flex: 0.1;
+  border-right: 1px solid rgb(34, 32, 32);
+  border-left:1px solid rgb(34, 32, 32);
+  color: white;
+  min-width: fit-content;
+  margin-left:20%;
+  
+}
+
+
+.feed__header {
+  position: sticky;
+  /* width: 550px; */
+  top: 0;
+  color: white;
+  z-index: 100;
+  border: 1px solid rgb(34, 32, 32);
+  padding-left: 15px;
+  padding-bottom: 10px;
+}
+
+.feed__header > h2 {
+  font-size: 20px;
+  font-weight: 800;;
+}
+
+.feed::-webkit-scrollbar {
+  display: none;
+}
+
+.feed {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+/* Posts */
+.post {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid rgb(34, 32, 32);
+  padding-bottom: 10px;
+  border-right: 1px solid rgb(34, 32, 32);
+  border-left: 1px solid rgb(34, 32, 32);
+}
+
+.post__headerText > h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.post__headerDescription {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: white;
+}
+
+.post__headerDescription > p{
+  position: center;
+}
+
+.post__body {
+  flex: 1;
+  padding: 10px;
+}
+
+.post__body > img {
+  border-radius: 20px;
+}
+
+.post__footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.post__headerSpecial {
+  font-weight: 600;
+  font-size: 12px;
+  color: gray;
+}
+
+/* Follow/Unfollow button */
+
+.follow-button {
+  background-color: #096faf;
+  padding: 0.3vw 3vw;
+  border-radius: 35px;
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  margin-bottom: 2px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.follow-button:hover {
+  transition: 0.25s;
+  background-color: white;
+  color: black;
+}
+
+.unfollow-button {
+  background-color: #096faf;
+  padding: 0.3vw 3vw;
+  border-radius: 35px;
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  margin-bottom: 2px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.unfollow-button:hover {
+  transition: 0.25s;
+  background-color: white;
+  color: black;
+}

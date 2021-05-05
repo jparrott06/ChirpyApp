@@ -491,8 +491,8 @@ table.followers #fourth {
 }
 
 @keyframes example {
-  from {color: #1DA1F2; margin-left: 0%;}
-  to {color: aliceblue; margin-left: 65%;}
+  from {color: aliceblue; margin-left: 65%;}
+  to {color: #1DA1F2; margin-left: 0%;}
 
 }
 

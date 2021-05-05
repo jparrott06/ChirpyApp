@@ -475,3 +475,41 @@ table.followers #fourth {
 {
     left: -10px;
 }
+
+.fa.fa-search.searchIcon:hover {
+    text-shadow: -20px -20px 3px white;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: rgba(197, 219, 236, 0.932);
+    color: black;
+}
+
+.new3>button:hover {
+    transition: 0.3s;
+    background-color: rgba(197, 219, 236, 0.932);
+    color: black;
+}
+
+@keyframes example {
+  from {color: #1DA1F2; margin-left: 0%;}
+  to {color: aliceblue; margin-left: 65%;}
+
+}
+
+#home-icon {
+    font-size:48px;
+    color:#1DA1F2;
+    width:40px;
+    height: 35px;
+    animation-name: example;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+#home-icon:hover {
+    text-shadow: -20px -20px 3px white;
+    cursor: pointer;
+    transition: 0.3s;
+    color: rgba(197, 219, 236, 0.932);
+}

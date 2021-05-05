@@ -61,16 +61,15 @@ It doesn’t have to be collapsible but needs to look decent.'
 </head>
 
 <body style="background-color: black">
-
   <div class="row">
 
     <div class="col-lg-3 col-md-3">
       <div id="header"></div>
     </div>
-
+    
     <div class="col-lg-5 col-md-9 col-sm-12">
       <div class="feed__header">
-        <h2>Home</h2>
+        <h2>Home<i id="home-icon" onclick="alert('chirp')" class="fa fa-twitter headerimg">Chirpy!</i></h2>
       </div>
 
       <div class="chirpBox">
@@ -112,7 +111,7 @@ It doesn’t have to be collapsible but needs to look decent.'
         <table class="search-contents">
           <tr>
             <td id="searchicon_td" style="background-color: rgb(49, 45, 45);">
-              <i class="fa fa-search searchIcon" id='searchicon'></i>
+              <i class="fa fa-search searchIcon" id='searchicon' onclick="alert('chirp')"></i>
             </td>
             <td>
               <input class="search" type="text" onclick="myFunction()" name="" id="searchinput"
@@ -182,4 +181,5 @@ It doesn’t have to be collapsible but needs to look decent.'
 </body>
 <script src="/js/follow.js"></script>
 <script src="/js/trending.js"></script>
+<script src="/js/animation.js"></script>
 </html>

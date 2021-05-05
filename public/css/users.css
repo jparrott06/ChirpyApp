@@ -433,3 +433,7 @@ textarea
   background-color: white;
   color: black;
 }
+
+.sidebar {
+  background-color:rgb(34, 32, 32, 0.8)
+}

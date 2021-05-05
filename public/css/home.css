@@ -505,6 +505,7 @@ table.followers #fourth {
     animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
+    animation-timing-function: linear;
 }
 
 #home-icon:hover {

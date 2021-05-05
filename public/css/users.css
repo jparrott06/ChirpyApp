@@ -7,8 +7,10 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: white;
   overflow-x: hidden;
-    background-position: center;
-    background-size: cover;
+  background-image: url(/images/chirpyBackground.jpg);
+  background-position: center;
+  background-size: 900px 500px;
+  /* background: radial-gradient(circle, black, white); */
 }
 .editcard
 {

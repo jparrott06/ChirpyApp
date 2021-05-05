@@ -437,3 +437,73 @@ textarea
 .sidebar {
   background-color:rgb(34, 32, 32, 0.8)
 }
+
+#f1Users {
+background-color: #096faf;
+padding: 0.1vw 0.1vw;
+border-radius: 35px;
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  margin-bottom: 2px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#f1Users:hover {
+  transition: 0.25s;
+  background-color: white;
+  color: black;
+}
+
+#f2Users {
+background-color: #096faf;
+  padding: 0.1vw 0.1vw;
+  border-radius: 35px;
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  margin-bottom: 2px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#f2Users:hover {
+  transition: 0.25s;
+  background-color: white;
+  color: black;
+}
+
+.see-profile {
+  background-color: #096faf;
+  padding: 0.1vw 0.1vw;
+  border-radius: 35px;
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  margin-bottom: 2px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.see-profile > a {
+  background-color: #096faf;
+  padding: 0.1vw 0.1vw;
+  border-radius: 35px;
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  margin-bottom: 2px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.see-profile {
+  transition: 0.25s;
+  background-color: white;
+  color: black;
+}

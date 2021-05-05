@@ -554,6 +554,92 @@ module.exports = {
                 next(error);
             });
         }
+    },
+
+    getFollowingUsers: (req,res,next) => {
+        let userId = req.query.id;
+        console.log(userId);
+        User.aggregate([
+            {
+              $match: {
+                _id: mongoose.Types.ObjectId(userId)
+              }
+            }, {
+              $unwind: {
+                path: '$following', 
+                preserveNullAndEmptyArrays: false
+              }
+            }, {
+              $lookup: {
+                from: 'users', 
+                localField: 'following', 
+                foreignField: '_id', 
+                as: 'following_users'
+              }
+            }, {
+              $unwind: {
+                path: '$following_users', 
+                preserveNullAndEmptyArrays: false
+              }
+            }, {
+              $project: {
+                following_users: 1, 
+                _id: 0
+              }
+            }
+          ])
+          .then(following_users => {
+            console.log(following_users);
+            res.locals.following_users = following_users;
+            next();
+            })
+            .catch(error => {
+            console.log(`Error fetching following users: ${error.message}`);
+            next(error);
+            });
+    },
+
+    getFollowerUsers: (req,res,next) => {
+        let userId = req.query.id;
+        console.log(userId);
+        User.aggregate([
+            {
+              $match: {
+                _id: mongoose.Types.ObjectId(userId)
+              }
+            }, {
+              $unwind: {
+                path: '$followers', 
+                preserveNullAndEmptyArrays: false
+              }
+            }, {
+              $lookup: {
+                from: 'users', 
+                localField: 'followers', 
+                foreignField: '_id', 
+                as: 'follower_users'
+              }
+            }, {
+              $unwind: {
+                path: '$follower_users', 
+                preserveNullAndEmptyArrays: false
+              }
+            }, {
+              $project: {
+                follower_users: 1, 
+                _id: 0
+              }
+            }
+          ])
+          .then(follower_users => {
+            console.log(follower_users);
+            res.locals.follower_users = follower_users;
+            next();
+            })
+            .catch(error => {
+            console.log(`Error fetching follower users: ${error.message}`);
+            next(error);
+            });
     }
 
 }

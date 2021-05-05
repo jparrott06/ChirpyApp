@@ -27,8 +27,8 @@
     <li>Date of Birth: <%= user.DoB.toDateString() %></li>
     <li>Bio: <%= user.Bio %></li>
     <li>Number of Chirps: <%= user.chirpNumber %></li>
-    <li>Following: <%= user.following.length %> <a href="" style="color:blue; font-size: 15px;">See all</a></li>
-    <li>Followers: <%= user.followers.length %> <a href="" style="color:blue; font-size: 15px;">See all</a></li>
+    <li>Following: <%= user.following.length %> <button class="modal-button" id="f1Users" type="button" data-toggle="modal" data-target="#f1Modal" data-id="<%= `${user._id}` %>">See all</button></li>
+    <li>Followers: <%= user.followers.length %> <button class="modal-button" id="f2Users" type="button" data-toggle="modal" data-target="#f2Modal" data-id="<%= `${user._id}` %>">See all</button></li>
     
     </ul>
     <!-- <a href="<%= `/users/home/` %>">Home</a> -->
@@ -57,5 +57,34 @@
 </div>
 </div>
 
+<div class="modal-drop">
+  <div id="f1Modal" class="modal fade modal-backdrop" role="dialog" data-backdrop="false">
+    <div class="modal-dialog">
+      
+        <h4 class="modal-title"><img src="/images/trending.png" alt="Avatar" class="avatar">Following</h4>
+        <div class="modal-body"> 
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="card-button">Close</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-drop">
+  <div id="f2Modal" class="modal fade modal-backdrop" role="dialog" data-backdrop="false">
+    <div class="modal-dialog">
+      
+        <h4 class="modal-title"><img src="/images/trending.png" alt="Avatar" class="avatar">Followed By</h4>
+        <div class="modal-body"> 
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="card-button">Close</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/get_follows.js"></script>
 <script src="/js/follow.js"></script>
 </body>

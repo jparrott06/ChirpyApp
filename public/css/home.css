@@ -491,7 +491,7 @@ table.followers #fourth {
 }
 
 @keyframes example {
-  from {color: aliceblue; margin-left: 65%;}
+  from {color: aliceblue; margin-left: 75%;}
   to {color: #1DA1F2; margin-left: 0%;}
 
 }
@@ -513,4 +513,28 @@ table.followers #fourth {
     cursor: pointer;
     transition: 0.3s;
     color: rgba(197, 219, 236, 0.932);
+}
+
+.fa.fa-comment:hover {
+    color: #1DA1F2;
+    cursor: pointer;
+}
+
+.fa.fa-heart:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.fa.fa-retweet:hover {
+    color: green;
+    cursor: pointer;
+}
+
+.fa.fa-share:hover {
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.invisible {
+    visibility: hidden;
 }

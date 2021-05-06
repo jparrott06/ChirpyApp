@@ -507,3 +507,27 @@ background-color: #096faf;
   background-color: white;
   color: black;
 }
+
+.fa.fa-comment:hover {
+  color: #1DA1F2;
+  cursor: pointer;
+}
+
+.fa.fa-heart:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.fa.fa-retweet:hover {
+  color: green;
+  cursor: pointer;
+}
+
+.fa.fa-share:hover {
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.post__footer > i {
+  color: grey;
+}

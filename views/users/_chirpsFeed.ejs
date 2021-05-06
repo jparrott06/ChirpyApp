@@ -37,11 +37,38 @@
       
       <div class="post__footer">
         
-        <i class="fa fa-comment"></i>
-        <i class="fa fa-retweet"></i>
-        <i class="fa fa-heart"></i>
-        <i class="fa fa-share"></i>
+        <i class="fa fa-comment" data-id="<%=`${chirp._id}`%>" onclick="alert('coming soon!')"></i>
+        <i class="fa fa-retweet" onclick="alert('coming soon!')"></i>
+        <i class="fa fa-heart" onclick="alert('coming soon!')"></i>
+        <i class="fa fa-share" onclick="alert('coming soon!')"></i>
       </div>
+
+      <!-- <div hidden class="chirpBox" id="<%=`${chirp._id}`%>">
+        <form action="/chirps/create" method="POST">
+          <div class="chirpBox__input">
+            
+            <% if(currentUser.Gender == 'male') { %>
+              <img src="/images/img_avatar.png" alt="Avatar" class="avatar">
+                <% } else { %>
+              <img src="/images/img_avatar2.png" alt="Avatar" class="avatar">
+              <% } %>
+
+            <input type="text" name="userComment" required hidden value="<%= currentUser._id %>">
+            <input type="text" name="chirpComment" required hidden value="<%= chirp._id %>">
+            <input type="text" name="comment" placeholder="What do you think, <%= currentUser.Username %>?" required maxlength="250">
+          </div>
+          <div class="myicons">
+            <a href="#"><i class="material-icons" id="file">add_photo_alternate</i></a>
+            <a href="#"><i class="material-icons" id="gif">gif</i></a>
+            <a href="#"><i class="material-icons" id="emoji">emoji_emotions</i></a>
+            <a href="#"><i class="material-icons" id="poll">poll</i></a>
+            <a href="#"><i class="material-icons" id="schedule">calendar_today</i></a>
+          </div>
+          <button class="chirpBox__chirpButton" type="submit">Chirp!</button>
+          
+        </form>
+      </div> -->
+
     </div>
 
   </div>

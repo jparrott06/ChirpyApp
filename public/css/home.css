@@ -498,7 +498,7 @@ table.followers #fourth {
 
 @keyframes rotate {
  0% {transform: rotateY(0deg)}
- 99.999%, 100% {transform: rotateY(180deg);}
+ 99.9999%, 100% {transform: rotateY(180deg);}
 }
 
 #home-icon {
@@ -515,7 +515,8 @@ table.followers #fourth {
 }
 
 #home-icon:hover {
-    text-shadow: -20px -20px 3px currentColor;
+    text-shadow: -20px -20px 3px currentColor, 40px -20px 3px #1DA1F2,
+    40px 20px 3px currentColor;
     cursor: pointer;
     transition: 0.3s;
     color: rgba(197, 219, 236, 0.932);

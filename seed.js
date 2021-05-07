@@ -13,9 +13,9 @@ mongoose.connection;
 
 var users = [
   {
-    FirstName: "Chir",
-    LastName: "Pee",
-    Username: "chirpmasterOG6191",
+    FirstName: "Chirp",
+    LastName: "Boy",
+    Username: "chirpboiOG619",
     Gender: "male",
     Location: "Ulaanbataar",
     Email: "chirpy1@chirp.com",
@@ -24,7 +24,9 @@ var users = [
     SecurityQuestion: "Who is your favorite author?",
     Answer: "Yukio Mishima",
     Bio: "*chirp*",
-    _id: mongoose.Types.ObjectId("6076b92e35062b14a4f2fa18")
+    _id: mongoose.Types.ObjectId("6076b92e35062b14a4f2fa18"),
+    following:[mongoose.Types.ObjectId("607628967f2ec10d58c09e48")],
+    followers: []
   },
   {
     FirstName: "Rando",
@@ -38,7 +40,9 @@ var users = [
     SecurityQuestion: "What is your mother's maiden name?",
     Answer: "Randomovna",
     Bio: "Glory to Xi Jinping and the Glorious People's Republic of China (not a bot :^)).",
-    _id: mongoose.Types.ObjectId("607628967f2ec10d58c09e48")
+    _id: mongoose.Types.ObjectId("607628967f2ec10d58c09e48"),
+    following: [],
+    followers: [mongoose.Types.ObjectId("6076b92e35062b14a4f2fa18")]
   },
   {
     FirstName: "Joey",
@@ -52,12 +56,14 @@ var users = [
     SecurityQuestion: "What was your high school mascot?",
     Answer: "joey",
     Bio: "sup. I'm just a joey john boyyyyyyy.",
-    _id: mongoose.Types.ObjectId("6076283a42aff7491054da25")
+    _id: mongoose.Types.ObjectId("6076283a42aff7491054da25"),
+    following: [],
+    followers: []
   },
   {
-    FirstName: "Chir",
-    LastName: "Pee",
-    Username: "chirpmasterOG619",
+    FirstName: "Chirp",
+    LastName: "Girl",
+    Username: "chirpQuennOG619",
     Gender: "female",
     Location: "Ulaanbataar",
     Email: "chirpy@chirp.com",
@@ -66,25 +72,31 @@ var users = [
     SecurityQuestion: "Who is your favorite author?",
     Answer: "Ursula Kroeber Le Guin",
     Bio: "*chirp*",
-    _id: mongoose.Types.ObjectId("6076275f886da7445cf0772c")
+    _id: mongoose.Types.ObjectId("6076275f886da7445cf0772c"),
+    following: [],
+    followers: []
   }
 ],
 chirps = [
 {
-  chirpBody: "Omg I liek can't wait to chirp it upppp!!!",
-  user: mongoose.Types.ObjectId("6076275f886da7445cf0772c")
+  chirpBody: "Omg I liek can't wait to chirp it upppp!!! #OMG",
+  user: mongoose.Types.ObjectId("6076275f886da7445cf0772c"),
+  hashtags: ["#OMG"]
 },
 {
-  chirpBody: "Chirpy is numba 1",
-  user: mongoose.Types.ObjectId("607628967f2ec10d58c09e48")
+  chirpBody: "Chirpy is numba 1 #chirpLyfe",
+  user: mongoose.Types.ObjectId("607628967f2ec10d58c09e48"),
+  hashtags: ["#chirpLyfe"]
 },
 {
-  chirpBody: "I'm just a joey joy boiiiii",
-  user: mongoose.Types.ObjectId("6076283a42aff7491054da25")
+  chirpBody: "I'm just a joey joy boiiiii #Imjoe",
+  user: mongoose.Types.ObjectId("6076283a42aff7491054da25"),
+  hashtags: ["#Imjoe"]
 },
 {
-  chirpBody: "#CHIRPLYFE",
-  user: mongoose.Types.ObjectId("6076b92e35062b14a4f2fa18")
+  chirpBody: "I'm all about that #chirpLyfe",
+  user: mongoose.Types.ObjectId("6076b92e35062b14a4f2fa18"),
+  hashtags: ["#chirpLyfe"]
 }]
 
 
@@ -98,6 +110,7 @@ let createChirp = (c, resolve) => {
   Chirp.create({
     chirpBody: c.chirpBody,
     user: c.user,
+    hashtags: c.hashtags
   }).then(chirp => {
     console.log(`CREATED Chirp: ${chirp.chirpBody}`);
     resolve(chirp);
@@ -134,7 +147,9 @@ let registerUser = (u, resolve) => {
       SecurityQuestion: u.SecurityQuestion,
       Answer: u.Answer,
       Bio: u.Bio,
-      _id: u._id
+      _id: u._id,
+      following: u.following,
+      followers: u.followers
     },
     u.Password,
     (error, user) => {

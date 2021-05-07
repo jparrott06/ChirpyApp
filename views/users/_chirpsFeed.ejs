@@ -18,9 +18,11 @@
 
     <div class="post__body">
       <div class="post__header">
+        <a href="<%=`/users/${chirp.user}`%>" style="text-decoration: none;">
         <div class="post__headerText">
-          <h3> <%=chirp.userFirstName%> <%=chirp.userLastName%> <span class="post__headerSpecial">@<%=chirp.userHandle%></span>
+          <h3 style="color: white; text-decoration: none; font-size: 15px;"> <%=chirp.userFirstName%> <%=chirp.userLastName%> <span class="post__headerSpecial">@<%=chirp.userHandle%></span>
           </h3>
+        </a>
         <!-- </a> -->
           <% if(chirp.user.toString() == currentUser._id.toString()) { %>
             <a class="button" href="<%= `/chirps/${chirp._id}/edit` %>">Edit</a>

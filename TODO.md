@@ -16,6 +16,7 @@
 - Fix Responsivity on home re: top hashtags [ ]
 - Fix users/edit [ ]
 - Fix responsivity for chirps/:id/edit [ ]
+    - also make it so when user edits chirp the hashtags are updated appropriately [ ]
 - Add back in and test client-side validation [ ]
 
 ## Error Page [ ]

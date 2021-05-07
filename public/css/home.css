@@ -515,7 +515,7 @@ table.followers #fourth {
 }
 
 #home-icon:hover {
-    text-shadow: -20px -20px 3px white;
+    text-shadow: -20px -20px 3px currentColor;
     cursor: pointer;
     transition: 0.3s;
     color: rgba(197, 219, 236, 0.932);

@@ -491,9 +491,14 @@ table.followers #fourth {
 }
 
 @keyframes example {
-  from {color: aliceblue; margin-left: 75%;}
-  to {color: #1DA1F2; margin-left: 0%;}
+  from {color: #1DA1F2; margin-left: 0%; }
+  to {color: aliceblue; margin-left: 75%; }
 
+}
+
+@keyframes rotate {
+ 0% {transform: rotateY(0deg)}
+ 99.999%, 100% {transform: rotateY(180deg);}
 }
 
 #home-icon {
@@ -501,11 +506,12 @@ table.followers #fourth {
     color:#1DA1F2;
     width:40px;
     height: 35px;
-    animation-name: example;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
-    animation-timing-function: linear;
+    animation-name: example, rotate;
+    animation-delay: 0, 0;
+    animation-duration: 5s, 10s;
+    animation-iteration-count: infinite, infinite;
+    animation-fill-mode: none, forwards;
+    animation-direction: alternate, normal;
 }
 
 #home-icon:hover {

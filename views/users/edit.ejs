@@ -97,7 +97,7 @@
                                 <label for="txtDoB">Date of Birth: </label>
 
                                 <input required class="form-control" type="date" name="DoB" id="txtDoB"
-                                    value="<%= user.DoB %>">
+                                    value="<%=user.DoB.getFullYear() + '-' + ('0'+(user.DoB.getMonth()+1)).slice(-2) + '-' + ('0' + user.DoB.getDate()).slice(-2)%>">
 
 
                             </div>

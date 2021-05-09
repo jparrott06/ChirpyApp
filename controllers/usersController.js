@@ -139,6 +139,14 @@ module.exports = {
 
         req.check("Email", "Email is a required field!").notEmpty();
 
+        req.check("Email", "Email is already in use").custom(value => {
+          return User.findOne({Email: value}).then(user => {
+            if (user) {
+              return Promise.reject("Email is already in use.");
+            }
+          });
+        });
+
         //Validate Password
 
         req.check("Password", "Password cannot be empty!").notEmpty();

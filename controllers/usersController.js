@@ -157,6 +157,13 @@ module.exports = {
 
         let pass2 = req.body.pass2;
         req.checkBody("Password", "Passwords must match!").equals(pass2);
+
+        req.check("Password", 
+        "Password must be 8 characters long, contain at least 1 number, capital letter, and special character")
+          .isLength({min: 8})
+          .matches(/\d/)
+          .matches(/[A-Z]/)
+          .matches(/[@$!%*#?&]/)
         
         req.getValidationResult().then((error) => {
             if (!error.isEmpty()) {

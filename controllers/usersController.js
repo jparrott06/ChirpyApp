@@ -83,6 +83,22 @@ module.exports = {
     validate: (req, res, next) => {
         console.log("Validate route");
 
+        console.log(req.body);
+        //Sanitize all user input in case bad-actor bypasses form
+        req
+          .sanitizeBody([
+            "FirstName",
+            "LastName",
+            "Username",
+            "Gender",
+            "Location",
+            "Email",
+            "DoB",
+            "SecurityQuestion",
+            "Answer"
+          ])
+
+        console.log(req.body);
         //Validate FirstName
 
         req.check("FirstName", "First name is a required field!").notEmpty();
@@ -164,7 +180,7 @@ module.exports = {
           .matches(/\d/)
           .matches(/[A-Z]/)
           .matches(/[@$!%*#?&]/)
-        
+
         req.getValidationResult().then((error) => {
             if (!error.isEmpty()) {
                 let messages = error.array().map(e => e.msg);

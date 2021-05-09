@@ -104,12 +104,11 @@
 
                             </div>
                             <!-- <label for="txtSecurityQuestion">Security Question: </label>
-    <input type="text" name="SecurityQuestion" id="txtSecurityQuestion" required value="<%= user.SecurityQuestion %>"> 
-    need to change this input type -->
+    <input type="text" name="SecurityQuestion" id="txtSecurityQuestion" required value="<%= user.SecurityQuestion %>">
 
-                            <!-- <label for="txtAnswer">Answer: </label>
+                            <label for="txtAnswer">Answer: </label>
     <input type="text" name="Answer" id="txtAnswer" required value="<%= user.Answer %>">  -->
-                            <!-- <div class="form-group">
+                            <div class="form-group">
                                 <div class="row form-group" onclick="func()">
                                     <label for="ddSecurityQuestion" class="col-form-label">
                                         Security Question
@@ -117,11 +116,11 @@
                                     <div>
                                         <select class="form-control" name="SecurityQuestion" id="ddSecurityQuestion"
                                             required>
-                                            <option value="<%= user.SecurityQuestion %>">What was your high school
+                                            <option value="<%= user.SecurityQuestion %>" <%=(user.SecurityQuestion == 'What was your high school mascot?')? 'selected':''%>>What was your high school
                                                 mascot?</option>
-                                            <option value="<%= user.SecurityQuestion %>">Who is your favorite author?
+                                            <option value="<%= user.SecurityQuestion %>" <%=(user.SecurityQuestion == 'Who is your favorite author?')? 'selected':''%>>Who is your favorite author?
                                             </option>
-                                            <option value="<%= user.SecurityQuestion %>">What is your mother's maiden
+                                            <option value="<%= user.SecurityQuestion %>" <%=(user.SecurityQuestion == 'What is your mother"\'"s maiden name?')? 'selected':''%>>What is your mother's maiden
                                                 name?</option>
                                         </select>
                                     </div>
@@ -133,7 +132,7 @@
                                         </input>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="form-group">
                                 <label for="txtBio">Bio: </label>
                                 <br>

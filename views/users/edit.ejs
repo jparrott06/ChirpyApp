@@ -116,15 +116,15 @@
                                     <div>
                                         <select class="form-control" name="SecurityQuestion" id="ddSecurityQuestion"
                                             required>
-                                            <option value="<%= user.SecurityQuestion %>" <%=(user.SecurityQuestion == 'What was your high school mascot?')? 'selected':''%>>What was your high school
+                                            <option value="<%=user.SecurityQuestion%>" <%=(user.SecurityQuestion == 'What was your high school mascot?')? 'selected':''%>>What was your high school
                                                 mascot?</option>
-                                            <option value="<%= user.SecurityQuestion %>" <%=(user.SecurityQuestion == 'Who is your favorite author?')? 'selected':''%>>Who is your favorite author?
+                                            <option value="<%=user.SecurityQuestion%>" <%=(user.SecurityQuestion == 'Who is your favorite author?')? 'selected':''%>>Who is your favorite author?
                                             </option>
-                                            <option value="<%= user.SecurityQuestion %>" <%=(user.SecurityQuestion == 'What is your mother"\'"s maiden name?')? 'selected':''%>>What is your mother's maiden
+                                            <option value="<%=user.SecurityQuestion%>" <%=(user.SecurityQuestion == "What is your mother's maiden name?")? 'selected':''%>>What is your mother's maiden
                                                 name?</option>
                                         </select>
                                     </div>
-
+        
                                     <div>
                                         <input class="form-control" name="Answer" id="txtAnswer" type="text"
                                             placeholder="Answer" value="<%= user.Answer %>">

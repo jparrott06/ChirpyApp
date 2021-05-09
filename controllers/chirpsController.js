@@ -227,6 +227,11 @@ module.exports = {
         let chirpId = req.params.id,
         chirpParams = getChirpParams(req.body);
 
+        let re = new RegExp('#{1}[a-zA-Z][a-zA-Z0-9]*', 'g');
+        let parseChirp = chirpParams.chirpBody;
+
+        chirpParams.hashtags = Array.from(parseChirp.matchAll(re), m=> m[0]);
+
         Chirp.findByIdAndUpdate(chirpId, {
             $set: chirpParams
         })

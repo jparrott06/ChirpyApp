@@ -17,7 +17,7 @@
     -also removed edit/delete option from chirp on home page on galaxy fold view
 - Fix users/edit [x* except for editing gender]
 - Fix responsivity for chirps/:id/edit [x]
-    - also make it so when user edits chirp the hashtags are updated appropriately [ ]
+    - also make it so when user edits chirp the hashtags are updated appropriately [X]
 - Add back in and test client-side validation [x*]
 
 ## Error Page [ ]

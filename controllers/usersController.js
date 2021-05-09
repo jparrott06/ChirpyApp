@@ -245,6 +245,8 @@ module.exports = {
 
         if (req.skip) return next();
 
+        console.log(req.body);
+
         let userId = req.params.id,
             userParams = getUserParams(req.body);
 

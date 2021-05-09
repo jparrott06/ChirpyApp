@@ -94,6 +94,13 @@ module.exports = {
         //Validate Username
 
         req.check("Username", "Username is a required field!").notEmpty();
+        req.check("Username", "Username is already taken").custom(value => {
+          return User.findOne({Username: value}).then(user => {
+            if (user) {
+              return Promise.reject("Username is already taken.");
+            }
+          });
+        });
 
         //Validate Gender
 
@@ -143,9 +150,6 @@ module.exports = {
         let pass2 = req.body.pass2;
         req.checkBody("Password", "Passwords must match!").equals(pass2);
         
-
-
-
         req.getValidationResult().then((error) => {
             if (!error.isEmpty()) {
                 let messages = error.array().map(e => e.msg);

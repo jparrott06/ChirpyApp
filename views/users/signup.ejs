@@ -158,7 +158,8 @@ Minimum fields for a user to sign-up
                         </div>
 
                         <div class="form-group">
-                            <input pattern ="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" class="<%= (error != false && (error.passmsg != undefined || error.fields.includes('pass1') != false))? 'error form-control': 'form-control' %>"  id="pass1" type="password" required placeholder="Password" name="Password">
+                            <!-- pattern ="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"  -->
+                            <input class="<%= (error != false && (error.passmsg != undefined || error.fields.includes('pass1') != false))? 'error form-control': 'form-control' %>"  id="pass1" type="password" required placeholder="Password" name="Password">
                             <div id="passerror1" class="col-sm-4 invisible errormsg"></div>
                             <div id ="txtpasserror1" class="col-sm-4 invisible errormsg"></div>
                             <% if (error != false && error.passmsg != undefined) {%>
@@ -171,9 +172,9 @@ Minimum fields for a user to sign-up
                                 <h5>*Password must contain: 8 minimum chars, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character</h5>
                              </div>
                         </div>
-
+                        <!-- pattern ="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" -->
                         <div class="form-group">
-                            <input pattern ="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" class="<%= (error != false && (error.passmsg != undefined || error.fields.includes('pass2') != false))? 'error form-control': 'form-control' %>" id="pass2" type="password" required placeholder="Confirm Password" name="pass2">
+                            <input class="<%= (error != false && (error.passmsg != undefined || error.fields.includes('pass2') != false))? 'error form-control': 'form-control' %>" id="pass2" type="password" required placeholder="Confirm Password" name="pass2">
                             <div id="passerror2" class="col-sm-4 invisible errormsg"></div>
                             <div id ="txtpasserror2" class="col-sm-4 invisible errormsg"></div>
                             <% if (error != false && error.passmsg != undefined) {%>

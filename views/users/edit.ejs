@@ -47,19 +47,19 @@
                                     <div value="<%= user.Gender %>">
                                         <div class="form-check">
                                             <input type="radio" id="rbMale" name="Gender" value="male"
-                                                class="form-check-input">
+                                                class="form-check-input" <%=(user.Gender == 'male')? 'checked':''%>>
                                             <label for="rbMale" class="form-check-label">
                                                 Male</label>
                                         </div>
 
                                         <div class="form-check">
                                             <input type="radio" id="rbFemale" name="Gender" value="female"
-                                                class="form-check-input">
+                                                class="form-check-input" <%=(user.Gender == 'female')? 'checked':''%>>
                                             <label for="rbFemale" class="form-check-label">Female</label>
                                         </div>
                                         <div class="form-check">
                                             <input type="radio" id="rbOther" name="Gender" value="other"
-                                                class="form-check-input">
+                                                class="form-check-input" <%=(user.Gender == 'other')? 'checked':''%>>
                                             <label for="rbOther" class="form-check-label">Other</label>
                                         </div>
 
@@ -92,6 +92,8 @@
                                 </div>
 
                             </div>
+
+
                             <div class="form-group">
 
                                 <label for="txtDoB">Date of Birth: </label>
@@ -135,7 +137,9 @@
                             <div class="form-group">
                                 <label for="txtBio">Bio: </label>
                                 <br>
-                                <input name="Bio" id="txtBio" value="<%= user.Bio %>" class="form-control">
+                                <input name="Bio" id="txtBio" value="<%= user.Bio.trim() %>" class="form-control">
+
+                                <!-- <textarea><%=user.Bio.trim()%></textarea> -->
 
 
                             </div>

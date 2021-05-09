@@ -13,7 +13,7 @@ const User = require("../models/user"),
             Gender: body.Gender,
             Location: body.Location,
             Email: body.Email,
-            DoB: body.DoB,
+            DoB: body.DoB+"T12:00:00.000+00:00",
             SecurityQuestion: body.SecurityQuestion,
             Answer: body.Answer,
             Bio: body.Bio
@@ -249,6 +249,8 @@ module.exports = {
 
         let userId = req.params.id,
             userParams = getUserParams(req.body);
+
+        console.log(req.body);
 
         User.findByIdAndUpdate(userId, { $set: userParams })
             .then(user => {

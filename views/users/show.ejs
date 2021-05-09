@@ -1,11 +1,12 @@
 <header>
     <link rel="stylesheet" href="/css/users.css">
+    <link rel="stylesheet" href="css/header.css">
     <script src="/js/users.js"></script>
-    <script>
+    <!-- <script>
       $(function () {
       $('#right-hand').load('right-hand-col.html');
     });
-    </script>
+    </script> -->
 </header>
 <body> 
   <!-- style="background-image:url(/images/chirpyBackground.jpg);" -->
@@ -27,8 +28,8 @@
     <li>Date of Birth: <%= user.DoB.toDateString() %></li>
     <li>Bio: <%= user.Bio %></li>
     <li>Number of Chirps: <%= user.chirpNumber %></li>
-    <li>Following: <%= user.following.length %> <button class="modal-button" id="f1Users" type="button" data-toggle="modal" data-target="#f1Modal" data-id="<%= `${user._id}` %>">See all</button></li>
-    <li>Followers: <%= user.followers.length %> <button class="modal-button" id="f2Users" type="button" data-toggle="modal" data-target="#f2Modal" data-id="<%= `${user._id}` %>">See all</button></li>
+    <li id="f1Users" data-toggle="modal" data-target="#f1Modal" data-id="<%= `${user._id}` %>">Following: <%= user.following.length %></li>
+    <li id="f2Users" data-toggle="modal" data-target="#f2Modal" data-id="<%= `${user._id}` %>">Followers: <%= user.followers.length %></li>
     
     </ul>
     <!-- <a href="<%= `/users/home/` %>">Home</a> -->
@@ -48,7 +49,7 @@
     <div id="header"></div>
   </div>
 
-    <div class="col-lg-5 col-md-9 col-sm-12" id="userChirps">
+    <div class="check" id="userChirps">
       <div class="feed__header">
         <h2>@<%=user.Username%>'s Chirps</h2>
       </div>

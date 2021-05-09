@@ -9,6 +9,7 @@ body {
   overflow-x: hidden;
     background-position: center;
     background-size: cover;
+    margin-top: 100px;
 }
 .editcard
 {

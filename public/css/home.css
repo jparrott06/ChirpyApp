@@ -147,6 +147,20 @@ body {
     font-size: 15px;
     color: white;
 }
+@media (max-width:280px)
+{
+    .post__headerText
+    {
+        visibility: hidden;
+    }
+}
+@media (max-width:860px)
+{
+    #home-icon
+    {
+        display: none;
+    }
+}
 
 .post__headerDescription > p{
     position: center;
@@ -401,7 +415,7 @@ table.followers #fourth {
 }
 .newsfeed
 {
-     float:right;
+     /* float:right; */
     margin-top:20px;
     /* margin-left:-10%; */
     /* position:sticky; */

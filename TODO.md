@@ -7,20 +7,22 @@
 - Add Api.js route [X]]
 
 ## Server-side Validation [ ]
-- Beef-up validation using express-validator library for signup, anywhere else (users/edit ?) [ ]
-    - Reject invalid chars (regex) [ ]
-    - Enforce password length and required chars [ ]
-    - Sanitize input data [ ]
+- Beef-up validation using express-validator library for signup, anywhere else (users/edit ?) [x* except for editing gender]
+    - Reject invalid chars (regex) [x]
+    - Enforce password length and required chars [x]
+    - Sanitize input data [x]
 
 ## BugFixes [ ]
-- Fix Responsivity on home re: top hashtags [ ]
-- Fix users/edit [ ]
-- Fix responsivity for chirps/:id/edit [ ]
+- Fix Responsivity on home re: top hashtags [x]
+    -also removed edit/delete option from chirp on home page on galaxy fold view
+- Fix users/edit [x* except for editing gender]
+- Fix responsivity for chirps/:id/edit [x]
     - also make it so when user edits chirp the hashtags are updated appropriately [ ]
-- Add back in and test client-side validation [ ]
+- Add back in and test client-side validation [x*]
 
 ## Error Page [ ]
-- Make sure user sees error.ejs when any catastrophic error happens (e.g. 404) [ ]
+- Make sure user sees error.ejs when any catastrophic error happens (e.g. 404) [x]
+- Make error page presentable [x]
 
 ## Top 10 Trending Hashtags [X]
 - Use Regex to parse Chirps for any string that starts with '#' and grab all chars after until whitespace [X]
@@ -41,10 +43,20 @@
 - When User clicks Notifications button then user is taken to page where they can see all tweets by all users they follow [X]
 
 ## MVC and Best Practices [ ]
-- Confirm HTML, CSS, JS all modularized and separate (to best extent possible) [ ]
+- Confirm HTML, CSS, JS all modularized and separate (to best extent possible) [x]
 - Confirm Repo follows MVC structure [ ]
-- Confirm Responsivity for every page [ ]
-
+- Confirm Responsivity for every page [x]
+    -home [x]
+    -edit chirp [x]
+    -user profile [x]
+    -notifications page [x]
+    -edit user [x]
+    -delete user account [x]
+    -new chirp [x]
+    -chirp index [x]
+    -show single chirp [x]
+        - check with Jake
+    
 ## Hosting [ ]
 - Host app on Heroku [ ]
     - Store 'secret_key' etc. as process.env [ ]

@@ -203,6 +203,9 @@ img
     font-size: 15px;
     font-weight: bold;
     letter-spacing: 1px;
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 12px 18px;
   }
 
@@ -234,9 +237,10 @@ input
    background-color: black;
    border-radius: 25px;
    height:100%;
-    width:100%;
+    width:95%;
     padding: 12px 18px;
-    
+    margin-left: auto;
+    margin-right: auto;
     color:white;
     outline: none;
 }
@@ -262,9 +266,10 @@ textarea
 .chirpNewcard
 {
   box-shadow: 0 4px 18px  #096faf;
-  max-width: 350px;
+  width:fit-content ;
   margin: auto;
   text-align: center;
+  margin-top:15px;
   font-family: arial;
   
 }

@@ -12,8 +12,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-6" id="test">
-                    <form action="<%=`/users/${user._id}/update?_method=PUT`%>" method ="POST"
-                        class="form_horizontal">
+                    <form action="<%=`/users/${user._id}/update?_method=PUT`%>" method="POST" class="form_horizontal">
                         <!-- onsubmit="return ValidateForm(this)" -->
                         <div class="icon">
                             <center><i class="fa fa-twitter" onclick="alert('Chirp!')"></i></center>
@@ -21,101 +20,133 @@
                         <div class="col">
                             <div class="form-group">
                                 <div class="form-group">
-                                    
-                                </div>
-                                    <label for="txtFirstName">First Name: </label>
-                                   
-                                    <input type="text" name="FirstName" id="txtFirstName" autofocus
-                                        value="<%= user.FirstName %>" class="form-control">
-</div>
-<div class="form-group">
-                                    <label for="txtLastName">Last Name:</label>
-                                    
-                                    <input class="form-control" type="text" name="LastName" id="txtLastName" value="<%= user.LastName %>">
-</div>
-<div class="form-group">
-                                    <label for="txtUsername">Username: </label>
-                                    <input class="form-control" type="text" name="Username" id="txtUsername" value="<%= user.Username %>">
-</div>
-                                    <!-- <label for="txtGender">Gender: </label>
-    <input type="radio" name="Gender" id="txtGender" required value="<%= user.Gender %>"> -->
-    <form>
-    <div class="form-group">
-        <label for="GenderQuestion" class="col-form-label">
-            Gender
-        </label>
-        <div>
-            <select class="form-control" name="Gender" id="GenderQuestion" value="<%= user.Gender %>" required>
-                
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-            </select>
-        </div>
-    </div>
-</form>
-    <div class="form-group">
-                                    <label for="txtLocation">Location: </label>
-                                    
-                                    <input class="form-control" type="text" name="Location" id="txtLocation" value="<%= user.Location %>">
-</div>
-<div class="form-group">
-                                    <label for="txtEmail">Email: </label>
-                                    
-                                    <input class="form-control" type="email" name="Email" id="txtEmail" value="<%= user.Email %>">
-</div>
-<div class="form-group">
-                                    <label for="txtPassword">Password: </label>
-                                    
-                                    <input class="form-control" type="password" name="Password" id="txtPassword"
-                                        value="<%= user.Password %>">
-</div>
-<div class="form-group">
 
-                                    <label for="txtDoB">Date of Birth: </label>
-                                    
-                                    <input required class="form-control" type="date" name="DoB" id="txtDoB" value="<%= user.DoB %>">
-</div>
-                                    <!-- <label for="txtSecurityQuestion">Security Question: </label>
+                                </div>
+                                <label for="txtFirstName">First Name: </label>
+
+                                <input type="text" name="FirstName" id="txtFirstName" autofocus
+                                    value="<%= user.FirstName %>" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtLastName">Last Name:</label>
+
+                                <input class="form-control" type="text" name="LastName" id="txtLastName"
+                                    value="<%= user.LastName %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtUsername">Username: </label>
+                                <input class="form-control" type="text" name="Username" id="txtUsername"
+                                    value="<%= user.Username %>">
+                            </div>
+                            <!-- <label for="txtGender">Gender: </label>
+    <input type="radio" name="Gender" id="txtGender" required value="<%= user.Gender %>"> -->
+                            <fieldset class="form-group" >
+                                <div class="row">
+                                    <legend class="col-form-label">Gender</legend>
+
+                                    <div value="<%= user.Gender %>">
+                                        <div class="form-check">
+                                            <input type="radio" id="rbMale" name="Gender" value="male"
+                                                class="form-check-input">
+                                            <label for="rbMale" class="form-check-label">
+                                                Male</label>
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input type="radio" id="rbFemale" name="Gender" value="female"
+                                                class="form-check-input">
+                                            <label for="rbFemale" class="form-check-label">Female</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" id="rbOther" name="Gender" value="other"
+                                                class="form-check-input">
+                                            <label for="rbOther" class="form-check-label">Other</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </fieldset>
+
+
+                            <div class="form-group">
+                                <label for="txtLocation">Location: </label>
+
+                                <input class="form-control" type="text" name="Location" id="txtLocation"
+                                    value="<%= user.Location %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEmail">Email: </label>
+
+                                <input class="form-control" type="email" name="Email" id="txtEmail"
+                                    value="<%= user.Email %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtPassword">Password: </label>
+
+                                <input class="form-control"
+                                    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                                    type="password" name="Password" id="txtPassword" value="<%= user.Password %>">
+                                <div class="minimessage">
+                                    <h5>*Password must contain: 8 minimum chars, 1 uppercase letter, 1 lowercase letter,
+                                        1 number, and 1 special character</h5>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+                                <label for="txtDoB">Date of Birth: </label>
+
+                                <input required class="form-control" type="date" name="DoB" id="txtDoB"
+                                    value="<%= user.DoB %>">
+
+
+                            </div>
+                            <!-- <label for="txtSecurityQuestion">Security Question: </label>
     <input type="text" name="SecurityQuestion" id="txtSecurityQuestion" required value="<%= user.SecurityQuestion %>"> 
     need to change this input type -->
 
-                                    <!-- <label for="txtAnswer">Answer: </label>
+                            <!-- <label for="txtAnswer">Answer: </label>
     <input type="text" name="Answer" id="txtAnswer" required value="<%= user.Answer %>">  -->
-    <div class="form-group">
-    <div class="row form-group"  onclick="func()">
-        <label for="ddSecurityQuestion" class="col-form-label">
-            Security Question
-        </label>
-        <div>
-            <select class="form-control" name="SecurityQuestion" id="ddSecurityQuestion" required>
-                <option value="<%= user.SecurityQuestion %>" >What was your high school mascot?</option>
-                <option value="<%= user.SecurityQuestion %>">Who is your favorite author?</option>
-                <option value="<%= user.SecurityQuestion %>">What is your mother's maiden name?</option>
-            </select>
-        </div>
-         
-        <div>
-            <input  class="form-control" name="Answer" id="txtAnswer" type="text"
-                placeholder="Answer" value="<%= user.Answer %>">
-                <div id="divtxtAnswerError" class="errormsg invisible"></div>
-            </input>
-        </div>
-    </div>
-</div>
-    <div class="form-group">
-                                    <label for="txtBio">Bio: </label>
-                                    <br>
-                                    <textarea name="Bio" id="txtBio" cols="44" rows="4">
-                                        <%= user.Bio %>
-                                    </textarea>
-    </div>
-                                    <button class="btn" id='signup' type="submit">Update Profile</button>
-                                </form>
-                                <a href="<%=`/users/${user._id}/`%>">
-                                    <p><button class="btn" id="reset">Back</button></p>
-                                </a>
-        </div>
-        </div>
+                            <!-- <div class="form-group">
+                                <div class="row form-group" onclick="func()">
+                                    <label for="ddSecurityQuestion" class="col-form-label">
+                                        Security Question
+                                    </label>
+                                    <div>
+                                        <select class="form-control" name="SecurityQuestion" id="ddSecurityQuestion"
+                                            required>
+                                            <option value="<%= user.SecurityQuestion %>">What was your high school
+                                                mascot?</option>
+                                            <option value="<%= user.SecurityQuestion %>">Who is your favorite author?
+                                            </option>
+                                            <option value="<%= user.SecurityQuestion %>">What is your mother's maiden
+                                                name?</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <input class="form-control" name="Answer" id="txtAnswer" type="text"
+                                            placeholder="Answer" value="<%= user.Answer %>">
+                                        <div id="divtxtAnswerError" class="errormsg invisible"></div>
+                                        </input>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="form-group">
+                                <label for="txtBio">Bio: </label>
+                                <br>
+                                <input name="Bio" id="txtBio" value="<%= user.Bio %>" class="form-control">
+
+
+                            </div>
+                            <button class="btn" id='signup' type="submit">Update Profile</button>
+                    </form>
+
+
+                    <a href="<%=`/users/${user._id}/`%>">
+                        <p><button class="btn" id="reset">Back</button></p>
+                    </a>
+                </div>
+            </div>
 
 </body>

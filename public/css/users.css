@@ -162,7 +162,24 @@ button[type=submit] {
     white-space: nowrap;
     font-size: 2vw;
   }
+  .feed__header
+  {
+    width:60%;
+  }
+  .sidebar
+  {
+    display: none;
+  }
 }
+
+@media (max-width:1060px)
+{
+  .sidebar
+  {
+    display: none;
+  }
+}
+
 
 input {
     background-color: black;
@@ -181,10 +198,29 @@ form > * {
   display: flex;
   width:50vh;
 }
-
+.heading_image
+{
+  top:0;
+  position:absolute;
+}
 .sidebar
 {
-    /* visibility: hidden; */
+    background-color: black;
+    font-size: small;
+    top:5%;
+}
+.sidebar a{
+  display: block;
+  height: 65px;
+  color: white;
+  width: 100%;
+  line-height: 65px;
+  padding-left: 30px;
+  font-weight: bold;
+  font-size: small;
+  /* border-right:2px solid rgb(73, 71, 71); */
+  font-family: 'Open Sans',sans-serif;
+  
 }
 img
 {
@@ -320,10 +356,19 @@ textarea
   
 }
 
-
+.check
+{
+  max-width: 550px;
+  /* width: fit-content; */
+  margin-left: auto;
+  margin-right: auto;
+}
 .feed__header {
   position: sticky;
   /* width: 550px; */
+  width:auto;
+  margin-left: auto;
+  margin-right: auto;
   top: 0;
   color: white;
   z-index: 100;
@@ -433,10 +478,10 @@ textarea
   background-color: white;
   color: black;
 }
-
+/* 
 .sidebar {
   background-color:rgb(34, 32, 32, 0.8)
-}
+} */
 
 #f1Users {
 background-color: #096faf;

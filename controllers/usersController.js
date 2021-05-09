@@ -135,11 +135,14 @@ module.exports = {
         //Validate Password
 
         req.check("Password", "Password cannot be empty!").notEmpty();
+        // let re = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
+        // req.check("Password", "Password must contain at least 8 characters, 1 letter, 1 number, and 1 special character").matches(re)
 
         //Validate Passwords match
 
         let pass2 = req.body.pass2;
         req.checkBody("Password", "Passwords must match!").equals(pass2);
+        
 
 
 

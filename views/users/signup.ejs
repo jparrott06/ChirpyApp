@@ -76,17 +76,17 @@ Minimum fields for a user to sign-up
                         </div>
                         <div class="col">
                             <div class="form-group">
-                            <a href="http://www.facebook.com/" class="form-control" id="fb">
+                            <a href="#" onclick="alert('Coming Soon!')" class="form-control" id="fb">
                               <i class="fa fa-facebook fa-fw"></i> Signup with Facebook
                              </a>
                              </div>
                              <div class="form-group">
-                            <a href="http://www.instagram.com/" class="form-control" id="instagram">
+                            <a href="#" onclick="alert('Coming Soon!')" class="form-control" id="instagram">
                               <i class="fa fa-instagram fa-fw"></i> Signup with Instagram
                             </a>
                             </div>
                             <div class="form-group">
-                            <a href="http://www.gmail.com/" class="form-control" id="google"><i class="fa fa-google fa-fw"></i> Signup with Gmail
+                            <a href="#" onclick="alert('Coming Soon!')" class="form-control" id="google"><i class="fa fa-google fa-fw"></i> Signup with Gmail
                             </a>
                             </div>
                           </div>
@@ -143,12 +143,12 @@ Minimum fields for a user to sign-up
                                 </div>
                             </div>
                         </fieldset>
-
+                        <div class="testfe"><input class="text"></div>
                         <div class="form-group">
                             <input class="form-control" id="LoName" type="text" placeholder="Location" name="Location">
                             <div id="divLoNameError" class="errormsg invisible"></div>
                         </div>
-
+                       
                         <div class="form-group">
                             <input class="<%= (error != false && error.fields.includes('Email') != false)? 'error form-control': 'form-control' %>" id="EName" type="email" required placeholder="Email" name="Email">
                             <div id="divENameError" class="errormsg invisible"></div>
@@ -158,8 +158,7 @@ Minimum fields for a user to sign-up
                         </div>
 
                         <div class="form-group">
-                            
-                            <input class="<%= (error != false && (error.passmsg != undefined || error.fields.includes('pass1') != false))? 'error form-control': 'form-control' %>"  id="pass1" type="password" required placeholder="Password" name="Password">
+                            <input pattern ="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" class="<%= (error != false && (error.passmsg != undefined || error.fields.includes('pass1') != false))? 'error form-control': 'form-control' %>"  id="pass1" type="password" required placeholder="Password" name="Password">
                             <div id="passerror1" class="col-sm-4 invisible errormsg"></div>
                             <div id ="txtpasserror1" class="col-sm-4 invisible errormsg"></div>
                             <% if (error != false && error.passmsg != undefined) {%>
@@ -168,10 +167,13 @@ Minimum fields for a user to sign-up
                              <% if (error != false && error.fields.includes("pass1") != false) {%>
                                 <span class="errorSpan"><%= error.required %></span>
                              <% }%>
+                             <div class = "minimessage">
+                                <h5>*Password must contain: 8 minimum chars, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character</h5>
+                             </div>
                         </div>
 
                         <div class="form-group">
-                            <input class="<%= (error != false && (error.passmsg != undefined || error.fields.includes('pass2') != false))? 'error form-control': 'form-control' %>" id="pass2" type="password" required placeholder="Confirm Password" name="pass2">
+                            <input pattern ="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" class="<%= (error != false && (error.passmsg != undefined || error.fields.includes('pass2') != false))? 'error form-control': 'form-control' %>" id="pass2" type="password" required placeholder="Confirm Password" name="pass2">
                             <div id="passerror2" class="col-sm-4 invisible errormsg"></div>
                             <div id ="txtpasserror2" class="col-sm-4 invisible errormsg"></div>
                             <% if (error != false && error.passmsg != undefined) {%>
@@ -180,6 +182,9 @@ Minimum fields for a user to sign-up
                              <% if (error != false && error.fields.includes("pass2") != false) {%>
                                 <span class="errorSpan"><%= error.required %></span>
                              <% }%>
+                             <div class = "minimessage">
+                                <h5>*Password must contain: 8 minimum chars, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character</h5>
+                             </div>
                         </div>
                         
                         <div class="row form-group">

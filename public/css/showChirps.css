@@ -9,6 +9,7 @@ body {
   overflow-x: hidden;
     background-position: center;
     background-size: cover;
+    margin-top: 100px;
 }
 .editcard
 {
@@ -292,6 +293,9 @@ table
     margin: auto;
     margin-top:-100px;
     text-align: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     font-family: arial;
   }
   
@@ -320,11 +324,13 @@ table
   {
       background-color: #096faf;
       color:white;
+      padding:10px;
   }
   #backbtn
   {
       color:white;
       background-color: rgb(47, 51, 54);
+      padding:10px;
   }
   .button
   {
@@ -334,9 +340,13 @@ table
     letter-spacing: 1px;
     width: 20%;
     height:50px;
-    padding: 10px 20px;
+    padding: 12x 18px;
     margin: 0 0 15px 0;
     border:none;
+    padding-left: inherit;
+    padding-right: inherit;
+    padding-top: inherit;
+    padding-bottom: inherit;
     border-radius: 35px;
   }
   .delbutton
@@ -348,7 +358,7 @@ table
     letter-spacing: 1px;
     width: 20%;
     height:50px;
-    padding: 10px 20px;
+    padding: 5px 10px;
     margin: 0 0 15px 0;
     border:none;
     border-radius: 35px;

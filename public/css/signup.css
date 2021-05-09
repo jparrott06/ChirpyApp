@@ -36,13 +36,12 @@
     font-size: 14px;
   }
 
-/* @media(max-height:1100px)
+/* @media(max-width:1024px)
 {
-    .mainform
+    
+    #test
     {
-        margin-top:0%;
-        height:auto;
-        position:relative;
+        width:60%;
     }
 } */
 
@@ -79,6 +78,7 @@ body
 #test {
     background-color: black;
     margin-bottom: 25px;
+    display:inline-table;
 }
 
 .form_horizontal .title
@@ -88,7 +88,7 @@ body
     font-size: 30px;
     font-weight: bold;
 }
-.form_horizontal .form-group
+.form_horizontal .group
 {
     
     margin: 0px 0px 10px;
@@ -204,6 +204,13 @@ label {
     font-size: 20px;
     font-weight: 10px;
 }
+.minimessage
+{
+    color:white;
+    background-color: #1B95E0;
+    width: 93%;
+
+}
 
 #ddSecurityQuestion > option {
     background-color: black;
@@ -318,5 +325,8 @@ label {
 }
 .sidebar
 {
+    visibility: hidden;
+}
+.testfe {
     visibility: hidden;
 }

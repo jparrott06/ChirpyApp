@@ -60,7 +60,9 @@
   <div class="sidebar" id="header">
     <% if (loggedIn) { %>
     <a href="/users/home"><i class="fa fa-home"></i><span>Home</span></a>
-    <a href="#"><i class="fa fa-hashtag"></i><span>Messages</span></a>
+    <div class = "mini" onclick="alert('Coming Soon!')">
+      <a href="#"><i class="fa fa-hashtag"></i><span>Messages</span></a>
+  </div>
     <a href="<%=`/users/${currentUser._id}/following`%>"><i class="fa fa-bell"></i><span>Notifications</span></a>
     <!-- <a href="<%=`/chirps/`%>"><i class="fa fa-bell"></i><span>View Chirps</span></a> -->
     <a href="<%=`/users/${currentUser._id}/`%>"><i class="fa fa-user"></i><span>View Profile</span></a>

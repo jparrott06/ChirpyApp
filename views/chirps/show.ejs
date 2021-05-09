@@ -7,7 +7,7 @@
 <h2 class="center" style="color: white">Chirp Data for <%= chirp.user %>
 </h2>
 
-<body>
+<body style="background-image:url(/images/chirpyBackground.jpg);">
     <div class="container">
         <div class="card">
             <% if(currentUser.Gender == 'male') { %>
@@ -19,7 +19,7 @@
                             <%= currentUser.FirstName %>'s Chirp!
                         </h3>
                         <h4>
-                            <%= currentUser.Username %>
+                            @<%= currentUser.Username %>
                         </h4>
        
                         

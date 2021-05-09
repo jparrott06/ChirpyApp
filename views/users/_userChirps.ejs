@@ -21,7 +21,7 @@
           <div class="post__headerText">
             <h3> <%=user.FirstName%> <%=user.LastName%> <span class="post__headerSpecial">@<%=user.Username%></span>
             </h3>
-          <!-- </a> -->
+          </a> 
             <% if(chirp.user.toString() == currentUser._id.toString()) { %>
               <a class="card-button" href="<%= `/chirps/${chirp._id}/edit` %>">Edit</a>
               <a class="card-button" href="<%= `/chirps/${chirp._id}/delete?_method=DELETE` %>" 

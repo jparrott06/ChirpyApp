@@ -80,16 +80,16 @@
                                 <input class="form-control" type="email" name="Email" id="txtEmail"
                                     value="<%= user.Email %>">
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="txtPassword">Current Password: </label>
 
                                 <input class="form-control"
                                     pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
                                     type="password" name="Password" id="txtPassword">
-                                <!-- <div class="minimessage">
+                                <div class="minimessage">
                                     <h5>*Password must contain: 8 minimum chars, 1 uppercase letter, 1 lowercase letter,
                                         1 number, and 1 special character</h5>
-                                </div> -->
+                                </div>
 
                             </div>
                             <div class="form-group">
@@ -98,10 +98,10 @@
                                 <input class="form-control"
                                     pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
                                     type="password" name="NewPassword" id="txtNewPassword">
-                                <!-- <div class="minimessage">
+                                <div class="minimessage">
                                     <h5>*Password must contain: 8 minimum chars, 1 uppercase letter, 1 lowercase letter,
                                         1 number, and 1 special character</h5>
-                                </div> -->
+                                </div>
 
                             </div>
                             <div class="form-group">
@@ -110,12 +110,12 @@
                                 <input class="form-control"
                                     pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
                                     type="password" name="confirmNewPassword" id="txtConfirmNewPassword">
-                                <!-- <div class="minimessage">
+                                <div class="minimessage">
                                     <h5>*Password must contain: 8 minimum chars, 1 uppercase letter, 1 lowercase letter,
                                         1 number, and 1 special character</h5>
-                                </div> -->
+                                </div>
 
-                            </div>
+                            </div> -->
 
 
                             <div class="form-group">
@@ -127,11 +127,7 @@
 
 
                             </div>
-                            <!-- <label for="txtSecurityQuestion">Security Question: </label>
-    <input type="text" name="SecurityQuestion" id="txtSecurityQuestion" required value="<%= user.SecurityQuestion %>">
-
-                            <label for="txtAnswer">Answer: </label>
-    <input type="text" name="Answer" id="txtAnswer" required value="<%= user.Answer %>">  -->
+                           
                             <div class="form-group">
                                 <div class="row form-group" onclick="func()">
                                     <label for="ddSecurityQuestion" class="col-form-label">
@@ -161,9 +157,6 @@
                                 <label for="txtBio">Bio: </label>
                                 <br>
                                 <input name="Bio" id="txtBio" value="<%= user.Bio.trim() %>" class="form-control" maxlength="250">
-
-                                <!-- <textarea><%=user.Bio.trim()%></textarea> -->
-
 
                             </div>
                             <button class="btn" id='signup' type="submit">Update Profile</button>

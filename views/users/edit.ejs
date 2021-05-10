@@ -33,9 +33,14 @@
                                 <input class="form-control" type="text" name="LastName" id="txtLastName"
                                     value="<%= user.LastName %>">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" hidden>
                                 <label for="txtUsername">Username: </label>
                                 <input class="form-control" type="text" name="Username" id="txtUsername"
+                                    value="<%= user.Username %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtUsername">Username: </label>
+                                <input class="form-control" type="text" name="NewUsername" id="txtUsername"
                                     value="<%= user.Username %>">
                             </div>
                             <!-- <label for="txtGender">Gender: </label>
@@ -74,7 +79,7 @@
                                 <input class="form-control" type="text" name="Location" id="txtLocation"
                                     value="<%= user.Location %>">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" hidden>
                                 <label for="txtEmail">Email: </label>
 
                                 <input class="form-control" type="email" name="Email" id="txtEmail"
@@ -85,7 +90,7 @@
 
                                 <input class="form-control"
                                     pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
-                                    type="password" name="Password" id="txtPassword">
+                                    type="password" name="Password" id="txtPassword" value="<%= user.Password %>">
                                 <div class="minimessage">
                                     <h5>*Password must contain: 8 minimum chars, 1 uppercase letter, 1 lowercase letter,
                                         1 number, and 1 special character</h5>
@@ -114,7 +119,7 @@
                                     <h5>*Password must contain: 8 minimum chars, 1 uppercase letter, 1 lowercase letter,
                                         1 number, and 1 special character</h5>
                                 </div>
-
+                                    
                             </div> -->
 
 

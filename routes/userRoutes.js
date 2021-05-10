@@ -24,7 +24,7 @@ router.get("/logout", usersController.logout, usersController.redirectView);
 
 router.get("/:id", usersController.getUserChirps, usersController.showView);
 router.get("/:id/edit", usersController.edit);
-router.put("/:id/update", usersController.update, usersController.redirectView);
+router.put("/:id/update",usersController.validateEdit, usersController.update, usersController.redirectView);
 router.get("/:id/delete", usersController.deleteCheck);
 router.delete("/:id/delete", usersController.delete, usersController.redirectView);
 router.get("/:id/following", 

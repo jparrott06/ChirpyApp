@@ -198,6 +198,120 @@ module.exports = {
 
     },
 
+    validateEdit: (req, res, next) => {
+
+      let userId = req.params.id;
+      console.log(userId);
+
+      console.log("Validating Edit...");
+      console.log(req.body);
+        //Sanitize all user input in case bad-actor bypasses form
+        req
+          .sanitizeBody([
+            "FirstName",
+            "LastName",
+            "Username",
+            "NewUsername",
+            "Gender",
+            "Location",
+            "Email",
+            "Password",
+            "DoB",
+            "SecurityQuestion",
+            "Answer"
+          ])
+
+        console.log(req.body);
+        //Validate FirstName
+
+        req.check("FirstName", "First name is a required field!").notEmpty();
+
+        //Validate LastName
+
+        req.check("LastName", "Last name is a required field!").notEmpty();
+
+        //Validate Username
+
+
+        // req.check("Username", "Username is a required field!").notEmpty();
+        // req.check("NewUsername", "Username is a required field!").notEmpty();
+        //console.log(req.body.Username);
+        //console.log(req.body.NewUsername);
+
+        if (req.body.Username != req.body.NewUsername) {
+        req.body.Username = req.body.NewUsername;
+        req.check("NewUsername", "Username is already taken").custom(value => {
+          return User.findOne({Username: value}).then(user => {
+            if (user) {
+              return Promise.reject("Username is already taken.");
+            }
+          });
+        });
+      }
+
+        //Validate Gender
+
+        req.check("Gender", "Gender is invalid").isString();
+
+        //Validate Location
+
+        req.check("Location", "Location is invalid").isString();
+
+        //Validate DoB
+        req.check("DoB", "Date of Birth is a required field!").notEmpty();
+
+        req.check("DoB", "Date of Birth is invalid").isISO8601();
+
+        //Validate SecurityQuestion
+
+        req.check("SecurityQuestion", "Security Question is a required field!").notEmpty();
+
+        //Validate Answer
+
+        req.check("Answer", "Answer to Security Question is a required field!").notEmpty();
+
+        //Validate Bio
+
+        req.check("Bio", "Bio is limited to 250 characters!").isLength({
+            max: 250
+        })
+
+        //Validate Email
+
+        req.sanitizeBody("Email").normalizeEmail({
+            all_lowercase: true
+        }).trim();
+
+        req.check("Email", "Email is not valid!").isEmail();
+
+        req.check("Email", "Email is a required field!").notEmpty();
+
+        // req.check("Email", "Email is already in use").custom(value => {
+        //   return User.findOne({Email: value}).then(user => {
+        //     if (user) {
+        //       return Promise.reject("Email is already in use.");
+        //     }
+        //   });
+        // });
+
+        //Password must be changed using other route
+
+        req.getValidationResult().then((error) => {
+            if (!error.isEmpty()) {
+                let messages = error.array().map(e => e.msg);
+                req.flash("error", messages.join(" and "));
+                req.skip = true;
+                res.locals.redirect = `/users/${userId}/edit`;
+                next();
+            }
+            else {
+                console.log("Validation successful");
+                next();
+            }
+
+        });
+    },
+
     authenticate: passport.authenticate("local", {
         failureRedirect: "/users/signin",
         failureFlash: "Login failed! Check your email or password!",

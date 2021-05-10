@@ -18,7 +18,7 @@ User = require("./models/user");
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect("mongodb://localhost:27017/chirpy_app", 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/chirpy_app", 
 {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 mongoose.set("useCreateIndex", true);
 
@@ -44,9 +44,9 @@ app.use(methodOverride("_method", {methods:['POST', 'GET']}));
 
 app.use(express.json());
 
-app.use(cookieParser("my_passcode"));
+app.use(cookieParser(process.env.passcode || "my_passcode"));
 app.use(expressSession({
-    secret: "my_passcode",
+    secret: process.env.passcode || "my_passcode",
     cookie: {
         maxAge: 36000000
     },
@@ -67,24 +67,6 @@ app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     next();
 })
-
-// new additions with router
-
-// router.get("/users", usersController.index, usersController.indexView);
-// router.get("/users/new", usersController.new);
-// router.post("/users/create", usersController.create, usersController.redirectView);
-// router.get("/users/:id", usersController.show, usersController.showView);
-// router.get("/users/:id/edit", usersController.edit);
-// router.put("/users/:id/update", usersController.update, usersController.redirectView);
-// router.delete("/users/:id/delete", usersController.delete,usersController.redirectView);
-
-// previous stuff-may need to edit
-
-// router.get("/signup", usersController.getSignupPage);
-// router.post("/signup", usersController.saveUser);
-
-// router.get("/signin", usersController.getSigninPage);
-// router.post("/signin", usersController.postSigninUser);
 
 app.use("/", router);
 

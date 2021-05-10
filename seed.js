@@ -5,7 +5,7 @@ const mongoose = require("mongoose"),
   Chirp = require("./models/chirp");
 
 mongoose.connect(
-  "mongodb://localhost:27017/chirpy_app",
+  process.env.MONGODB_URI || "mongodb://localhost:27017/chirpy_app",
   { useUnifiedTopology: true, useNewUrlParser: true }
 );
 mongoose.set("useCreateIndex", true);
@@ -182,39 +182,3 @@ users
   .catch(error => {
     console.log(`ERROR: ${error}`);
   });
-
-// User.deleteMany()
-//   .exec()
-//   .then(() => {
-//     console.log("User data is empty!");
-//   });
-
-// var commands = [];
-
-// users.forEach(c => {
-//   console.log(c);
-//   commands.push(
-//     User.create({
-//         FirstName: c.FirstName,
-//         LastName: c.LastName,
-//         Username: c.Username,
-//         Gender: c.Gender,
-//         Location: c.Location,
-//         Email: c.Email,
-//         Password: c.Password,
-//         DoB: c.DoB,
-//         SecurityQuestion: c.SecurityQuestion,
-//         Answer: c.Answer,
-//         Bio: c.Bio
-//     })
-//   );
-// });
-
-// Promise.all(commands)
-//   .then(r => {
-//     console.log(JSON.stringify(r));
-//     mongoose.connection.close();
-//   })
-//   .catch(error => {
-//     console.log(`ERROR: ${error}`);
-//   });

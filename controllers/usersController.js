@@ -262,6 +262,18 @@ module.exports = {
 
         req.check("DoB", "Date of Birth is invalid").isISO8601();
 
+        // req.check("DoB", "You cannot be born in the future!").custom(value =>{
+        //   let today = new Date();
+        //   let dateValue = new Date(value);
+        //   console.log("Today: " + today);
+        //   console.log("Value: " + dateValue);
+        //   if (dateValue > today) {
+        //     return Promise.reject("You cannot be born in the future!");
+        //   }
+        // });
+
+        req.check()
+
         //Validate SecurityQuestion
 
         req.check("SecurityQuestion", "Security Question is a required field!").notEmpty();

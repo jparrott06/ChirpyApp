@@ -44,9 +44,9 @@ app.use(methodOverride("_method", {methods:['POST', 'GET']}));
 
 app.use(express.json());
 
-app.use(cookieParser(process.env.passcode || "my_passcode"));
+app.use(cookieParser(process.env.PASSCODE || "my_passcode"));
 app.use(expressSession({
-    secret: process.env.passcode || "my_passcode",
+    secret: process.env.PASSCODE || "my_passcode",
     cookie: {
         maxAge: 36000000
     },

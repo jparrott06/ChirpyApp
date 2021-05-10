@@ -156,13 +156,13 @@ body {
     font-size: 15px;
     color: white;
 }
-@media (max-width:280px)
+/* @media (max-width:280px)
 {
     .post__headerText
     {
         visibility: hidden;
     }
-}
+} */
 @media (min-width:997px)
 {
     .current
@@ -177,13 +177,13 @@ body {
     .logout
     {width: 260px;}
 }
-@media (min-width:768px)
+/* @media (min-width:768px)
 {
     .fa-twitter
     {
         visibility: hidden;
     }
-}
+} */
 @media (max-width:860px)
 {
     #mainfeed

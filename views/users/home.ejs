@@ -67,7 +67,7 @@ It doesn’t have to be collapsible but needs to look decent.'
       <div id="header"></div>
     </div>
     
-    <div class="col-lg-5 col-md-9 col-sm-12">
+    <div class="col-lg-5 col-md-9 col-sm-12" id="mainfeed">
       <div class="feed__header">
         <h2>Home<i id="home-icon" onclick="alert('chirp')" class="fa fa-twitter headerimg"></i></h2>
       </div>
@@ -86,11 +86,11 @@ It doesn’t have to be collapsible but needs to look decent.'
             <input type="text" name="chirpBody" placeholder="What's happening, <%= currentUser.Username %>?" required maxlength="250">
           </div>
           <div class="myicons">
-            <a href="#"><i class="material-icons" id="file">add_photo_alternate</i></a>
-            <a href="#"><i class="material-icons" id="gif">gif</i></a>
-            <a href="#"><i class="material-icons" id="emoji">emoji_emotions</i></a>
-            <a href="#"><i class="material-icons" id="poll">poll</i></a>
-            <a href="#"><i class="material-icons" id="schedule">calendar_today</i></a>
+            <a href="#"><i class="material-icons" id="file" onclick="alert('Coming Soon!')">add_photo_alternate</i></a>
+            <a href="#"><i class="material-icons" id="gif" onclick="alert('Coming Soon!')">gif</i></a>
+            <a href="#"><i class="material-icons" id="emoji" onclick="alert('Coming Soon!')">emoji_emotions</i></a>
+            <a href="#"><i class="material-icons" id="poll" onclick="alert('Coming Soon!')">poll</i></a>
+            <a href="#"><i class="material-icons" id="schedule" onclick="alert('Coming Soon!')">calendar_today</i></a>
           </div>
           <button class="chirpBox__chirpButton" type="submit">Chirp!</button>
           
@@ -106,7 +106,7 @@ It doesn’t have to be collapsible but needs to look decent.'
 
 
 <div class = 'rightside'>
-    <div class="col-lg-3 hidden-md hidden-sm hidden-xs">
+    <div class="col-lg-3 hidden-md hidden-sm hidden-xs" id="miniright">
       <div class="search-box" id="box">
         <table class="search-contents">
           <tr>
@@ -114,7 +114,7 @@ It doesn’t have to be collapsible but needs to look decent.'
               <i class="fa fa-search searchIcon" id='searchicon' onclick="alert('chirp')"></i>
             </td>
             <td>
-              <input class="search" type="text" onclick="myFunction()" name="" id="searchinput"
+              <input class="search" type="text" onMouseOver="myFunction()" name="" id="searchinput"
                 placeholder="Search Chirpy">
             </td>
           </tr>

@@ -11,31 +11,33 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></script> -->
   <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script src="/js/layout.js"></script>
 
-    <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
 </head>
 
 <body>
-  
+
   <div class="heading_image">
-    <i class="fa fa-twitter headerimg" style="font-size:48px;color:#1DA1F2;width:40px;height: 35px;text-shadow: 0 0 3px #000;"></i>
+    <i class="fa fa-twitter headerimg"
+      style="font-size:48px;color:#1DA1F2;width:40px;height: 35px;text-shadow: 0 0 3px #000;"></i>
   </div>
   <div class="login">
     <% if (loggedIn) { %>
-     <div class="current">
-       <p>Logged in as <a href="<%=`/users/${currentUser._id}`%>">
-          <%= currentUser.fullName; %>
-        </a>
-      </div> 
+      <div class="current">
+        <p>Logged in as <a href="<%=`/users/${currentUser._id}`%>">
+            <%= currentUser.fullName; %>
+          </a>
+      </div>
       <div class="logout">
         <a href="/users/logout">Log out</a>
-      </p>
-    </div>
+        </p>
+      </div>
       <% } else { %>
         <div class="log_in">
-        <a href="/users/signin">Log in</a>
-      </div>
+          <a href="/users/signin">Log in</a>
+        </div>
         <% } %>
   </div>
 
@@ -59,19 +61,39 @@
 
   <div class="sidebar" id="header">
     <% if (loggedIn) { %>
-    <a href="/users/home"><i class="fa fa-home"></i><span>Home</span></a>
-    <div class = "mini" onclick="alert('Coming Soon!')">
-      <a href="#"><i class="fa fa-hashtag"></i><span>Messages</span></a>
-  </div>
-    <a href="<%=`/users/${currentUser._id}/following`%>"><i class="fa fa-bell"></i><span>Notifications</span></a>
-    <!-- <a href="<%=`/chirps/`%>"><i class="fa fa-bell"></i><span>View Chirps</span></a> -->
-    <a href="<%=`/users/${currentUser._id}/`%>"><i class="fa fa-user"></i><span>View Profile</span></a>
-    <a href="<%=`/users/${currentUser._id}/edit`%>"><i class="fa fa-edit"></i><span>Edit Profile</span></a>
-    <a href="<%=`/users/${currentUser._id}/delete`%>"><i class="fa fa-cog"></i><span>Delete Account</span></a>
-    <a href="<%=`/chirps/new`%>"><button type="button" id="chirp"><span>CHIRP</span></button></a>
-    <% } else { %>
-      <a href="/users/signin"><i class="fa fa-home"></i><span>Sign in</span></a>
-      <% } %>
+      <a href="/users/home"><i class="fa fa-home"></i><span>Home</span></a>
+      <div class="mini" onclick="alert('Coming Soon!')">
+        <a href="#"><i class="fa fa-hashtag"></i><span>Messages</span></a>
+      </div>
+      <a href="<%=`/users/${currentUser._id}/following`%>"><i class="fa fa-bell"></i><span>Notifications</span></a>
+      <!-- <a href="<%=`/chirps/`%>"><i class="fa fa-bell"></i><span>View Chirps</span></a> -->
+      <a href="<%=`/users/${currentUser._id}/`%>"><i class="fa fa-user"></i><span>View Profile</span></a>
+      <a href="<%=`/users/${currentUser._id}/edit`%>"><i class="fa fa-edit"></i><span>Edit Profile</span></a>
+      <a href="<%=`/users/${currentUser._id}/delete`%>"><i class="fa fa-cog"></i><span>Delete Account</span></a>
+      <a href="<%=`/chirps/new`%>"><button type="button" id="chirp"><span>CHIRP</span></button></a>
+      <div class="testdiv">
+        <% if(currentUser.Gender=='male' ) { %>
+          <img src="/images/img_avatar.png" alt="Avatar" class="avatar-main">
+          <a href="<%=`/users/${currentUser._id}/`%>"> <h5>
+            <%=currentUser.fullName%> <br>
+          </h5></a>
+          <h5 id="newer">@<%=currentUser.userName%>
+          </h5>
+          <% } else { %>
+            <img src="/images/img_avatar2.png" alt="Avatar" class="avatar-main">
+            <a href="<%=`/users/${currentUser._id}/`%>"><h5>
+              <%=currentUser.fullName%>
+            </h5></a>
+            <h5 id="newer">@<%=currentUser.userName%>
+            </h5>
+            <% } %>
+
+      </div>
+      <% } else { %>
+        <a href="/users/signin"><i class="fa fa-home"></i><span>Sign in</span></a>
+        <% } %>
+
+
   </div>
 
   <div>
@@ -87,20 +109,20 @@
     </ul>
   </footer>
 
-<div class="modal-drop">
-  <div id="myModal" class="modal fade modal-backdrop" role="dialog" data-backdrop="false">
-    <div class="modal-dialog">
-      
+  <div class="modal-drop">
+    <div id="myModal" class="modal fade modal-backdrop" role="dialog" data-backdrop="false">
+      <div class="modal-dialog">
+
         <h4 class="modal-title"><img src="/images/trending.png" alt="Avatar" class="avatar"> Chirps</h4>
-        <div class="modal-body"> 
+        <div class="modal-body">
         </div>
         <div class="modal-footer">
-            <button type="button" data-dismiss="modal" class="button">Close</button>
+          <button type="button" data-dismiss="modal" class="button">Close</button>
         </div>
+      </div>
     </div>
-  </div>
 
-</div>
+  </div>
 
 </body>
 

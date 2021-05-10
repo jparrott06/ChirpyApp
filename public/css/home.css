@@ -62,7 +62,11 @@ body {
     height: 50px;
     border-radius: 50%;
 }
-
+.post__avatar
+{
+    margin-top: 12px;
+    margin-left: 12px;
+}
 .chirpBox {
     padding-bottom: 10px;
     border-bottom: 8px solid rgb(34, 32, 32);
@@ -141,7 +145,12 @@ body {
     margin-bottom: 5px;
     color: white;
 }
-
+#mainfeed
+{
+    position: relative;
+    top: -140px;
+   
+}
 .post__headerDescription {
     margin-bottom: 10px;
     font-size: 15px;
@@ -154,8 +163,34 @@ body {
         visibility: hidden;
     }
 }
+@media (min-width:997px)
+{
+    .current
+    {width:fit-content;}
+    .logout
+    {width: fit-content;}
+}
+@media (min-width:1070px)
+{
+    .current
+    {width:260px;}
+    .logout
+    {width: 260px;}
+}
+@media (min-width:768px)
+{
+    .fa-twitter
+    {
+        visibility: hidden;
+    }
+}
 @media (max-width:860px)
 {
+    #mainfeed
+    {
+        position: unset;
+        top: 0;
+    }
     #home-icon
     {
         display: none;
@@ -299,6 +334,10 @@ body {
     .post__body
     {
       max-width: 80%;;
+    }
+    .sidebar
+    {
+        display: none;
     }
 }
 /* Widget */
@@ -489,7 +528,12 @@ table.followers #fourth {
 {
     left: -10px;
 }
-
+#miniright
+{
+    display: grid;
+    position:relative;
+    top:-140px;
+}
 .fa.fa-search.searchIcon:hover {
     text-shadow: -20px -20px 3px white;
     cursor: pointer;

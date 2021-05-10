@@ -27,6 +27,9 @@ const mongoose = require("mongoose"),
 userSchema.virtual("fullName").get(function () {
     return `${this.FirstName} ${this.LastName}`;
 });
+userSchema.virtual("userName").get(function () {
+    return `${this.Username}`;
+});
 
 userSchema.plugin(passportLocalMongoose, {
     usernameField: "Email",

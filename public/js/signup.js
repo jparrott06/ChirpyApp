@@ -158,7 +158,7 @@ function ValidateForm(form)
     var today = new Date();
     if (dobDate > today)
     {
-        alert(today);
+        //alert(today);
         DOBError.classList.remove("invisible");
         DOBError.innerHTML = "Date of Birth must be before today";
         document.getElementById('txtDoB').style.backgroundColor = "#800000";

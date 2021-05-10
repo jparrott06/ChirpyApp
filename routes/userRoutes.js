@@ -29,7 +29,7 @@ router.get("/:id/delete", usersController.deleteCheck);
 router.delete("/:id/delete", usersController.delete, usersController.redirectView);
 router.get("/:id/following", 
 usersController.getFollowing, 
-chirpsController.trending, 
+chirpsController.trending,
 usersController.getAllUsers,
 usersController.getNotificationPage);
 

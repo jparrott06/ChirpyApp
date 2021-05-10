@@ -94,7 +94,7 @@
 
 
 <div class = 'rightside'>
-    <div class="col-lg-3 hidden-md hidden-sm hidden-xs">
+    <div class="col-lg-3 hidden-md hidden-sm hidden-xs" id="miniright">
       <div class="search-box" id="box">
         <table class="search-contents">
           <tr>
@@ -118,13 +118,6 @@
           </thead>
       <%- include('./_trendingFeed') %>
 
-      <thead>
-        <tr>
-          <a href="#">
-            <th id="fifth">Show more</th>
-          </a>
-        </tr>
-      </thead>
     </table>
     </div>
 
@@ -142,13 +135,6 @@
           <%- include('./_usersFeed') %>
 
 
-          <thead>
-            <tr>
-              <a href="#">
-                <th id="fifth">Show more</th>
-              </a>
-            </tr>
-          </thead>
         </table>
         <footer>
           <ul class="foot">
@@ -165,4 +151,5 @@
 </div>
 </body>
 <script src="/js/follow.js"></script>
+<script src="/js/trending.js"></script>
 </html>

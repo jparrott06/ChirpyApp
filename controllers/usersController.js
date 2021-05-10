@@ -272,8 +272,6 @@ module.exports = {
         //   }
         // });
 
-        req.check()
-
         //Validate SecurityQuestion
 
         req.check("SecurityQuestion", "Security Question is a required field!").notEmpty();

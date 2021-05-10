@@ -321,6 +321,14 @@ body {
         margin-left:0%;
     }
 }
+@media(min-width:850px)
+{
+    #mainfeed
+    {
+        top:unset;
+    }
+    
+}
 @media(max-width:1024px)
 {
     .newsfeed

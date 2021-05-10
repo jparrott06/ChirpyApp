@@ -18,7 +18,7 @@
 - Fix users/edit [x* except for editing gender]
 - Fix responsivity for chirps/:id/edit [x]
     - also make it so when user edits chirp the hashtags are updated appropriately [X]
-- Add back in and test client-side validation [x*]
+- Add back in and test client-side validation [x]
 
 ## Error Page [ ]
 - Make sure user sees error.ejs when any catastrophic error happens (e.g. 404) [x]
@@ -55,7 +55,7 @@
     -new chirp [x]
     -chirp index [x]
     -show single chirp [x]
-        - check with Jake
+       
     
 ## Hosting [ ]
 - Host app on Heroku [ ]

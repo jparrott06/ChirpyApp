@@ -330,3 +330,15 @@ label {
 .testfe {
     visibility: hidden;
 }
+
+.hasError
+{
+    margin-top: 12px;
+    background-color: #800000;
+}
+
+.EqualsCheck
+{
+    margin-top: 30px;
+    white-space: nowrap;
+}

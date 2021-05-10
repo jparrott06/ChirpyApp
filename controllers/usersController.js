@@ -237,12 +237,16 @@ module.exports = {
         // req.check("NewUsername", "Username is a required field!").notEmpty();
         //console.log(req.body.Username);
         //console.log(req.body.NewUsername);
-
+        // var CheckUsername = document.querySelector('#txtUsername');
+        // var UserNameError = document.querySelector('#divtxtUsernameError');
         if (req.body.Username != req.body.NewUsername) {
         req.body.Username = req.body.NewUsername;
         req.check("NewUsername", "Username is already taken").custom(value => {
           return User.findOne({Username: value}).then(user => {
             if (user) {
+              // UserNameError.classList.remove("invisible");
+              // UserNameError.innerHTML = "Username is already taken";
+              // document.getElementById('txtUsername').style.backgroundColor = "red";
               return Promise.reject("Username is already taken.");
             }
           });

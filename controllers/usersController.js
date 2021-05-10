@@ -360,7 +360,16 @@ module.exports = {
     },
 
     edit: (req, res, next) => {
+        console.log(req.user);
+        console.log(req.params);
+
+        //only let loggedIn user edit their own profile//
+
+        let currentUser = req.user._id;
         let userId = req.params.id;
+
+        if (userId == currentUser) {
+
         User.findById(userId)
             .then(user => {
                 res.render("users/edit", { user: user });
@@ -369,6 +378,11 @@ module.exports = {
                 console.log(`Error fetching user by ID: ${error.message}`);
                 next(error);
             })
+        }
+        else {
+          req.flash("error", "You are unauthorized to view this page");
+          res.redirect(`/users/${userId}`);
+        }
     },
 
     update: (req, res, next) => {

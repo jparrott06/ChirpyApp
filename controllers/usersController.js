@@ -360,8 +360,8 @@ module.exports = {
     },
 
     edit: (req, res, next) => {
-        console.log(req.user);
-        console.log(req.params);
+        //console.log(req.user);
+        //console.log(req.params);
 
         //only let loggedIn user edit their own profile//
 
@@ -826,6 +826,46 @@ module.exports = {
             console.log(`Error fetching follower users: ${error.message}`);
             next(error);
             });
+    },
+
+    editAccount: (req, res, next) => {
+      console.log("editAccount");
+      let currentUser = req.user._id;
+      let userId = req.params.id;
+
+      if (userId == currentUser) {
+
+      User.findById(userId)
+          .then(user => {
+              res.render("users/editAccount", { user: user });
+          })
+          .catch(error => {
+              console.log(`Error fetching user by ID: ${error.message}`);
+              next(error);
+          })
+      }
+      else {
+        req.flash("error", "You are unauthorized to view this page");
+        res.redirect(`/users/${userId}`);
+      }
+
+    },
+
+    validateUpdateAccount: (req, res, next) => {
+      console.log("validateUpdateAccount");
+      //console.log(req.body);
+      //console.log(req.user);
+      next();
+    },
+
+    updateAccount: (req, res, next) => {
+      console.log("updateAccount");
+      //console.log(req.body);
+      //console.log(req.user);
+      let userId = req.user._id;
+      res.locals.redirect = `/users/${userId}`;
+      res.locals.user = req.user;
+      next();
     }
 
 }

@@ -33,5 +33,11 @@ chirpsController.trending,
 usersController.getAllUsers,
 usersController.getNotificationPage);
 
+router.get("/:id/editAccount", usersController.editAccount);
+router.put("/:id/updateAccount", 
+usersController.validateUpdateAccount, 
+usersController.updateAccount,
+usersController.redirectView);
+
 module.exports = router;
 

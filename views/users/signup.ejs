@@ -212,7 +212,8 @@ Minimum fields for a user to sign-up
                             </label>
                             <div>
                                 <select name="SecurityQuestion" id="ddSecurityQuestion" class="<%= (error != false && error.fields.includes('ddSecurityQuestion') != false)? 'error form-control': 'form-control' %>" required>
-                                    <option default value ="">What was your high school mascot?</option>
+                                    <option default value ="">Choose a security question...</option>
+                                    <option>What was your high school mascot?</option>
                                     <option>Who is your favorite author?</option>
                                     <option>What is your mother's maiden name?</option>
                                 </select>

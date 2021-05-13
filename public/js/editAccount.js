@@ -42,23 +42,37 @@ function formValidation() {
 
     }
 
-    var cpass = document.getElementById("Password");
-    var cpasserr = document.getElementById("divPasswordError1");
+    // var cpass = document.getElementById("Password");
+    // var cpasserr = document.getElementById("divPasswordError1");
 
-    if (!cpass.value.match(pass_regex)) {
-        cpasserr.classList.remove("invisible");
-        cpasserr.innerHTML = "Error - password must contain be at least 8 characters, containing at least one: lower-case letter, upper-case letter, and number.";
-        cpass.classList.add("hasError");
+    // if (!cpass.value.match(pass_regex)) {
+    //     cpasserr.classList.remove("invisible");
+    //     cpasserr.innerHTML = "Error - password must contain be at least 8 characters, containing at least one: lower-case letter, upper-case letter, and number.";
+    //     cpass.classList.add("hasError");
+
+    //     validForm = false;
+    // }
+
+    // else {
+    //     cpass.classList.remove("hasError");
+    //     cpasserr.classList.add("invisible");
+    // }
+
+    var email = document.getElementById("Email");
+    var emailerr = document.getElementById("divEmailError1");
+
+    if (email.value == "") {
+        emailerr.classList.remove("invisible");
+        emailerr.innerHTML = "Error - Email is a required field";
+        email.classList.add("hasError");
 
         validForm = false;
     }
 
     else {
-        cpass.classList.remove("hasError");
-        cpasserr.classList.add("invisible");
+        email.classList.remove("hasError");
+        emailerr.classList.add("invisible");
     }
-
-
 
 
     //3) There are no invalid chars (&, <, >, #, !, `, ", ~") in any field

@@ -37,6 +37,10 @@ module.exports = {
     getUserChirps: (req, res, next) => {
 
         let userId = mongoose.Types.ObjectId(req.params.id);
+        console.log("req userChirps");
+        console.log(req.user);
+        console.log("resp userChirps");
+        console.log(res.locals);
  
         User.aggregate([
             {
@@ -64,6 +68,8 @@ module.exports = {
                 console.log(user);
                 res.locals.user = user;
                 res.locals.chirps = user.chirps;
+                console.log("user chirps: res.locals");
+                console.log(res.locals);
                 next();
             })
             .catch(error => {
@@ -220,6 +226,7 @@ module.exports = {
             "SecurityQuestion",
             "Answer"
           ])
+          .trim()
 
         console.log(req.body);
         //Validate FirstName
@@ -232,21 +239,11 @@ module.exports = {
 
         //Validate Username
 
-
-        // req.check("Username", "Username is a required field!").notEmpty();
-        // req.check("NewUsername", "Username is a required field!").notEmpty();
-        //console.log(req.body.Username);
-        //console.log(req.body.NewUsername);
-        // var CheckUsername = document.querySelector('#txtUsername');
-        // var UserNameError = document.querySelector('#divtxtUsernameError');
         if (req.body.Username != req.body.NewUsername) {
         req.body.Username = req.body.NewUsername;
         req.check("NewUsername", "Username is already taken").custom(value => {
           return User.findOne({Username: value}).then(user => {
             if (user) {
-              // UserNameError.classList.remove("invisible");
-              // UserNameError.innerHTML = "Username is already taken";
-              // document.getElementById('txtUsername').style.backgroundColor = "red";
               return Promise.reject("Username is already taken.");
             }
           });
@@ -267,14 +264,20 @@ module.exports = {
         req.check("DoB", "Date of Birth is invalid").isISO8601();
 
         req.check("DoB", "You cannot be born in the future!").custom(value => {
+          //console.log("DoB: " + value);
           let today = new Date();
+          //console.log("Today: " + today.toDateString());
           let dateValue = new Date(value+"T12:00:00.000+00:00");
-          console.log("Today: " + today.valueOf());
-          console.log("Value: " + dateValue.valueOf());
-          if (dateValue.valueOf() > today.valueOf()) {
+          //console.log("dateValue" + dateValue.toDateString());
+          let todayCompare = new Date(today.toDateString());
+          let valueCompare = new Date(dateValue.toDateString());
+          //console.log("todayCompare: " + todayCompare.valueOf());
+          //console.log("valueCompare: " + valueCompare.valueOf());
+          if (Number(valueCompare.valueOf()) >= Number(todayCompare.valueOf())) {
+            console.log("invalid time");
             return false;
           }
-
+          
           return true;
         });
 
@@ -301,14 +304,6 @@ module.exports = {
         req.check("Email", "Email is not valid!").isEmail();
 
         req.check("Email", "Email is a required field!").notEmpty();
-
-        // req.check("Email", "Email is already in use").custom(value => {
-        //   return User.findOne({Email: value}).then(user => {
-        //     if (user) {
-        //       return Promise.reject("Email is already in use.");
-        //     }
-        //   });
-        // });
 
         //Password must be changed using other route
 
@@ -855,17 +850,162 @@ module.exports = {
       console.log("validateUpdateAccount");
       //console.log(req.body);
       //console.log(req.user);
-      next();
+
+      let userId = req.user._id;
+
+      //sanitize email
+      req.sanitizeBody("Email").normalizeEmail({
+        all_lowercase: true
+        }).trim();
+    
+
+      //sanitize passwords
+
+      req
+        .sanitizeBody([
+          "Password",
+          "newPassword",
+          "newPasswordconfirm"
+        ])
+        .trim();
+
+      //check current email
+      req.check("Email", "Email is not valid!").isEmail();
+      req.check("Email", "Email is a required field!").notEmpty();
+
+      //check Password
+      req.check("Password", 
+        "Password must be 8 characters long, contain at least 1 number, capital letter, and special character")
+          .isLength({min: 8})
+          .matches(/\d/)
+          .matches(/[A-Z]/)
+          .matches(/[@$!%*#?&]/)
+
+      let newpass = req.body.newPassword,
+      newpass_con = req.body.newPasswordconfirm,
+      oldpass = req.body.Password;
+
+      if (newpass != "") {
+        req.check("newPassword", 
+        "Password must be 8 characters long, contain at least 1 number, capital letter, and special character")
+          .isLength({min: 8})
+          .matches(/\d/)
+          .matches(/[A-Z]/)
+          .matches(/[@$!%*#?&]/)
+
+        req.checkBody("newPasswordconfirm", "Passwords must match!").equals(newpass_con);
+        req.changePass = true;
+
+      }
+
+      let oldemail = req.body.Email,
+      newemail = req.body.newEmail;
+
+      console.log(newemail);
+      if(newemail != "") {
+
+        req.sanitizeBody("newEmail").normalizeEmail({
+          all_lowercase: true
+        }).trim();
+
+        req.check("newEmail", "New Email is already taken").custom(value => {
+          return User.findOne({Email: value}).then(user => {
+            if (user) {
+              return Promise.reject("New Email is already taken.");
+            }
+          });
+        });
+
+        req.check("newEmail", "New Email is not valid!").isEmail();
+
+        req.changeEmail = true;
+      }
+
+      req.getValidationResult().then((error) => {
+        if (!error.isEmpty()) {
+            let messages = error.array().map(e => e.msg);
+            req.flash("error", messages.join(" and "));
+            req.skip = true;
+            res.locals.redirect = `/users/${userId}/editAccount`;
+            next();
+        }
+        else {
+            console.log("Validation successful");
+            next();
+        }
+
+    });
     },
 
-    updateAccount: (req, res, next) => {
-      console.log("updateAccount");
-      //console.log(req.body);
-      //console.log(req.user);
+    changePassword: (req, res, next) => {
+      if (req.skip) return next();
       let userId = req.user._id;
-      res.locals.redirect = `/users/${userId}`;
-      res.locals.user = req.user;
-      next();
+
+      if(req.changePass && req.user) {
+        req.user.changePassword(
+          req.body.Password,
+          req.body.newPassword,
+          function (error) {
+            if (error) {
+              console.log("Error updating password");
+              req.flash("error", `${error.message}`);
+              req.skip=true;
+              res.locals.redirect = `/users/${userId}/editAccount`;
+              res.locals.user = req.user;
+              next();
+            }
+            else {
+              console.log("Password changed successfully");
+              res.locals.user = req.user;
+              req.flash("success", "Password successfully updated");
+              next();
+            }
+          }
+        )
+      }
+      else {
+        console.log("Did not change Password");
+        res.locals.user = req.user;
+        // console.log(res.locals.user);
+        next();
+      }
+
+    },
+    
+    updateAccount: (req, res, next) => {
+      if (req.skip) return next();
+      console.log("updateAccount");
+      let userId = req.user._id;
+
+      // console.log("Here is res.locals");
+      // console.log(res.locals);
+
+      if(req.changeEmail && req.user) {
+        console.log("changing email...");
+        User.findByIdAndUpdate(userId, {Email: req.body.newEmail}, {new: true})
+          .then((user) => {
+            res.locals.currentUser = user;
+            res.locals.user = user;
+            // console.log("res.locals after update");
+            // console.log(res.locals);
+            req.flash("success", "Email update successful - Please sign in");
+            res.locals.redirect = `/users/signin/`;
+            next();
+          })
+          .catch((error) => {
+            req.flash("error", `${error.message}`);
+            res.locals.user = req.user;
+            next(error);
+          })
+      }
+
+      else {
+        res.locals.redirect = `/users/${userId}`;
+        res.locals.user = req.user;
+        // console.log(res.locals.user);
+        next();
+      }
+
     }
 
 }

@@ -35,7 +35,8 @@ usersController.getNotificationPage);
 
 router.get("/:id/editAccount", usersController.editAccount);
 router.put("/:id/updateAccount", 
-usersController.validateUpdateAccount, 
+usersController.validateUpdateAccount,
+usersController.changePassword,
 usersController.updateAccount,
 usersController.redirectView);
 

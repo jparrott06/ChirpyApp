@@ -196,10 +196,16 @@
   - ejs (for templating pages with js logic re: views and server-side errors with validation)
   - mongodb (to host our user collection and be our database)
   - mongoose (library for connectivity to local mongodb db)
-  - bcrypt (for hashing and salting user passwords)
+  - bcrypt (for hashing and salting user passwords)(replaced)
   - express
     - express-ejs-layouts (for layouts for pages)
+    - express-validator for server-side validation
+    - express-session for cookie management
   - http-status-codes (library for helping send status codes)
+  - method-override for PUT, DELETE
+  - connect-flash for flash messages
+  - passport for authentication
+    - passport-local-mongoose for integration with MongoDB
   - nodemon (for easier connectivity, especially with debugging while changing code)
 
 - ### Installation Guide:
@@ -228,11 +234,20 @@
   - Peer programming was extremely effective when trouble-shooting a single page and figuring out sizing/styling
     - we anticipate using this strategy again for larger/more complex files as we integrate this Chirpy webapp FE design into a full-stack application.
 
+  - *Future plans*:
+    - Refactor some pages to be client-side rendered (using Vue.js) to be more responsive to changes and avoid annoying page refreshes.
+    - Add in features such as comments, 'likes', rechirps, sharing, image/video upload, emojis, highlighting for hashtags, etc.
+    - Search functionality to find all users, chirps, hashtags partially matching the search query.
+    - Replace Twitter.com and wield unlimited Power and Influence over National/International discourse on current events, worldviews, cultures, values and humanity's perception of Being itself by supplanting it with a digitized simulacrum of the Hyperreal 👁️⃤   
+      - Also probably a Mobile App version. That would be cool too.
+
 - ### <b><i><u>Extras and Goodies</u></i></b>
   - HINT: Click the Chirpy bird icon on the signup page
   - Check out the background image on signup, profile, edit profile, and new chirp pages
   - Hover over buttons to see color changes and transitions (look at search bar too and hover over search icon)
   - Check out the cool birds moving in the home header
+    - Hover over Chirpy to see a flock of bird buddies join him
   - Look at the modals we've included in the 'See Chirps' portion of the trending table on the home page and 'Following/Folders' portion on profile page.
   - Hover over the comment, like, retweet, and share buttons on the home page chirps.
     - Implemented all requirements
+  - New Feature: Users can now click a link on users/edit.ejs to update their account information (email/password) separately. This demarcates between edting profile information (edit.ejs) and login information (editAccount.ejs)

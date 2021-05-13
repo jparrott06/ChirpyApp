@@ -165,14 +165,14 @@ function ValidateForm(form)
         valid = false;
     }
 
-    var SecurityAnswer = document.querySelector('#txtSecurityAnswer');
+    var SecurityAnswer = document.querySelector('#txtAnswer');
     var SecurityAnswerError = document.querySelector('#divtxtAnswerError');
 
     if(SecurityAnswer.value == "")
     {
         SecurityAnswerError.classList.remove('invisible');
         SecurityAnswerError.innerHTML = "Answer cannot be empty";
-        document.getElementById('txtSecurityAnswer').style.backgroundColor = "#800000";
+        document.getElementById('txtAnswer').style.backgroundColor = "#800000";
         valid = false;
     }
 
@@ -320,3 +320,22 @@ return valid;
 
 // }
 
+function func() {
+    $(document).ready(function () {
+        $('#ddSecurityQuestion').on('change', function () {
+            if (this.value == 'What was your high school mascot?') {
+                $("#txtAnswer").show();
+            }
+            else if (this.value == 'Who is your favorite author?') {
+                $("#txtAnswer").show();
+            }
+            else if (this.value == "What is your mother's maiden name?") {
+                $("#txtAnswer").show();
+            }
+            else {
+                $("#txtAnswer").hide();
+            }
+
+        });
+    });
+}

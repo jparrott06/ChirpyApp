@@ -213,6 +213,12 @@
 
 - ### Installation Guide:
   - To use Chirpy, you can access it at this link: http://chirpyapp.herokuapp.com/
+  - If you would like to use this code and deploy, you're not allowed to! Unless you're grading us. In that case:
+    - clone repo
+    - host on platform such as Heroku
+    - add environment variables (MONGODB_URI, PASSCODE(cookie secret string))
+    - use CLI to run `node seed` if you want to clear the database and spawn the app with seeded users and chirps
+    - chirp it up.
 
 - ### Design Choices:
   - We initially tried to develop components separately for a few reasons:

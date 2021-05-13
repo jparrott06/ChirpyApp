@@ -411,6 +411,7 @@ module.exports = {
         User.findByIdAndUpdate(userId, { $set: userParams })
             .then(user => {
                 res.locals.user = user;
+                req.flash("success", "Profile updated successfully!");
                 res.locals.redirect = `/users/${user._id}`;
                 next();
             })

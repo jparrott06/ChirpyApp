@@ -103,6 +103,7 @@ module.exports = {
             "SecurityQuestion",
             "Answer"
           ])
+          .trim()
 
         console.log(req.body);
         //Validate FirstName
@@ -136,6 +137,24 @@ module.exports = {
         req.check("DoB", "Date of Birth is a required field!").notEmpty();
 
         req.check("DoB", "Date of Birth is invalid").isISO8601();
+
+        req.check("DoB", "You cannot be born in the future!").custom(value => {
+          //console.log("DoB: " + value);
+          let today = new Date();
+          //console.log("Today: " + today.toDateString());
+          let dateValue = new Date(value+"T12:00:00.000+00:00");
+          //console.log("dateValue" + dateValue.toDateString());
+          let todayCompare = new Date(today.toDateString());
+          let valueCompare = new Date(dateValue.toDateString());
+          //console.log("todayCompare: " + todayCompare.valueOf());
+          //console.log("valueCompare: " + valueCompare.valueOf());
+          if (Number(valueCompare.valueOf()) >= Number(todayCompare.valueOf())) {
+            console.log("invalid time");
+            return false;
+          }
+          
+          return true;
+        });
 
         //Validate SecurityQuestion
 
@@ -172,8 +191,6 @@ module.exports = {
         //Validate Password
 
         req.check("Password", "Password cannot be empty!").notEmpty();
-        // let re = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
-        // req.check("Password", "Password must contain at least 8 characters, 1 letter, 1 number, and 1 special character").matches(re)
 
         //Validate Passwords match
 

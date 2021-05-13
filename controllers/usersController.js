@@ -103,7 +103,7 @@ module.exports = {
             "SecurityQuestion",
             "Answer"
           ])
-          .trim()
+          .trim();
 
         console.log(req.body);
         //Validate FirstName
@@ -243,7 +243,7 @@ module.exports = {
             "SecurityQuestion",
             "Answer"
           ])
-          .trim()
+          .trim();
 
         console.log(req.body);
         //Validate FirstName

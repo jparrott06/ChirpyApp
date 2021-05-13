@@ -3,6 +3,7 @@
 
 - website url: www.chirpyapp.herokuapp.com
 - video1: https://drive.google.com/file/d/1c2VQ3hm3Qx4dSxPYLMBiWLBtJxqdusk2/view?usp=sharing
+- video2(updates): https://drive.google.com/file/d/1qsrQXR6Z3SoGCIMKgvT9zRCoZkzfdEw-/view?usp=sharing
 
 - ### Table of Contents
   - [File Structure](./README.md#file-structure)

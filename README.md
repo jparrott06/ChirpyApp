@@ -1,6 +1,9 @@
 # ChirpyApp
 ## Repo for ChirpyApp(Assignment#4) - WebAppDev2021
 
+- website url: www.chirpyapp.herokuapp.com
+- video1: https://drive.google.com/file/d/1c2VQ3hm3Qx4dSxPYLMBiWLBtJxqdusk2/view?usp=sharing
+
 - ### Table of Contents
   - [File Structure](./README.md#file-structure)
   - [Description of Main Pages](./README.md#description-of-main-pages)

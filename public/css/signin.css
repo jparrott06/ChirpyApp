@@ -27,16 +27,30 @@
    {
        visibility: hidden;
    }
+   .login
+   {
+       display:flex;
+   }
+   .title {
+    font-weight: unset;
+}
 }
 @media(max-width:1024px)
 {
+    .title {
+        font-weight: unset;
+    }
     .sidebar
     {
         visibility: hidden;
     }
+    
 }
 @media(max-width:280px)
 {
+   .title {
+        font-weight: unset;
+    }
     .mainform
     {
         position: relative;
@@ -46,13 +60,15 @@ body
 {
     overflow: hidden;
 }
+
 .mainform
 {
     height: 100vh;
     display: flex;
-    position:absolute; 
-    right:-60px;
-    margin-top: 50px;
+    /* position:absolute;  */
+    /* right:20px;  */
+    /* margin-top: 50px; */
+    /* margin-top: -10px; */
 
 }
 .form_horizontal .icon
@@ -79,7 +95,7 @@ body
     margin-top: 20px;
     background-color: transparent;
     height: 50px;
-    width: 340px;
+    /* width: 340px; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
 }
@@ -170,3 +186,7 @@ footer
     box-shadow: none;;
     border: none;
 } */
+.sidebar
+{
+    visibility: hidden;
+}

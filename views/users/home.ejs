@@ -1,0 +1,171 @@
+<!-- 
+
+Requirements:
+
+//General//
+
+'Your pages should have
+
+A Header (including title and logo)
+Design a nice header using images, texts, etc.
+Get creative and design your own logo, or use someone else’s logo (as long as it’s not another class student)
+A footer
+Get Creative, add a section for useful links, copyright data, etc.
+A Navigation menu (either on the side or on the header)
+It doesn’t have to be collapsible but needs to look decent.'
+
+//Home//
+
+1) Build a home page for users (their main social network page).
+
+- The homepage must look professional and include all different components of the social network that you have in mind,
+  and include links to other pages you’ll add in the future.
+
+- Who to follow, trending hashtags, link to messages, link to profile
+
+2) The page must be populated with static dummy data for the sake of presentation
+
+- For example, a few posts by different users, etc.
+  You can choose to make your social network look similar to Facebook or Twitter Web apps (not Mobile apps) 
+  and build a similar homepage to those.
+
+  Instead, you can think of a different type of social network and design that.
+
+-->
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <link href="favicon.ico" rel="icon" type="image/x-icon">
+  <link rel="stylesheet" href="/css/home.css">
+  <script src="/js/home.js"></script>
+  <script src="/js/ChirpsFeed.js"></script>
+  <header>
+    <title>Chirpy Home Page</title>
+  </header>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script>
+    // $(function () {
+    //   $('#header').load('header.html');
+    // });
+    // $(function () {
+    //   $('#table-follow').load('table.html');
+    // });
+    $(function () {
+      $('#right-hand').load('right-hand-col.html');
+    });
+  </script>
+</head>
+
+<body style="background-color: black">
+  <div class="row">
+
+    <div class="col-lg-3 col-md-3">
+      <div id="header"></div>
+    </div>
+    
+    <div class="col-lg-5 col-md-9 col-sm-12" id="mainfeed">
+      <div class="feed__header">
+        <h2>Home<i id="home-icon" onclick="alert('chirp')" class="fa fa-twitter"></i></h2>
+      </div>
+
+      <div class="chirpBox">
+        <form action="/chirps/create" method="POST">
+          <div class="chirpBox__input">
+            
+            <% if(currentUser.Gender == 'male') { %>
+              <img src="/images/img_avatar.png" alt="Avatar" class="avatar">
+                <% } else { %>
+              <img src="/images/img_avatar2.png" alt="Avatar" class="avatar">
+              <% } %>
+
+            <input type="text" name="user" required hidden value="<%= currentUser._id %>">
+            <input type="text" name="chirpBody" placeholder="What's happening, <%= currentUser.Username %>?" required maxlength="250">
+          </div>
+          <div class="myicons">
+            <a href="#"><i class="material-icons" id="file" onclick="alert('Coming Soon!')">add_photo_alternate</i></a>
+            <a href="#"><i class="material-icons" id="gif" onclick="alert('Coming Soon!')">gif</i></a>
+            <a href="#"><i class="material-icons" id="emoji" onclick="alert('Coming Soon!')">emoji_emotions</i></a>
+            <a href="#"><i class="material-icons" id="poll" onclick="alert('Coming Soon!')">poll</i></a>
+            <a href="#"><i class="material-icons" id="schedule" onclick="alert('Coming Soon!')">calendar_today</i></a>
+          </div>
+          <button class="chirpBox__chirpButton" type="submit">Chirp!</button>
+          
+        </form>
+      </div>
+
+      <%- include('./_chirpsFeed') %>
+
+
+    </div>
+
+
+
+
+<div class = 'rightside'>
+    <div class="col-lg-3 hidden-md hidden-sm hidden-xs" id="miniright">
+      <div class="search-box" id="box">
+        <table class="search-contents">
+          <tr>
+            <td id="searchicon_td" style="background-color: rgb(49, 45, 45);">
+              <i class="fa fa-search searchIcon" id='searchicon' onclick="alert('chirp')"></i>
+            </td>
+            <td>
+              <input class="search" type="text" onMouseOver="myFunction()" name="" id="searchinput"
+                placeholder="Search Chirpy">
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- <div class="newsfeed"> -->
+        <!-- I think we're just gonna get rid of this -->
+      <!-- </div> -->
+      <div class="newsfeed">
+        <table class="followers">
+          <thead>
+            <tr>
+              <th id="first">Trending Now</th>
+            </tr>
+          </thead>
+      <%- include('./_trendingFeed') %>
+
+    </table>
+    </div>
+
+
+
+
+      <div class="follow">
+        <table class="followers">
+          <thead>
+            <tr>
+              <th id="first">Who to follow</th>
+            </tr>
+          </thead>
+
+          <%- include('./_usersFeed') %>
+
+        </table>
+        <footer>
+          <ul class="foot">
+              <li><center><a href="#" id="footnotes">Privacy Policy </a> <bold id="dot"> &#183; </bold><a href="#" id="footnotes">Copyright &#169; 2021 Chirpy&#8482;</a></center></li>
+          </ul>
+        </footer>
+      </div>
+
+
+    </div>
+
+  </div>
+  </div>
+</div>
+</body>
+<script src="/js/follow.js"></script>
+<script src="/js/trending.js"></script>
+<script src="/js/animation.js"></script>
+<script src="/js/ChirpsFeed.js"></script>
+</html>

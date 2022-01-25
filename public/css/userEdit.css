@@ -1,0 +1,334 @@
+* {
+    /* background-color: black; */
+    /* background-image: linear-gradient(rgba(0,0,0,0,0.8),rgba(0,0,0,0,0.8), url(public/images/chirpyBackground.jpg)); */
+}
+
+@media(max-width:860px)
+{
+    .mainform
+    {
+        right:0;
+        left:0;
+        background-size: contain;
+        margin: auto;
+        margin-top: 200px;
+        
+    }
+}
+.login {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    padding: 10px;
+    background: black;
+    border-radius: 20px;
+  }
+  
+  .login a {
+    color:white;
+    font-size: 14px;
+  }
+  
+  .log-out {
+    display: inline-block;
+    padding: 0 8px;
+    border-radius: 10px;
+    color:white;
+    font-size: 14px;
+  }
+
+/* @media(max-width:1024px)
+{
+    
+    #test
+    {
+        width:60%;
+    }
+} */
+
+
+body
+{
+    /* overflow: hidden; */
+    overflow-x: hidden;
+    background-position: center;
+    background-size: cover;
+    /* background-image: linear-gradient(rgba(0,0,0,0,0.8),rgba(0,0,0,0,0.8), url(./images/chirpyBackground.jpg)); */
+}
+
+.mainform
+{
+    height: 100vh;
+    display: flex;
+    position: center; 
+    /* right:-60px; */
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.icon
+{
+    color:#D9D9D9;
+    font-size: 42px;
+}
+
+/* .row {
+    background-color: black;
+} */
+
+#test {
+    background-color: black;
+    margin-bottom: 25px;
+    margin-top: 100px;
+    display:inline-table;
+}
+
+.form_horizontal .title
+{
+    color:#D9D9D9;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+.form_horizontal .group
+{
+    
+    margin: 0px 0px 10px;
+    position: relative;
+}
+.form_horizontal .form-control
+{
+    border-color: rgb(47, 51, 54);
+    margin-top: 20px;
+    background-color: transparent;
+    height: 50px;
+    width: 340px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+.form_horizontal .form-control::placeholder
+{
+    font-size: 20px;
+    font-weight: 10px;
+}
+
+.form_horizontal .btn
+{
+    color:rgb(47, 51, 54);
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 96%;
+    height:50px;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+    border:none;
+    border-radius: 35px;
+}
+#signup
+{
+    background-color: #096faf;
+    color:white;
+}
+#reset
+{
+    color:white;
+    background-color: rgb(47, 51, 54);
+}
+.form_horizontal .remember
+{
+    color:white;
+}
+.form_horizontal .form-options
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 8px;
+    margin-left: -10px;
+    
+}
+#lab
+{
+    color: #1B95E0;
+}
+#dot
+{
+    content: "\00B7";
+    font-size: 20px;
+}
+
+footer
+{
+    /* display: inline-block;
+    list-style: none;
+    margin:0;
+    padding:0;
+    bottom:0; */
+    /* position:center; */
+    align-items: center;
+    position: relative;
+    left: -30px;
+    /* background-color: black;
+    margin-top: 100vh;
+    clear: both; */
+}
+
+#footnotes
+{
+    
+    color:rgb(47, 51, 54);
+    
+}
+.footer-notes
+{
+    list-style-type: none;
+}
+
+label {
+    color:white
+}
+
+.col-form-label {
+    color:white
+}
+
+.title {
+    color:white
+}
+
+#txtareaBio {
+    background-color: black;
+    color: white;
+}
+
+.form-group > input {
+    font-size: 20px;
+    font-weight: 10px;
+}
+.minimessage
+{
+    color:white;
+    background-color: #1B95E0;
+    width: 93%;
+
+}
+
+#ddSecurityQuestion > option {
+    background-color: black;
+
+}
+
+#ddSecurityQuestion:hover {
+    cursor: pointer;
+}
+
+#txtAnswer {
+    font-size: 20px;
+    font-weight: 10px;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter:invert(1);
+}
+
+::-webkit-calendar-picker-indicator:hover {
+    cursor: pointer;
+}
+
+#signup:hover {
+    transition: 0.5s;
+    background-color: white;
+    color: black;
+}
+
+#reset:hover {
+    transition: 0.5s;
+    background-color: white;
+    color: black;
+}
+
+.icon:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    color: #1B95E0;
+}
+
+.form-check > label:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    color: #1B95E0;
+}
+.invisible
+{
+    display: none;
+
+}
+.errormsg
+{
+    color: red;
+}
+
+.hasError
+{
+    background-color: yellow;
+}
+/* #txtAnswer
+{
+    display:none;
+} */
+.littletitle
+{
+    text-align: center;
+    color:#D9D9D9;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+#fb {
+    background-color: #3B5998;
+    color: white;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:15px;
+  padding: 12px;
+  text-decoration: none;
+  
+  }
+  
+#instagram {
+    background-color: #E1306C;
+    color: white;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:15px;
+  padding: 12px;
+  text-decoration: none;
+  }
+  
+ #google {
+    background-color: #dd4b39;
+    color: white;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:15px;
+  padding: 12px;
+  text-decoration: none;
+  }
+
+/* Error CSS */
+
+.error.form-control {
+    background-color: #800000 ;
+}
+
+.errorSpan {
+    color: red;
+}
+.sidebar
+{
+    visibility: hidden;
+}
+.testfe {
+    visibility: hidden;
+}

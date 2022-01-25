@@ -1,41 +1,74 @@
-const express = require("express"), app = express(),
+"use strict";
+
+const user = require("./models/user");
+
+const express = require("express"), app = express(), router = require("./routes/index"),
 homeController = require("./controllers/homeController"),
 errorController = require("./controllers/errorController"),
+chirpsController = require("./controllers/chirpsController"),
+usersController = require("./controllers/usersController"),
+methodOverride = require("method-override"),
 layouts = require("express-ejs-layouts"), mongoose = require("mongoose"),
-usersController = require("./controllers/usersController");
+passport = require("passport"),
+cookieParser = require("cookie-parser"),
+expressSession = require("express-session"),
+expressValidator = require("express-validator"),
+connectFlash = require("connect-flash"),
+User = require("./models/user");
 
-mongoose.connect("mongodb://localhost:27017/chirpy_app", {useNewUrlParser: true});
+mongoose.Promise = global.Promise;
 
-app.set("port", process.env.PORT || 3000);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/chirpy_app", 
+{useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+mongoose.set("useCreateIndex", true);
+
+const db = mongoose.connection;
+
+db.once("open", () => {
+    console.log("Successfully connected to MongoDB using Mongoose!");
+});
+
 
 app.set("view engine", "ejs");
-app.use(layouts);
-
-app.get("/", homeController.showIndex);
+app.set("port", process.env.PORT || 3000);
 
 app.use(express.static("public"))
+app.use(layouts);
+app.use(expressValidator());
 app.use(
     express.urlencoded({
         extended: false
     })
 );
+app.use(methodOverride("_method", {methods:['POST', 'GET']}));
 
 app.use(express.json());
 
-// app.post("/send-signin", homeController.sendToSignin);
-// app.post("/send-signup", homeController.sendToSignup);
+app.use(cookieParser(process.env.PASSCODE || "my_passcode"));
+app.use(expressSession({
+    secret: process.env.PASSCODE || "my_passcode",
+    cookie: {
+        maxAge: 36000000
+    },
+    resave: false,
+    saveUninitialized: false,
+}));
 
-app.get("/signup", usersController.getSignupPage);
-app.post("/signup", usersController.saveUser);
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+app.use(connectFlash());
 
-app.get("/signin", usersController.getSigninPage);
-app.post("/signin", usersController.postSigninUser);
+app.use((req, res, next) => {
+    res.locals.flashMessages = req.flash();
+    res.locals.loggedIn = req.isAuthenticated();
+    res.locals.currentUser = req.user;
+    next();
+})
 
-// app.post("/verify", usersController.sendToVerification);
-// app.get("/home", usersController.showHome);
-
-app.use(errorController.pageNotFoundError);
-app.use(errorController.internalServerError);
+app.use("/", router);
 
 app.listen(app.get("port"), () => {
     console.log(`Server is running on port: ${app.get("port")}`);

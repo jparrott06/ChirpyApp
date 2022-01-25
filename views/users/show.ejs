@@ -1,0 +1,91 @@
+<header>
+    <link rel="stylesheet" href="/css/users.css">
+    <link rel="stylesheet" href="css/header.css">
+    <script src="/js/users.js"></script>
+    <!-- <script>
+      $(function () {
+      $('#right-hand').load('right-hand-col.html');
+    });
+    </script> -->
+</header>
+<body> 
+  <!-- style="background-image:url(/images/chirpyBackground.jpg);" -->
+<div class="card">
+    
+        <% if(user.Gender == 'male') { %>
+            <img src="/images/img_avatar.png" alt="Avatar" class="avatar-main">
+              <% } else { %>
+            <img src="/images/img_avatar2.png" alt="Avatar" class="avatar-main">
+            <% } %>
+
+
+    <h1><%= user.fullName %></h1>
+    <ul>
+    <li>Username: <%= user.Username %> </li>
+    <li>Gender: <%= user.Gender %></li>
+    <li>Location: <%= user.Location %></li>
+    <li>Email: <%= user.Email %></li>
+    <li>Date of Birth: <%= user.DoB.toDateString() %></li>
+    <li>Bio: <%= user.Bio %></li>
+    <li>Number of Chirps: <%= user.chirpNumber %></li>
+    <li id="f1Users" data-toggle="modal" data-target="#f1Modal" data-id="<%= `${user._id}` %>">Following: <%= user.following.length %></li>
+    <li id="f2Users" data-toggle="modal" data-target="#f2Modal" data-id="<%= `${user._id}` %>">Followers: <%= user.followers.length %></li>
+    
+    </ul>
+    <!-- <a href="<%= `/users/home/` %>">Home</a> -->
+
+    <% if (user._id.toString() == currentUser._id.toString()) { %>
+    <a href="<%=`/users/${user._id}/edit`%>"><p><button class="card-button">Update Profile</button></p></a>
+    <% } else if (!currentUser.following.includes(user._id)) { %>
+      <button class="follow-button" data-id="<%= `${user._id}` %>">Follow</button>
+      <% } else if (currentUser.following.includes(user._id)) { %>
+        <button class="unfollow-button" data-id="<%= `${user._id}` %>">Unfollow</button>
+      <% } %>
+    <a href="<%=`/users/home`%>"><p><button class="card-button">Return to Home</button></p></a>
+  </div>
+
+<div class="row">
+  <div class="col-lg-3 col-md-3">
+    <div id="header"></div>
+  </div>
+
+    <div class="check" id="userChirps">
+      <div class="feed__header">
+        <h2>@<%=user.Username%>'s Chirps</h2>
+      </div>
+
+  <%- include('./_userChirps') %>
+</div>
+</div>
+
+<div class="modal-drop">
+  <div id="f1Modal" class="modal fade modal-backdrop" role="dialog" data-backdrop="false">
+    <div class="modal-dialog">
+      
+        <h4 class="modal-title"><img src="/images/trending.png" alt="Avatar" class="avatar">Following</h4>
+        <div class="modal-body"> 
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="card-button">Close</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-drop">
+  <div id="f2Modal" class="modal fade modal-backdrop" role="dialog" data-backdrop="false">
+    <div class="modal-dialog">
+      
+        <h4 class="modal-title"><img src="/images/trending.png" alt="Avatar" class="avatar">Followed By</h4>
+        <div class="modal-body"> 
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="card-button">Close</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/get_follows.js"></script>
+<script src="/js/follow.js"></script>
+</body>

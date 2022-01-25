@@ -1,0 +1,33 @@
+<header>
+    <link rel="stylesheet" href="/css/deleteUser.css">
+</header>
+<div class="card">
+<div class = "form-data">
+    <body style="background-image:url(/images/chirpyBackground.jpg);">
+        <div id="header"></div>
+        <div class ="mainform vertical">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6">
+                        <form class="form_horizontal">
+                            <div class="icon"><i class="fa fa-twitter"></i></div>
+                            <center><h3 class="title">Are you sure you want to delete your account?</h3></center>
+                            <br>
+                            <button class = "btn signin" id="signin"> <a href="<%=`/users/home`%>" style="color:white;">
+                                No, take me back!
+                            </a></button>
+                        <br>
+                        <button class = "btn cancel" id="cancel">
+                        <a href="<%= `/users/${user._id}/delete?_method=DELETE` %>" onclick="return confirm(`Are you sure?`)">
+                           Yes
+                        </a></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+    
+</div>
+</div>

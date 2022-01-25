@@ -1,0 +1,36 @@
+<% users.forEach(user => { %>
+    <% if(user._id.toString() != currentUser._id.toString()) { %>
+<tr>
+    <div class="new">
+      <td id="second">
+        <a href="<%=`/users/${user._id}`%>">
+          <div class="new1">
+            
+            <% if(user.Gender == 'male') { %>
+              <img src="/images/img_avatar.png" alt="Avatar" class="avatar">
+                <% } else { %>
+              <img src="/images/img_avatar2.png" alt="Avatar" class="avatar">
+              <% } %>
+
+
+          </div>
+          <div class="new2">
+            <span id="header1">
+              <bold><%= user.fullName %></bold>
+            </span><br>
+            <p>@<%= user.Username %></p>
+          </div>
+        </a>
+          <div class="new3">
+            <% if (!currentUser.following.includes(user._id)) { %>
+              <button class="follow-button" data-id="<%= `${user._id}` %>">Follow</button>
+              <% } else { %>
+                <button class="unfollow-button" data-id="<%= `${user._id}` %>">Unfollow</button>
+              <% } %>
+          </div>
+
+      </td>
+    </div>
+  </tr>
+  <% } %>
+<% }) %>

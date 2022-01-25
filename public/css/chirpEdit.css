@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css?family=Baloo+Bhaina");
+
+body {
+  background-color: black;
+  margin: 0;
+  padding-top: 130px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  overflow-x: hidden;
+    background-position: center;
+    background-size: cover;
+}
+.editcard
+{
+    background-color: black;
+}
+#nav {
+  width: 100%;
+  height: 110px;
+  padding: 20px 0 5px 0;
+  border-bottom: solid 8px #ee3114;
+  box-shadow: 10px 10px 10px #ccc;
+  position: absolute;
+  top: 0;
+}
+
+#title {
+  color: #625a56;
+  margin: 0;
+  font-family: "Baloo Bhaina";
+  text-transform: uppercase;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+#nav a {
+  text-decoration: none;
+}
+
+.nav-align {
+  text-align: center;
+  padding: 3px 0;
+}
+
+.container {
+  padding: 0% 10%;
+}
+
+.button {
+  background-color: #ed4a0f;
+  padding: 0.3vw 3vw;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.button:hover {
+  background-color: #ffb99f;
+  color: #ed4a0f;
+}
+
+.subscriber {
+  padding: 10px 0px;
+  border-bottom: 1px solid lightgray;
+}
+
+.subscriber p {
+  margin: 0;
+}
+
+.list-container {
+  padding: 0 20px;
+  border: 3px solid #ffb568;
+  border-radius: 1px;
+}
+
+.item-label {
+  font-weight: 600;
+  font-style: italic;
+  margin-right: 5px;
+}
+
+.subscription-form input {
+  display: block;
+  margin: 5px;
+}
+
+.data-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.data-form label {
+  margin: 5px 0 0 0;
+}
+
+.hidden-text {
+  -webkit-text-security: disc;
+}
+
+.flash {
+  background: rgba(193, 255, 193, .7);
+  color: #625a56;
+  width: 100%;
+  text-align: center;
+  padding: 10px 30px;
+  position: absolute;
+  top: 110px;
+  z-index: 2;
+}
+
+.error {
+  color: #fff;
+  background: rgba(209, 46, 42, 0.7);
+}
+
+.login {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+button[type=submit] {
+  margin-top: 20px;
+}
+
+.login {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  padding: 10px;
+  background: black;
+  border-radius: 20px;
+}
+
+.login a {
+  color:white;
+  font-size: 14px;
+}
+
+.log-out {
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 10px;
+  color:white;
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .login {
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 2vw;
+  }
+}
+
+input {
+    background-color: black;
+}
+
+textarea {
+    background-color: black;
+}
+
+form {
+  margin: 0 auto;
+  width:fit-content;
+}
+
+form > * {
+  display: flex;
+  width:50vh;
+}
+
+.sidebar
+{
+    visibility: hidden;
+}
+img
+{
+    width: 150px;
+    height: 120px;
+    border-radius: 50%;
+    padding: 0 10px;
+}
+.editbutton{
+    background-color: #096faf;
+    padding: 0.3vw 3vw;
+    border-radius: 35px;
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px 18px;
+  }
+
+.editbutton:hover {
+    transition: 0.25s;
+    background-color: white;
+    color: black;
+  }
+  .card-button{
+    background-color: #096faf;
+    padding: 0.3vw 3vw;
+    border-radius: 35px;
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    margin-bottom: 2px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+.card-button:hover {
+    transition: 0.25s;
+    background-color: white;
+    color: black;
+  }
+input
+{
+   background-color: black;
+   border-radius: 25px;
+   height:100%;
+    width:95%;
+    padding: 12px 18px;
+    margin-left: auto;
+    margin-right: auto;
+    color:white;
+    outline: none;
+}
+
+textarea
+{   border-radius: 25px;
+    padding: 12px 18px;
+    outline:none;
+
+}
+
+.card-button > a {
+    color: #fff;
+}
+.card {
+    box-shadow: 0 4px 18px 0 #096faf;
+    max-width: 350px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+.chirpNewcard
+{
+  box-shadow: 0 4px 18px  #096faf;
+  width:fit-content ;
+  margin: auto;
+  text-align: center;
+  margin-top:15px;
+  font-family: arial;
+  
+}
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+  

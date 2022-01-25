@@ -3,11 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/signin.css">
-    <link rel = "stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel = "stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <script src="js/signin.js"></script>
-    <script src="//code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-        crossorigin="anonymous"></script>
+    <!-- <script src="//code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script> -->
+        
     <!-- <script>
         $(function () {
             $('#header').load('header.html');
@@ -21,7 +22,7 @@
 
 <body>
     <div id="header"></div>
-    <div class ="mainform">
+    <div class ="mainform vertical">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6">
@@ -33,12 +34,12 @@
                         
                       
                         <br>
-                        <button class = "btn signin" id="signin" formaction="/signup" method="get">Sign up</button>
+                        <button class = "btn signin" id="signin" formaction="users/signup" method="get">Sign up</button>
                         <br>
-                        <button class = "btn cancel" id="cancel" formaction="/signin" method="get">Log in</button>
+                        <button class = "btn cancel" id="cancel" formaction="users/signin" method="get">Log in</button>
                         
                         <ul class="form-options">
-                            <li><center><a href="#" id="lab">Forgot Password?</a><bold id="dot"> &#183; </bold><a href="./signup.html" id="lab">Sign up for Chirpy</a></center></li>
+                            <li><center><a href="#" id="lab" onclick="alert('Coming Soon!')">Forgot Password?</a><bold id="dot"> &#183; </bold><a href="/users/signup" id="lab">Sign up for Chirpy</a></center></li>
                         </ul>
                         <footer>
                             <ul class="footer-notes">

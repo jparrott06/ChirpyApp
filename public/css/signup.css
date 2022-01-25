@@ -1,6 +1,6 @@
 * {
     /* background-color: black; */
-    background-image: linear-gradient(rgba(0,0,0,0,0.8),rgba(0,0,0,0,0.8), url(images/chirpyBackground.jpg));
+    /* background-image: linear-gradient(rgba(0,0,0,0,0.8),rgba(0,0,0,0,0.8), url(public/images/chirpyBackground.jpg)); */
 }
 
 @media(max-width:860px)
@@ -10,17 +10,38 @@
         right:0;
         left:0;
         background-size: contain;
+        margin: auto;
         
     }
 }
+.login {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    padding: 10px;
+    background: black;
+    border-radius: 20px;
+  }
+  
+  .login a {
+    color:white;
+    font-size: 14px;
+  }
+  
+  .log-out {
+    display: inline-block;
+    padding: 0 8px;
+    border-radius: 10px;
+    color:white;
+    font-size: 14px;
+  }
 
-/* @media(max-height:1100px)
+/* @media(max-width:1024px)
 {
-    .mainform
+    
+    #test
     {
-        margin-top:0%;
-        height:auto;
-        position:relative;
+        width:60%;
     }
 } */
 
@@ -57,6 +78,7 @@ body
 #test {
     background-color: black;
     margin-bottom: 25px;
+    display:inline-table;
 }
 
 .form_horizontal .title
@@ -66,7 +88,7 @@ body
     font-size: 30px;
     font-weight: bold;
 }
-.form_horizontal .form-group
+.form_horizontal .group
 {
     
     margin: 0px 0px 10px;
@@ -181,6 +203,13 @@ label {
 .form-group > input {
     font-size: 20px;
     font-weight: 10px;
+}
+.minimessage
+{
+    color:white;
+    background-color: #1B95E0;
+    width: 93%;
+
 }
 
 #ddSecurityQuestion > option {
@@ -297,4 +326,19 @@ label {
 .sidebar
 {
     visibility: hidden;
+}
+.testfe {
+    visibility: hidden;
+}
+
+.hasError
+{
+    margin-top: 12px;
+    background-color: #800000;
+}
+
+.EqualsCheck
+{
+    margin-top: 30px;
+    white-space: nowrap;
 }

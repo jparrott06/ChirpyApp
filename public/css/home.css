@@ -62,7 +62,11 @@ body {
     height: 50px;
     border-radius: 50%;
 }
-
+.post__avatar
+{
+    margin-top: 12px;
+    margin-left: 12px;
+}
 .chirpBox {
     padding-bottom: 10px;
     border-bottom: 8px solid rgb(34, 32, 32);
@@ -141,11 +145,56 @@ body {
     margin-bottom: 5px;
     color: white;
 }
-
+#mainfeed
+{
+    position: relative;
+    top: -140px;
+   
+}
 .post__headerDescription {
     margin-bottom: 10px;
     font-size: 15px;
     color: white;
+}
+/* @media (max-width:280px)
+{
+    .post__headerText
+    {
+        visibility: hidden;
+    }
+} */
+@media (min-width:997px)
+{
+    .current
+    {width:fit-content;}
+    .logout
+    {width: fit-content;}
+}
+@media (min-width:1070px)
+{
+    .current
+    {width:260px;}
+    .logout
+    {width: 260px;}
+}
+/* @media (min-width:768px)
+{
+    .fa-twitter
+    {
+        visibility: hidden;
+    }
+} */
+@media (max-width:860px)
+{
+    #mainfeed
+    {
+        position: unset;
+        top: 0;
+    }
+    #home-icon
+    {
+        display: none;
+    }
 }
 
 .post__headerDescription > p{
@@ -244,23 +293,9 @@ body {
 @media(max-width:860px)
 {
     .sidebar{
-        height:auto;
-        width: 70px;
-        left: 0;
-        margin: 100px 0;
+       visibility: hidden;
     }
-    span 
-    {
-        position: absolute;
-        margin-left: 23px;
-        opacity: 0;
-        visibility: hidden;
-    }
-    .sidebar a i
-    {
-        margin-left: -10px;
-
-    }
+   
     #chirp  
     {
         height:auto;
@@ -271,16 +306,7 @@ body {
         margin-left: 23px;
         opacity: 0;
     }
-    .sidebar a:hover{
-        width: 200px;
-        background:inherit;
-        background-color: #1DA1F2;
-    }
-    .sidebar a:hover span
-    {
-        opacity: 1;
-        visibility: visible;
-    }
+    
     
 
 }
@@ -290,9 +316,44 @@ body {
     {
         display: none;
     }
+    .chirpBox__chirpButton
+    {
+        margin-left:0%;
+    }
+}
+@media(min-width:850px)
+{
+    #mainfeed
+    {
+        top:unset;
+    }
+    
+}
+@media(max-width:1024px)
+{
+    .newsfeed
+    {
+        display: none;
+    }
+    .chirpBox__chirpButton
+    {
+        margin-right:10%;
+    }
+    .post__body
+    {
+      max-width: 80%;;
+    }
+    .sidebar
+    {
+        display: none;
+    }
 }
 /* Widget */
-
+.button {
+    border-radius: 23px;
+    border: 1px solid #1DA1F2;
+    padding:5px;
+}
 .widgets {
     flex: 0.3;
     border-left: 1px solid black;
@@ -401,7 +462,7 @@ table.followers #fourth {
 }
 .newsfeed
 {
-     float:right;
+     /* float:right; */
     margin-top:20px;
     /* margin-left:-10%; */
     /* position:sticky; */
@@ -424,6 +485,7 @@ table.followers #fourth {
     padding: 0 0 10px 0;
     
 } 
+
 .new3{ 
     float:right; 
     width:25%;   
@@ -473,4 +535,79 @@ table.followers #fourth {
 .rightside
 {
     left: -10px;
+}
+#miniright
+{
+    display: grid;
+    position:relative;
+    top:-140px;
+}
+.fa.fa-search.searchIcon:hover {
+    text-shadow: -20px -20px 3px white;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: rgba(197, 219, 236, 0.932);
+    color: black;
+}
+
+.new3>button:hover {
+    transition: 0.3s;
+    background-color: rgba(197, 219, 236, 0.932);
+    color: black;
+}
+
+@keyframes example {
+  from {color: #1DA1F2; margin-left: 0%; }
+  to {color: aliceblue; margin-left: 75%; }
+
+}
+
+@keyframes rotate {
+ 0% {transform: rotateY(0deg)}
+ 99.9999%, 100% {transform: rotateY(180deg);}
+}
+
+#home-icon {
+    font-size:48px;
+    color:#1DA1F2;
+    width:40px;
+    height: 35px;
+    animation-name: example, rotate;
+    animation-delay: 0, 0;
+    animation-duration: 5s, 10s;
+    animation-iteration-count: infinite, infinite;
+    animation-fill-mode: none, forwards;
+    animation-direction: alternate, normal;
+}
+
+#home-icon:hover {
+    text-shadow: -20px -20px 3px currentColor, 40px -20px 3px #1DA1F2,
+    40px 20px 3px currentColor;
+    cursor: pointer;
+    transition: 0.3s;
+    color: rgba(197, 219, 236, 0.932);
+}
+
+.fa.fa-comment:hover {
+    color: #1DA1F2;
+    cursor: pointer;
+}
+
+.fa.fa-heart:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.fa.fa-retweet:hover {
+    color: green;
+    cursor: pointer;
+}
+
+.fa.fa-share:hover {
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.invisible {
+    visibility: hidden;
 }

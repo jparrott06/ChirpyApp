@@ -1,0 +1,199 @@
+/* *
+{
+    background-color: black;
+    margin: 0; padding: 0;
+} */
+@import url("https://fonts.googleapis.com/css?family=Baloo+Bhaina");
+.login {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    padding: 10px;
+    background: black;
+    border-radius: 20px;
+  }
+  
+  .login a {
+    color:white;
+    font-size: 14px;
+  }
+  
+  .log-out {
+    display: inline-block;
+    padding: 0 8px;
+    border-radius: 10px;
+    color:white;
+    font-size: 14px;
+  }
+body {
+  background-color: black;
+  margin: 0;
+  padding-top: 130px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  overflow-x: hidden;
+    background-position: center;
+    background-size: cover;
+}
+@media(max-width:860px)
+{
+    .mainform
+    {
+        right:0;
+        left:0;
+        align-items: center;
+        overflow-y: scroll;
+    }
+   .headerimg
+   {
+       visibility: hidden;
+   }
+}
+@media(max-width:1024px)
+{
+    .sidebar
+    {
+        visibility: hidden;
+    }
+}
+@media(max-width:280px)
+{
+    .mainform
+    {
+        position: relative;
+    }
+}
+body
+{
+    overflow: hidden;
+}
+
+.mainform
+{
+    height: 100vh;
+    display: flex;
+    /* position:absolute;  */
+    /* right:20px;  */
+    /* margin-top: 50px; */
+    /* margin-top: -10px; */
+
+}
+.form_horizontal .icon
+{
+    color:#D9D9D9;
+    font-size: 42px;
+}
+.form_horizontal .title
+{
+    color:#D9D9D9;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+.form_horizontal .form-group
+{
+    
+    margin: 0px 0px 10px;
+    position: relative;
+}
+.form_horizontal .form-control
+{
+    border-color: rgb(47, 51, 54);
+    margin-top: 20px;
+    background-color: transparent;
+    height: 50px;
+    width: 340px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+.form_horizontal .form-control::placeholder
+{
+    font-size: 20px;
+    font-weight: 10px;
+}
+
+.form_horizontal .btn
+{
+    color:rgb(47, 51, 54);
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 96%;
+    height:50px;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+    border:none;
+    border-radius: 35px;
+}
+#signin
+{
+    background-color: #096faf;
+    color:white;
+}
+#cancel
+{
+    color:white;
+    background-color: rgb(47, 51, 54);
+}
+.form_horizontal .remember
+{
+    color:white;
+}
+.form_horizontal .form-options
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 8px;
+    margin-left: -10px;
+    
+}
+#lab
+{
+    color: #1B95E0;
+}
+#dot
+{
+    content: "\00B7";
+    font-size: 20px;
+}
+footer
+{
+    display: inline-block;
+    list-style: none;
+    margin:0;
+    padding:0;
+    bottom:0;
+    position: relative;
+    
+}
+#footnotes
+{
+    
+    color:rgb(47, 51, 54);
+    
+}
+.footer-notes
+{
+    list-style-type: none;
+}
+
+/* Error Styling */
+
+.error.form-control {
+    background-color: #800000 ;
+}
+
+.errorSpan {
+    color: red;
+}
+/* .footer-layout
+{
+    visibility: hidden;
+    box-shadow: none;;
+    border: none;
+} */
+.sidebar
+{
+    visibility: hidden;
+}

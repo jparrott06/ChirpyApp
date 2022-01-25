@@ -1,0 +1,18 @@
+<header>
+    <link rel="stylesheet" href="/css/chirpEdit.css">
+</header>
+
+<body style="background-image:url(/images/chirpyBackground.jpg);">
+<div class = "chirpNewcard form-data">
+    <form action="<%=`/chirps/${chirp._id}/update?_method=PUT`%>" method ="POST">
+
+        <!-- <label for="txtUsername">Username: </label> -->
+        <input hidden type="text" name="user" id="txtUsername" required value="<%= chirp.user %>">
+    
+        <label for="txtPost">Post: </label>
+        <input type="text" name="chirpBody" id="txtPost" required value="<%= chirp.chirpBody %>">
+
+    <button class = "editbutton" type="submit">Save</button>
+    </form>
+</div>
+</body>

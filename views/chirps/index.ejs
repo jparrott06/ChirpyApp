@@ -1,0 +1,99 @@
+<head>
+    <link rel="stylesheet" href="/css/chirpIndex.css">
+</head>
+
+
+<h2 class="center">Chirps Table</h2>
+<body>
+<div class="card">
+            
+    <% if(currentUser.Gender == 'male') { %>
+        <img src="/images/img_avatar.png" alt="Avatar" class="avatar">
+          <% } else { %>
+        <img src="/images/img_avatar2.png" alt="Avatar" class="avatar">
+        <% } %>
+    <h3><%= currentUser.FirstName  %>'s Chirps!</h3>
+    <h4><%= currentUser.Username  %></h4>
+<br>
+<div class="vertical-center">
+    <a class="button buttonforNewChirp" href="/chirps/new">Create New Chirp!</a>
+</div>
+<br>
+</div>
+    <!-- <table class = "table">
+    <thead>
+        <tr>
+            <th>Post</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% chirps.forEach(chirp => { %>
+
+            <tr>
+            
+                <td>
+                    <%= chirp.chirpBody %>
+                </td>
+                <% if(currentUser._id.toString() == chirp.user.toString()) { %>
+                <td>
+                    <a class="button" href ="<%= `chirps/${chirp._id}/edit` %>">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a class="button" href="<%= `chirps/${chirp._id}/delete?_method=DELETE` %>" onclick="return confirm(`Are you sure?`)">
+                        Delete
+                    </a>
+                </td>
+                <% } else { %>
+                    <td>
+                        
+                    </td>
+                    <td>
+
+                    </td>
+                    <% } %>
+            </tr>
+        <% }) %>
+    </tbody>
+</table> -->
+<table role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">User</th>
+        <th role="columnheader">Chirp</th>
+        <th role="columnheader">Edit</th>
+        <th role="columnheader">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% chirps.forEach(chirp => { %>
+
+            <tr>
+                <td role="cell">
+                    <%= chirp.userHandle %>
+                </td>
+            
+                <td role="cell">
+                    <%= chirp.chirpBody %>
+                </td>
+                <% if(currentUser._id.toString() == chirp.user.toString()) { %>
+                <td role="cell">
+                    <a class="button" href ="<%= `chirps/${chirp._id}/edit` %>">
+                        Edit
+                    </a>
+                </td>
+                <td role="cell">
+                    <a class="button" href="<%= `chirps/${chirp._id}/delete?_method=DELETE` %>" onclick="return confirm(`Are you sure?`)">
+                        Delete
+                    </a>
+                </td>
+                <% }  %>
+            </tr>
+        <% }) %>
+    </tbody>
+    </table>
+
+</body>
